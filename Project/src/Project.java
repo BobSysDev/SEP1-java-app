@@ -5,13 +5,13 @@ public class Project {
     private int timeInterval;
     private int timeEstimate;
     private double manHours;
-    private int manHoursEstimate;
+    private double manHoursEstimate;
     private int projectID;
     private boolean isArchived;
     private String details;
     private String materials;
 
-    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, int manHoursEstimate, int projectID, boolean isArchived, String details, String materials) {
+    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials) {
         this.title = title;
         this.budget = budget;
         this.budgetEstimate = budgetEstimate;
@@ -61,7 +61,7 @@ public class Project {
         return manHours;
     }
 
-    public void setManHours(int manHours) {
+    public void setManHours(double manHours) {
         this.manHours = manHours;
     }
 
@@ -81,11 +81,11 @@ public class Project {
         this.projectID = projectID;
     }
 
-    public int getManHoursEstimate() {
+    public double getManHoursEstimate() {
         return manHoursEstimate;
     }
 
-    public void setManHoursEstimate(int manHoursEstimate) {
+    public void setManHoursEstimate(double manHoursEstimate) {
         this.manHoursEstimate = manHoursEstimate;
     }
 
