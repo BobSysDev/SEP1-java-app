@@ -1,8 +1,11 @@
-public class CommercialProject extends Project{
+import java.io.Serializable;
+
+public class CommercialProject extends Project implements Serializable {
 
     double size;
     String type;
 
+    // Constructor for the CommercialProject class
     public CommercialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, String type){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials);
         this.size = size;
@@ -10,6 +13,7 @@ public class CommercialProject extends Project{
 
     }
 
+    //Setters and Getters
     public double getSize() {
         return size;
     }

@@ -1,4 +1,6 @@
-public class ResidentialProject extends Project{
+import java.io.Serializable;
+
+public class ResidentialProject extends Project implements Serializable {
 
     private double size;
     private int numberOfKitchens;
@@ -6,6 +8,7 @@ public class ResidentialProject extends Project{
     private int otherRoomsWithPlumbing;
     private boolean isNewBuild;
 
+    // Constructor for the ResidentialProject class
     public ResidentialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, int numberOfKitchens, int numberOfBathrooms, int otherRoomsWithPlumbing, boolean isNewBuild){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials);
         this.size = size;
@@ -15,6 +18,7 @@ public class ResidentialProject extends Project{
         this.isNewBuild = isNewBuild;
     }
 
+    //Setters and Getters
     public double getSize(){
         return size;
     }

@@ -1,11 +1,13 @@
-public class RoadConstructionProject extends Project{
+import java.io.Serializable;
+
+public class RoadConstructionProject extends Project implements Serializable {
 
     double length;
     double width;
     int numberOfBridges;
     String obstacles;
 
-
+    // Constructor for the RoadConstructionProject class
     public RoadConstructionProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double length, double width, int numberOfBridges, String obstacles){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials);
         this.length = length;
@@ -14,6 +16,7 @@ public class RoadConstructionProject extends Project{
         this.obstacles = obstacles;
     }
 
+    //Setters and Getters
     public double getLength() {
         return length;
     }

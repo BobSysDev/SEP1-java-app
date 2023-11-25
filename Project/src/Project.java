@@ -1,4 +1,7 @@
-public class Project {
+import java.io.Serializable;
+
+
+public class Project implements Serializable {
     private String title;
     private double budget;
     private double budgetEstimate;
@@ -11,6 +14,7 @@ public class Project {
     private String details;
     private String materials;
 
+    // Constructor for the Project class
     public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials) {
         this.title = title;
         this.budget = budget;
@@ -25,6 +29,7 @@ public class Project {
         this.materials = materials;
     }
 
+    //Setters and Getters
     public String getTitle() {
         return title;
     }
