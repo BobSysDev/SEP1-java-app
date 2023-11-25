@@ -1,10 +1,10 @@
 public class ResidentialProject extends Project{
 
-    double size;
-    int numberOfKitchens;
-    int numberOfBathrooms;
-    int otherRoomsWithPlumbing;
-    boolean isNewBuild;
+    private double size;
+    private int numberOfKitchens;
+    private int numberOfBathrooms;
+    private int otherRoomsWithPlumbing;
+    private boolean isNewBuild;
 
     public ResidentialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, int numberOfKitchens, int numberOfBathrooms, int otherRoomsWithPlumbing, boolean isNewBuild){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials);
@@ -14,4 +14,47 @@ public class ResidentialProject extends Project{
         this.otherRoomsWithPlumbing = otherRoomsWithPlumbing;
         this.isNewBuild = isNewBuild;
     }
+
+    public double getSize(){
+        return size;
+    }
+
+    public void setSize(double size){
+        this.size = size;
+    }
+
+    public int getNumberOfKitchens(){
+        return numberOfKitchens;
+    }
+
+    public void setNumberOfKitchens(int numberOfKitchens){
+        this.numberOfKitchens = numberOfKitchens;
+    }
+
+    public int getNumberOfBathrooms(){
+        return numberOfBathrooms;
+    }
+
+    public void setNumberOfBathrooms(int numberOfBathrooms){
+        this.numberOfBathrooms = numberOfBathrooms;
+    }
+
+    public int getOtherRoomsWithPlumbing(){
+        return otherRoomsWithPlumbing;
+    }
+
+    public void setOtherRoomsWithPlumbing(int otherRoomsWithPlumbing){
+        this.otherRoomsWithPlumbing = otherRoomsWithPlumbing;
+    }
+
+    public boolean isNewBuild(){
+        return isNewBuild;
+    }
+
+    public void setNewBuild(boolean isNewBuild){
+        this.isNewBuild = isNewBuild;
+    }
+
+
 }
+

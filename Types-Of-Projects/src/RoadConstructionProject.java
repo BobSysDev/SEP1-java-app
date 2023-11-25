@@ -13,4 +13,36 @@ public class RoadConstructionProject extends Project{
         this.numberOfBridges = numberOfBridges;
         this.obstacles = obstacles;
     }
+
+    public double getLength() {
+        return length;
+    }
+
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+    public int getNumberOfBridges() {
+        return numberOfBridges;
+    }
+
+    public void setNumberOfBridges(int numberOfBridges) {
+        this.numberOfBridges = numberOfBridges;
+    }
+
+    public String getObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(String obstacles) {
+        this.obstacles = obstacles;
+    }
 }

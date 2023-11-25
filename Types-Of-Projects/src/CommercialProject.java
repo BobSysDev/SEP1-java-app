@@ -9,4 +9,20 @@ public class CommercialProject extends Project{
         this.type = type;
 
     }
+
+    public double getSize() {
+        return size;
+    }
+
+    public void setSize(double size) {
+        this.size = size;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
 }
