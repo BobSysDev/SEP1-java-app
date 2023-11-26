@@ -7,7 +7,7 @@ import java.util.HashSet;
 
 public class Project implements Serializable {
     private static final int MAX_ID_VALUE = 100000;
-    private static Set<Integer> usedIDs = new HashSet<>();
+    private static final Set<Integer> usedIDs = new HashSet<>();
     private String title;
     private double budget;
     private double budgetEstimate;
