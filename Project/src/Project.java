@@ -1,7 +1,13 @@
+
 import java.io.Serializable;
+import java.util.Random;
+import java.util.Set;
+import java.util.HashSet;
 
 
 public class Project implements Serializable {
+    private static final int MAX_ID_VALUE = 100000;
+    private static Set<Integer> usedIDs = new HashSet<>();
     private String title;
     private double budget;
     private double budgetEstimate;
@@ -22,11 +28,21 @@ public class Project implements Serializable {
         this.timeInterval = timeInterval;
         this.manHours = manHours;
         this.timeEstimate = timeEstimate;
-        this.projectID = projectID;
+        this.projectID = generateProjectID();
         this.manHoursEstimate = manHoursEstimate;
         this.isArchived = isArchived;
         this.details = details;
         this.materials = materials;
+    }
+
+    private int generateProjectID() {
+        Random random = new Random(); //Creates a new Random object for generating random numbers
+        int newID; // Declaration of a variable to hold the new project ID
+        do {
+            newID = random.nextInt(MAX_ID_VALUE - 1) + 1; // Generates a random integer ID within MAX_ID_VALUE = 100000, and it generates IDs from 1 to MAX_ID_VALUE - 1
+        } while (usedIDs.contains(newID)); //Loop continues if the generated ID is already in use
+        usedIDs.add(newID);  // Adds the generated IDs to the set of used IDs
+        return newID;
     }
 
     //Setters and Getters
@@ -117,4 +133,10 @@ public class Project implements Serializable {
     public void setMaterials(String materials) {
         this.materials = materials;
     }
+
+    public static int getMaxIdValue() {
+        return MAX_ID_VALUE;
+    }
 }
+
+
