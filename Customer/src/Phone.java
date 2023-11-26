@@ -34,6 +34,4 @@ public class Phone {
     public String toString() {
         return "Phone: " + getFullPhoneNumber();
     }
-
-
 }
