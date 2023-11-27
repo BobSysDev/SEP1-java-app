@@ -27,7 +27,6 @@ public class Project implements Serializable {
         this.timeInterval = timeInterval;
         this.manHours = manHours;
         this.timeEstimate = timeEstimate;
-//        this.projectID = generateProjectID();
         this.manHoursEstimate = manHoursEstimate;
         this.isArchived = isArchived;
         this.details = details;
@@ -36,15 +35,6 @@ public class Project implements Serializable {
 
 
 
-//    private int generateProjectID() {
-//        Random random = new Random(); //Creates a new Random object for generating random numbers
-//        int newID; // Declaration of a variable to hold the new project ID
-//        do {
-//            newID = random.nextInt(MAX_ID_VALUE - 1) + 1; // Generates a random integer ID within MAX_ID_VALUE = 100000, and it generates IDs from 1 to MAX_ID_VALUE - 1
-//        } while (usedIDs.contains(newID)); //Loop continues if the generated ID is already in use
-//        usedIDs.add(newID);  // Adds the generated IDs to the set of used IDs
-//        return newID;
-//    }
 
     //Setters and Getters
     public String getTitle() {

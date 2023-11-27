@@ -38,22 +38,32 @@
 
 //==============================================================================================
 
-//import java.util.List;
-//
-//public class testing {
-//  public static void main(String[] args) {
-//    ProjectList projectList = new ProjectList();
-//    projectList.addProject(new Project( "Project B", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
-//    projectList.addProject(new Project( "Project A", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
-//    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
-//
-//    // Displaying projects with their IDs
-//    List<Project> projects = projectList.getProjects();
-//    for (Project project : projects) {
-//      System.out.println("Project Title: " + project.getTitle() + ", Project ID: " + project.getProjectID());
-//    }
-//  }
-//}
+import java.util.List;
+
+public class testing {
+  public static void main(String[] args) {
+    ProjectList projectList = new ProjectList();
+    projectList.addProject(new Project( "Project B", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project A", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+    projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials")); projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials")); projectList.addProject(new Project( "Project C", 1000, 23, 30, 40, 250.0, 300.0, 0, false, "Project details", "Project materials"));
+
+
+    // Displaying projects with their IDs
+    List<Project> projects = projectList.getProjects();
+    for (Project project : projects) {
+      System.out.println("Project Title: " + project.getTitle() + ", Project ID: " + project.getProjectID());
+    }
+  }
+}
 
 //==============================================================================================
 
