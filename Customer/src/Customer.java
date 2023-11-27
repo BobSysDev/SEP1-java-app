@@ -6,12 +6,12 @@ public class Customer {
     private CustomerCompany company;
 
     public Customer(boolean isPrivate, Name name, Phone phone, Email email, CustomerCompany company) {
-        this.isPrivate = isPrivate;
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
+        setPrivate(isPrivate);
+        setName(name);
+        setPhone(phone);
+        setEmail(email);
         if (!isPrivate) {
-            this.company = company;
+            setCompany(company);
         }
     }
 
@@ -46,9 +46,7 @@ public class Customer {
         return email;
     }
 
-    public void
-
-    setEmail(Email email) {
+    public void setEmail(Email email) {
         this.email = email;
     }
 
