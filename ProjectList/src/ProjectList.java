@@ -25,8 +25,8 @@ public class ProjectList {
     }
 
     private String generateUniqueID() {
-        String formattedId = String.format("%02d", projectCounter);
+        String uniqueID = String.valueOf(projectCounter);
         projectCounter++;
-        return formattedId;
+        return uniqueID;
     }
 }
