@@ -20,8 +20,7 @@ public class Company {
 
     setName(String name) {
         if (name == null || name.isEmpty()) {
-            throw
-                    new IllegalArgumentException("Company name cannot be empty");
+            throw new IllegalArgumentException("Company name cannot be empty");
         }
         this.name = name;
     }
