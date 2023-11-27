@@ -2,7 +2,7 @@ public class CustomerCompany {
     private String name;
     private int CVR;
 
-    public CustomerCompany(String name, String CVR) {
+    public CustomerCompany(String name, int CVR) {
         setCVR(CVR);
         setName(name);
     }
@@ -19,7 +19,11 @@ public class CustomerCompany {
         return CVR;
     }
 
-    public void setCVR(String CVR) {
-        this.CVR = Integer.parseInt(CVR);
+    public void setCVR(int CVR) {
+        this.CVR = CVR;
+    }
+
+    public String getFullCompanyName() {
+        return name + "\n" + CVR;
     }
 }
