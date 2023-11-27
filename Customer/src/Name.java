@@ -21,9 +21,6 @@ public class Name {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName == null || firstName.isEmpty()) {
-            throw new IllegalArgumentException("First name cannot be empty");
-        }
         this.firstName = firstName;
     }
 
@@ -40,10 +37,7 @@ public class Name {
     }
 
     public void setLastName(String lastName) {
-        if (lastName == null || lastName.isEmpty()) {
-            throw new IllegalArgumentException("Last name cannot be empty");
-        }
-        this.lastName = lastName;
+       this.lastName = lastName;
     }
 
     public String getFullName() {
@@ -54,8 +48,4 @@ public class Name {
         }
     }
 
-    @Override
-    public String toString() {
-        return "Name: " + firstName + " " + middleName + " " + lastName;
-    }
 }

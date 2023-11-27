@@ -20,18 +20,10 @@ public class Phone {
     }
 
     public void setPhoneNumber(String phoneNumber) {
-        if (phoneNumber.length() < 4 || phoneNumber.length() > 13) {
-            throw new IllegalArgumentException("Invalid phone number");
-        }
         this.phoneNumber = phoneNumber;
     }
 
     public String getFullPhoneNumber() {
         return countryCode + phoneNumber;
-    }
-
-    @Override
-    public String toString() {
-        return "Phone: " + getFullPhoneNumber();
     }
 }

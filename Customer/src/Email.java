@@ -35,9 +35,4 @@ public class Email {
         return user + "@" + host + "." + domain;
     }
 
-    @Override
-    public String toString() {
-        return "Email: " + user + "@" + host + "." + domain;
-    }
-
 }
