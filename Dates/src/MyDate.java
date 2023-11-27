@@ -35,14 +35,6 @@ public class MyDate {
         this.year = year;
     }
 
-    // Method that calculates the interval between two dates
-    public int getIntervalInMonths(MyDate otherDate) {
-        int thisTotalMonths = this.year * 12 + this.month;
-        int otherTotalMonths = otherDate.getYear() * 12 + otherDate.getMonth();
-
-        return Math.abs(thisTotalMonths - otherTotalMonths);
-    }
-
     private int countTotalDays(MyDate date) {
         int totalDays = date.getDay(); // Method that counts total days since year 1 for a given date
 
@@ -58,11 +50,13 @@ public class MyDate {
         return totalDays;
     }
 
-    private int countLeapYears(int year) {
-        if (year <= 2) return 0; // No leap years before year 1 or 2
 
-        // Formula to count leap years
-        return year / 4 - year / 100 + year / 400;
+    public int daysInYear(int year) {
+        if (isLeapYear(year)) {
+            return 366;
+        } else {
+            return 365;
+        }
     }
 
     // Determines the number of days in a specific month of a given year
@@ -73,6 +67,21 @@ public class MyDate {
         return DAYS_IN_MONTH[month];
     }
 
+    // Method that calculates the interval between two dates
+    public int getIntervalInMonths(MyDate otherDate) {
+        int thisTotalMonths = this.year * 12 + this.month;
+        int otherTotalMonths = otherDate.getYear() * 12 + otherDate.getMonth();
+
+        return Math.abs(thisTotalMonths - otherTotalMonths);
+    }
+
+    private int countLeapYears(int year) {
+        if (year <= 2) return 0; // No leap years before year 1 or 2
+
+        // Formula to count leap years
+        return year / 4 - year / 100 + year / 400;
+    }
+
     // Checks if a given year is a leap year
     private boolean isLeapYear(int year) {
         // Checks if the year is divisible by 4 and not divisible by 100, or if divisible by 400
@@ -80,35 +89,29 @@ public class MyDate {
     }
 
     public MyDate estimateEndDate(int intervalInDays) {
-        int totalDays = countTotalDays(this) + intervalInDays;
+        int year = this.year;
+        int month = this.month;
+        int day = this.day;
 
-        int year = 1;
-        while (totalDays > 365) {
-            if (isLeapYear(year)) {
-                if (totalDays > 366) {
-                    totalDays -= 366;
+        while (intervalInDays > 0) {
+            int daysInCurrentMonth = daysInMonth(month, year);
+
+            if (intervalInDays >= daysInCurrentMonth - day) {
+                intervalInDays -= daysInCurrentMonth - day + 1;
+                day = 1;
+                month++;
+
+                if (month > 12) {
+                    month = 1;
                     year++;
-                } else {
-                    break;
                 }
             } else {
-                totalDays -= 365;
-                year++;
+                day += intervalInDays;
+                intervalInDays = 0;
             }
         }
 
-        int month = 1;
-        int daysInCurrentMonth;
-        while (true) {
-            daysInCurrentMonth = daysInMonth(month, year);
-            if (totalDays > daysInCurrentMonth) {
-                totalDays -= daysInCurrentMonth;
-                month++;
-            } else {
-                break;
-            }
-        }
-
-        return new MyDate(totalDays, month, year);
+        return new MyDate(day, month, year);
     }
+
 }

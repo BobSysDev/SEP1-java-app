@@ -10,5 +10,6 @@
     <orderEntry type="module" module-name="Project" />
     <orderEntry type="module" module-name="Project" />
     <orderEntry type="module" module-name="Dates" />
+    <orderEntry type="module" module-name="ProjectList" />
   </component>
 </module>
