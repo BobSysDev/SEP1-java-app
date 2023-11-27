@@ -3,9 +3,9 @@ public class Customer {
     private Name name;
     private Phone phone;
     private Email email;
-    private Company company;
+    private CustomerCompany company;
 
-    public Customer(boolean isPrivate, Name name, Phone phone, Email email, Company company) {
+    public Customer(boolean isPrivate, Name name, Phone phone, Email email, CustomerCompany company) {
         this.isPrivate = isPrivate;
         this.name = name;
         this.phone = phone;
@@ -52,11 +52,11 @@ public class Customer {
         this.email = email;
     }
 
-    public Company getCompany() {
+    public CustomerCompany getCompany() {
         return company;
     }
 
-    public void setCompany(Company company) {
+    public void setCompany(CustomerCompany company) {
         if (!isPrivate) {
             this.company = company;
         }

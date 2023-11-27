@@ -1,8 +1,8 @@
-public class Company {
+public class CustomerCompany {
     private String name;
     private int CVR;
 
-    public Company(String name, String CVR) {
+    public CustomerCompany(String name, String CVR) {
         setCVR(CVR);
         setName(name);
     }
