@@ -24,9 +24,9 @@
             </Text>
             <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" text="Archive" />
-                  <Button mnemonicParsing="false" text="Edit" />
-                  <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#archiveButtonPressed" text="Archive" />
+                  <Button mnemonicParsing="false" onAction="#editButtonPressed" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" />
                </children>
             </HBox>
          </children>

@@ -18,10 +18,11 @@
             <TextField promptText="Name" />
                 <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
                     <children>
-                        <Button mnemonicParsing="false" text="Archive" />
                         <Button mnemonicParsing="false" text="Discard" />
-                  <Button mnemonicParsing="false" text="Save" />
-                        <Button mnemonicParsing="false" text="Delete" />
+                  <Button mnemonicParsing="false" text="Save">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
                     </children>
                 </HBox>
             </children>
