@@ -7,9 +7,5 @@
     </content>
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="Project" />
-    <orderEntry type="module" module-name="Project" />
-    <orderEntry type="module" module-name="Dates" />
-    <orderEntry type="module" module-name="ProjectList" />
   </component>
 </module>
