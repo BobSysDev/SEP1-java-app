@@ -1,11 +1,8 @@
 
 import java.io.Serializable;
-import java.util.Set;
-import java.util.HashSet;
 
 
 public class Project implements Serializable {
-    private static final Set<Integer> usedIDs = new HashSet<>();
     private String title;
     private double budget;
     private double budgetEstimate;

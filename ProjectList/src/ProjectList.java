@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ProjectList {
+public class ProjectList implements Serializable
+{
     private ArrayList<Project> projects;
     private int projectCounter;
 

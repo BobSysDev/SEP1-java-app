@@ -1,4 +1,7 @@
-public class CustomerCompany {
+import java.io.Serializable;
+
+public class CustomerCompany implements Serializable
+{
     private String name;
     private int CVR;
 
