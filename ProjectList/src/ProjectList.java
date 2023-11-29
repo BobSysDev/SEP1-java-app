@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ProjectList {
-    private final List<Project> projects;
+    private ArrayList<Project> projects;
     private int projectCounter;
 
     public ProjectList() {
@@ -20,7 +20,7 @@ public class ProjectList {
         projects.remove(project);
     }
 
-    public List<Project> getProjects() {
+    public ArrayList<Project> getProjects() {
         return projects;
     }
 
