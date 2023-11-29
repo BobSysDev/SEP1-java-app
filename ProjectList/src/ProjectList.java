@@ -21,8 +21,8 @@ public class ProjectList implements Serializable
         projects.remove(project);
     }
 
-    public ArrayList<Project> getProjects() {
-        return projects;
+    public Project getProject(int index) {
+        return projects.get(index);
     }
 
     private String generateUniqueID() {

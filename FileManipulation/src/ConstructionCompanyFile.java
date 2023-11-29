@@ -8,6 +8,7 @@ public interface ConstructionCompanyFile
   public void writeCustomerList (String path, CustomerList customerList)
       throws IOException;
 
-  public ProjectList readProjectList(String path);
-  public void writeProjectList(String path, ProjectList projectList);
+  public ProjectList readProjectList(String path) throws IOException;
+  public void writeProjectList(String path, ProjectList projectList)
+      throws IOException;
 }
