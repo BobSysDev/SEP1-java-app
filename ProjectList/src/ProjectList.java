@@ -17,6 +17,13 @@ public class ProjectList implements Serializable
         projects.add(project);
     }
 
+    public void addProjectAndBypassIdCheck(Project project) { //This method is only to be used when reading from file [IMPORTANT]
+        projects.add(project);
+        if(project.getProjectID() > projectCounter) {
+            projectCounter = project.getProjectID() + 1;
+        }
+    }
+
     public void removeProject(Project project) {
         projects.remove(project);
     }
