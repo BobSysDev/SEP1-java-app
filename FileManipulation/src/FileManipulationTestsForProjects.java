@@ -7,9 +7,11 @@ public class FileManipulationTestsForProjects
     ProjectList projectList = new ProjectList();
     ResidentialProject residentialProject = new ResidentialProject("This guy's house", 420.25, 500, 5, 7, 540, 500, 0, false, "none", "rock and stone", 120, 1, 2, 1, true);
     CommercialProject commercialProject = new CommercialProject("Ikea Horsens", 123456, 5, 12, 9, 5200, 800, 0, true, "none", "mostly concrete", 69420, "Retail store");
+    Customer customerA = new Customer(new Name("John", "Doe"), new Phone("45", "12345678"), new Email("johndoe", "gmail", "com"));
+    residentialProject.setCustomer(customerA);
 
     projectList.addProject(residentialProject);
-    projectList.addProject(commercialProject);
+//    projectList.addProject(commercialProject);
 
     BinaryReaderWriter binaryFileInterface = new BinaryReaderWriter();
 

@@ -25,6 +25,10 @@ public class ProjectList implements Serializable
         return projects.get(index);
     }
 
+    public ArrayList<Project> getProjects(){
+        return projects;
+    }
+
     private String generateUniqueID() {
         String uniqueID = String.valueOf(projectCounter);
         projectCounter++;

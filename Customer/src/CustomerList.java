@@ -20,4 +20,8 @@ public class CustomerList implements Serializable
         public Customer getCustomer(int index) {
             return customers.get(index);
         }
+
+        public ArrayList<Customer> getCustomers(){
+          return customers;
+        }
 }

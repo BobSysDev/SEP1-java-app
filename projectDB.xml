@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<allProjects>
+  <project type="Residential">
+    <projectId>1</projectId>
+    <title>This guy's house</title>
+    <budgetEstimate>500.0</budgetEstimate>
+    <budget>420.25</budget>
+    <timeEstimate>7</timeEstimate>
+    <timeInterval>5</timeInterval>
+    <manHoursEstimate>500.0</manHoursEstimate>
+    <manHours>540.0</manHours>
+    <isArchived>false</isArchived>
+    <customer>
+      <isPrivate>true</isPrivate>
+      <name>
+        <firstName>John</firstName>
+        <middleName></middleName>
+        <lastName>Doe</lastName>
+      </name>
+      <email>
+        <username>johndoe</username>
+        <host>gmail</host>
+        <domain>com</domain>
+      </email>
+      <phone>
+        <countryCode>45</countryCode>
+        <number>12345678</number>
+      </phone>
+    </customer>
+    <residential>
+      <size>120.0</size>
+      <numberOfKitchens>1</numberOfKitchens>
+      <numberOfBathrooms>2</numberOfBathrooms>
+      <numberOfOtherRoomsWithPlumbing>1</numberOfOtherRoomsWithPlumbing>
+      <isNewBuilding>true</isNewBuilding>
+    </residential>
+  </project>
+  <project type="Commercial">
+    <projectId>2</projectId>
+    <title>Ikea Horsens</title>
+    <budgetEstimate>5.0</budgetEstimate>
+    <budget>123456.0</budget>
+    <timeEstimate>9</timeEstimate>
+    <timeInterval>12</timeInterval>
+    <manHoursEstimate>800.0</manHoursEstimate>
+    <manHours>5200.0</manHours>
+    <isArchived>false</isArchived>
+    <customer>
+      <isPrivate>false</isPrivate>
+      <name>
+        <firstName>Mark</firstName>
+        <middleName></middleName>
+        <lastName>Stone</lastName>
+      </name>
+      <email>
+        <username>markstone</username>
+        <host>totallylegitcompany</host>
+        <domain>net</domain>
+      </email>
+      <phone>
+        <countryCode>48</countryCode>
+        <number>123456789</number>
+      </phone>
+      <customerCompany>
+        <name>Totally Legit Company</name>
+        <CVR>213769420</CVR>
+      </customerCompany>
+    </customer>
+    <commercial>
+      <size>69420.0</size>
+      <type>Retail store</type>
+    </commercial>
+  </project>
+  <project type="Industrial">
+    <projectId>3</projectId>
+    <title>The factory</title>
+    <budgetEstimate>5.0</budgetEstimate>
+    <budget>123456.0</budget>
+    <timeEstimate>9</timeEstimate>
+    <timeInterval>12</timeInterval>
+    <manHoursEstimate>800.0</manHoursEstimate>
+    <manHours>5200.0</manHours>
+    <isArchived>false</isArchived>
+    <customer>
+      <isPrivate>true</isPrivate>
+      <name>
+        <firstName>Alex</firstName>
+        <middleName></middleName>
+        <lastName>Smith</lastName>
+      </name>
+      <email>
+        <username>alexsmith</username>
+        <host>gmail</host>
+        <domain>com</domain>
+      </email>
+      <phone>
+        <countryCode>45</countryCode>
+        <number>12345678</number>
+      </phone>
+    </customer>
+    <industrial>
+      <size>69420.0</size>
+      <type>Factory</type>
+    </industrial>
+  </project>
+  <project type="Roadwork">
+    <projectId>4</projectId>
+    <title>The road</title>
+    <budgetEstimate>5.0</budgetEstimate>
+    <budget>123456.0</budget>
+    <timeEstimate>9</timeEstimate>
+    <timeInterval>12</timeInterval>
+    <manHoursEstimate>800.0</manHoursEstimate>
+    <manHours>5200.0</manHours>
+    <isArchived>false</isArchived>
+    <customer>
+      <isPrivate>false</isPrivate>
+      <name>
+        <firstName>Gordon</firstName>
+        <middleName></middleName>
+        <lastName>Freeman</lastName>
+      </name>
+      <email>
+        <username>drfreeman</username>
+        <host>blackmesa</host>
+        <domain>org</domain>
+      </email>
+      <phone>
+        <countryCode>00</countryCode>
+        <number>111111111</number>
+      </phone>
+      <customerCompany>
+        <name>Black Mesa</name>
+        <CVR>123456789</CVR>
+      </customerCompany>
+    </customer>
+    <roadwork>
+      <length>2000.0</length>
+      <width>10.0</width>
+      <numberOfBridges>2</numberOfBridges>
+      <obstacles>mountains</obstacles>
+    </roadwork>
+  </project>
+</allProjects>
