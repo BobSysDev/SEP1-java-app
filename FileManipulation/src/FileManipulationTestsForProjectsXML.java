@@ -19,10 +19,10 @@ public class FileManipulationTestsForProjectsXML
         2000, 10, 2, "mountains");
     Customer customerA = new Customer(new Name("John", "Doe"), new Phone("45", "12345678"), new Email("johndoe", "gmail", "com"));
     Customer customerB = new Customer(new Name("Mark", "Stone"), new Phone("48", "123456789"),
-        new Email("markstone", "totallylegitcompany", "net"), new CustomerCompany("Totally Legit Company", 213769420));
+        new Email("markstone", "totallylegitcompany", "net"), new CustomerCompany("Totally Legit Company", "213769420"));
     Customer customerC = new Customer(new Name("Alex", "Smith"), new Phone("45", "12345678"), new Email("alexsmith", "gmail", "com"));
     Customer customerD = new Customer(new Name("Gordon", "Freeman"), new Phone("00", "111111111"),
-        new Email("drfreeman", "blackmesa", "org"), new CustomerCompany("Black Mesa", 123456789));
+        new Email("drfreeman", "blackmesa", "org"), new CustomerCompany("Black Mesa", "123456789"));
     residentialProject.setCustomer(customerA);
     commercialProject.setCustomer(customerB);
     industrialProject.setCustomer(customerC);
