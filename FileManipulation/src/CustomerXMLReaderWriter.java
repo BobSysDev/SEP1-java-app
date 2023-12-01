@@ -59,7 +59,7 @@ public class CustomerXMLReaderWriter
     Phone phone = new Phone(countryCode, number);
     if(!isPrivate){
       String companyName = XMLData.get(17).replace("<name>", "").replace("</name>", "").trim();
-      int CVR = Integer.parseInt(XMLData.get(18).replace("<CVR>", "").replace("</CVR>", "").trim());
+      String CVR = XMLData.get(18).replace("<CVR>", "").replace("</CVR>", "").trim();
       CustomerCompany company = new CustomerCompany(companyName, CVR);
       return new Customer(name, phone, email, company);
     }

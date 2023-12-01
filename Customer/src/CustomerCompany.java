@@ -3,9 +3,9 @@ import java.io.Serializable;
 public class CustomerCompany implements Serializable
 {
     private String name;
-    private int CVR;
+    private String CVR;
 
-    public CustomerCompany(String name, int CVR) {
+    public CustomerCompany(String name, String CVR) {
         setCVR(CVR);
         setName(name);
     }
@@ -18,11 +18,11 @@ public class CustomerCompany implements Serializable
         this.name = name;
     }
 
-    public int getCVR() {
+    public String getCVR() {
         return CVR;
     }
 
-    public void setCVR(int CVR) {
+    public void setCVR(String CVR) {
         this.CVR = CVR;
     }
 

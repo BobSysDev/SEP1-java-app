@@ -6,7 +6,7 @@ public class FileManipulationTestsForCustomersXML
   {
     CustomerList customerList = new CustomerList();
     Customer customerA = new Customer(new Name("John", "Doe"), new Phone("45", "12345678"), new Email("johndoe", "gmail", "com"));
-    Customer customerB = new Customer(new Name("Mark", "Stone"), new Phone("48", "123456789"), new Email("markstone", "totallylegitcompany", "net"), new CustomerCompany("Totally Legit Company", 213769420));
+    Customer customerB = new Customer(new Name("Mark", "Stone"), new Phone("48", "123456789"), new Email("markstone", "totallylegitcompany", "net"), new CustomerCompany("Totally Legit Company", "003769420"));
 
     customerList.addCustomer(customerA);
     customerList.addCustomer(customerB);
