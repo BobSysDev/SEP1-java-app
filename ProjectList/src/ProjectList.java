@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
-public class ProjectList {
+public class ProjectList implements Serializable
+{
     private ArrayList<Project> projects;
     private int projectCounter;
 
@@ -16,11 +17,22 @@ public class ProjectList {
         projects.add(project);
     }
 
+    public void addProjectAndBypassIdCheck(Project project) { //This method is only to be used when reading from file [IMPORTANT]
+        projects.add(project);
+        if(project.getProjectID() > projectCounter) {
+            projectCounter = project.getProjectID() + 1;
+        }
+    }
+
     public void removeProject(Project project) {
         projects.remove(project);
     }
 
-    public ArrayList<Project> getProjects() {
+    public Project getProject(int index) {
+        return projects.get(index);
+    }
+
+    public ArrayList<Project> getProjects(){
         return projects;
     }
 

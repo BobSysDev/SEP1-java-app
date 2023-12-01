@@ -8,5 +8,9 @@
     <orderEntry type="jdk" jdkName="17" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="Customer" />
+    <orderEntry type="module" module-name="Dates" />
+    <orderEntry type="module" module-name="Project" />
+    <orderEntry type="module" module-name="ProjectList" />
+    <orderEntry type="module" module-name="Types-Of-Projects" />
   </component>
 </module>

@@ -1,11 +1,8 @@
 
 import java.io.Serializable;
-import java.util.Set;
-import java.util.HashSet;
 
 
 public class Project implements Serializable {
-    private static final Set<Integer> usedIDs = new HashSet<>();
     private String title;
     private double budget;
     private double budgetEstimate;
@@ -17,6 +14,7 @@ public class Project implements Serializable {
     private boolean isArchived;
     private String details;
     private String materials;
+    private Customer customer;
 
     // Constructor for the Project class
     public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials) {
@@ -30,10 +28,32 @@ public class Project implements Serializable {
         this.isArchived = isArchived;
         this.details = details;
         this.materials = materials;
+        this.customer = null;
     }
 
+    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, Customer customer) {
+        this.title = title;
+        this.budget = budget;
+        this.budgetEstimate = budgetEstimate;
+        this.timeInterval = timeInterval;
+        this.manHours = manHours;
+        this.timeEstimate = timeEstimate;
+        this.manHoursEstimate = manHoursEstimate;
+        this.isArchived = isArchived;
+        this.details = details;
+        this.materials = materials;
+        this.customer = customer;
+    }
 
+    public Customer getCustomer()
+    {
+        return customer;
+    }
 
+    public void setCustomer(Customer customer)
+    {
+        this.customer = customer;
+    }
 
     //Setters and Getters
     public String getTitle() {

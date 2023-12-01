@@ -1,18 +1,26 @@
-public class Customer {
+import java.io.Serializable;
+
+public class Customer implements Serializable
+{
     private boolean isPrivate;
     private Name name;
     private Phone phone;
     private Email email;
     private CustomerCompany company;
 
-    public Customer(boolean isPrivate, Name name, Phone phone, Email email, CustomerCompany company) {
-        setPrivate(isPrivate);
+    public Customer(Name name, Phone phone, Email email, CustomerCompany company) {
+        setPrivate(false);
         setName(name);
         setPhone(phone);
         setEmail(email);
-        if (!isPrivate) {
-            setCompany(company);
-        }
+        setCompany(company);
+    }
+
+    public Customer(Name name, Phone phone, Email email) {
+        setPrivate(true);
+        setName(name);
+        setPhone(phone);
+        setEmail(email);
     }
 
     public boolean isPrivate() {
