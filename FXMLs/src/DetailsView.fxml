@@ -240,7 +240,7 @@
             </VBox>
          </children>
       </HBox>
-      <VBox prefHeight="133.0" prefWidth="600.0">
+      <VBox prefHeight="106.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" wrappingWidth="598.63671875">
                <font>
@@ -254,5 +254,14 @@
             </Text>
          </children>
       </VBox>
+      <HBox prefHeight="36.0" prefWidth="600.0">
+         <children>
+            <Button mnemonicParsing="false" text="Back">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
    </children>
 </VBox>
