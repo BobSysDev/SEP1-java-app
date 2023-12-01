@@ -3,7 +3,13 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FXMLs/FXMLs.iml" filepath="$PROJECT_DIR$/FXMLs/FXMLs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Customer/Customer.iml" filepath="$PROJECT_DIR$/Customer/Customer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Dates/Dates.iml" filepath="$PROJECT_DIR$/Dates/Dates.iml" />
+      <module fileurl="file://$PROJECT_DIR$/FileManipulation/FileManipulation.iml" filepath="$PROJECT_DIR$/FileManipulation/FileManipulation.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Project/Project.iml" filepath="$PROJECT_DIR$/Project/Project.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectList/ProjectList.iml" filepath="$PROJECT_DIR$/ProjectList/ProjectList.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/SEP1-java-app.iml" filepath="$PROJECT_DIR$/.idea/SEP1-java-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Types-Of-Projects/Types-Of-Projects.iml" filepath="$PROJECT_DIR$/Types-Of-Projects/Types-Of-Projects.iml" />
       <module fileurl="file://$PROJECT_DIR$/testing/testing.iml" filepath="$PROJECT_DIR$/testing/testing.iml" />
     </modules>
   </component>
