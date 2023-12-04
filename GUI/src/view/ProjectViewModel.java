@@ -6,6 +6,8 @@ import model.Project;
 
 import javafx.beans.property.*;
 
+import javax.print.DocFlavor;
+
 public class ProjectViewModel
 {
   private StringProperty typeProperty;
@@ -21,7 +23,7 @@ public class ProjectViewModel
   private StringProperty detailsProperty;
   private StringProperty materialsProperty;
   private StringProperty customerNameProperty;
-  private ObjectProperty<MyDate> dateProperty;
+  private StringProperty startDateProperty;
 
   public ProjectViewModel(Project project)
   {
@@ -38,7 +40,7 @@ public class ProjectViewModel
     detailsProperty = new SimpleStringProperty(project.getDetails());
     materialsProperty = new SimpleStringProperty(project.getMaterials());
     customerNameProperty = new SimpleStringProperty(project.getCustomer().getName().getFullName());
-    //dateProperty = new ObjectProperty<MyDate>(project.)
+    startDateProperty = new SimpleStringProperty(project.getStartDate());
 
   }
 
@@ -93,6 +95,8 @@ public class ProjectViewModel
   {
     return customerNameProperty;
   }
-
+  public StringProperty getStartDateProperty(){
+    return startDateProperty;
+  }
 
 }

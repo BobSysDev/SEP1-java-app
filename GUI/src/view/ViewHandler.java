@@ -13,10 +13,10 @@ public class ViewHandler
   private Stage primaryStage;
   private model.ConstructionCompanyModel model;
   private ProjectViewController projectViewController;
-  private DetailsViewController detailsViewController;
-  private EditDetailsViewController editDetailsViewController;
-  private NewProjectViewController newProjectViewController;
-  private SelectNewProjectViewController selectNewProjectViewController;
+//  private DetailsViewController detailsViewController;
+//  private EditDetailsViewController editDetailsViewController;
+//  private NewProjectViewController newProjectViewController;
+//  private SelectNewProjectViewController selectNewProjectViewController;
 
   public ViewHandler(model.ConstructionCompanyModel model)
   {
@@ -37,18 +37,18 @@ public class ViewHandler
       case("projects"):
         root = loadProjectView("ProjectView.fxml");
         break;
-      case("details"):
-        root = loadDetailsView("DetailsView.fxml");
-        break;
-      case("edit details"):
-        root = loadEditDetailsView("EditDetailsView.fxml");
-        break;
-      case("select new"):
-        root = loadSelectNewProjectView("SelectNewProjectView.fxml");
-        break;
-      case("new"):
-        root = loadNewProjectView("NewProjectView.fxml");
-        break;
+//      case("details"):
+//        root = loadDetailsView("DetailsView.fxml");
+//        break;
+//      case("edit details"):
+//        root = loadEditDetailsView("EditDetailsView.fxml");
+//        break;
+//      case("select new"):
+//        root = loadSelectNewProjectView("SelectNewProjectView.fxml");
+//        break;
+//      case("new"):
+//        root = loadNewProjectView("NewProjectView.fxml");
+//        break;
 
     }
     currentScene.setRoot(root);
