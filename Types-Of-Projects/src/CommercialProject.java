@@ -22,7 +22,7 @@ public class CommercialProject extends Project implements Serializable {
         this.size = size;
     }
 
-    public String getType() {
+    @Override public String getType() {
         return type;
     }
 
