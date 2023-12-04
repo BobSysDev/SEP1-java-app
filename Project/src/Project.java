@@ -19,23 +19,10 @@ public abstract class Project implements Serializable, Comparable<Project> {
     private String details;
     private String materials;
     private Customer customer;
+    private String startDate;
 
     // Constructor for the Project class
-    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials) {
-        this.title = title;
-        this.budget = budget;
-        this.budgetEstimate = budgetEstimate;
-        this.timeInterval = timeInterval;
-        this.manHours = manHours;
-        this.timeEstimate = timeEstimate;
-        this.manHoursEstimate = manHoursEstimate;
-        this.isArchived = isArchived;
-        this.details = details;
-        this.materials = materials;
-        this.customer = null;
-    }
-
-    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, Customer customer) {
+    public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, String startDate, Customer customer) {
         this.title = title;
         this.budget = budget;
         this.budgetEstimate = budgetEstimate;
@@ -47,7 +34,9 @@ public abstract class Project implements Serializable, Comparable<Project> {
         this.details = details;
         this.materials = materials;
         this.customer = customer;
+        this.startDate = startDate;
     }
+
 
     public Customer getCustomer()
     {
@@ -146,6 +135,14 @@ public abstract class Project implements Serializable, Comparable<Project> {
 
     public void setMaterials(String materials) {
         this.materials = materials;
+    }
+
+    public String getStartDate(){
+        return startDate;
+    }
+
+    public void setStartDate(String startDate){
+        this.startDate = startDate;
     }
 
 
