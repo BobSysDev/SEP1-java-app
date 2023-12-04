@@ -1,9 +1,10 @@
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 
-
-public abstract class Project implements Serializable {
+public abstract class Project implements Serializable, Comparable<Project> {
     private static final Set<Integer> usedIDs = new HashSet<>();
 
     private String title;
@@ -153,7 +154,7 @@ public abstract class Project implements Serializable {
     public abstract String getType();
 
 
-    @Override public int compareTo(Project o)
+     @Override public int compareTo(Project o)
     {
         return this.getTitle().compareTo(o.getTitle());
     }
