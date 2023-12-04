@@ -1,7 +1,7 @@
 import javafx.application.Application;
 import javafx.stage.Stage;
-import model.ProjectListModel;
-import model.ConstructionCompanyModelManager;
+import model.ConstructionCompanyModel;
+import model.ConstructionCompanyManager;
 import view.ViewHandler;
 
 public class MyApplication extends Application
@@ -9,7 +9,7 @@ public class MyApplication extends Application
 
   public void start(Stage primaryStage)
   {
-    ProjectListModel model = new model.ConstructionCompanyModelManager();
+    model.ConstructionCompanyModel model = new model.ConstructionCompanyManager();
     ViewHandler viewHandler = new ViewHandler(model);
     viewHandler.start(primaryStage);
   }
