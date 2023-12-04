@@ -4,7 +4,7 @@ import java.util.Set;
 import java.util.HashSet;
 
 
-public class Project implements Serializable {
+public abstract class Project implements Serializable {
     private static final Set<Integer> usedIDs = new HashSet<>();
     private String title;
     private double budget;
@@ -125,6 +125,9 @@ public class Project implements Serializable {
         this.materials = materials;
     }
 
+    public abstract double getSize();
+
+    public abstract String getType();
 
 }
 
