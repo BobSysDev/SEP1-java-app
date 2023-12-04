@@ -5,27 +5,17 @@ public class MyDate implements Serializable
     private int day;
     private int month;
     private int year;
-    private int startDate;
 
     private static final int[] DAYS_IN_MONTH = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
-    public MyDate(int day, int month, int year, int startDate) {
+    public MyDate(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
-        this.startDate = startDate;
     }
 
     public int getDay() {
         return day;
-    }
-
-    public int getStartDate(){
-        return startDate;
-    }
-
-    public void setStartDate(int startDate){
-        this.startDate = startDate;
     }
 
     public void setDay(int day) {
@@ -124,7 +114,7 @@ public class MyDate implements Serializable
             }
         }
 
-        return new MyDate(day, month, year, startDate);
+        return new MyDate(day, month, year);
     }
 
 }
