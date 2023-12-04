@@ -2,7 +2,10 @@
 import java.io.Serializable;
 
 
-public class Project implements Serializable, Comparable<Project> {
+
+public abstract class Project implements Serializable {
+    private static final Set<Integer> usedIDs = new HashSet<>();
+
     private String title;
     private double budget;
     private double budgetEstimate;
@@ -144,10 +147,17 @@ public class Project implements Serializable, Comparable<Project> {
         this.materials = materials;
     }
 
+
+    public abstract double getSize();
+
+    public abstract String getType();
+
+
     @Override public int compareTo(Project o)
     {
         return this.getTitle().compareTo(o.getTitle());
     }
+
 }
 
 

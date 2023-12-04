@@ -14,7 +14,7 @@ public class IndustrialProject extends Project implements Serializable {
     }
 
     //Setters and Getters
-    public double getSize() {
+    @Override public double getSize() {
         return size;
     }
 
