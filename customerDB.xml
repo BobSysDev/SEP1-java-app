@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<allCustomers>
+    <customer>
+      <isPrivate>true</isPrivate>
+      <name>
+        <firstName>John</firstName>
+        <middleName></middleName>
+        <lastName>Doe</lastName>
+      </name>
+      <email>
+        <username>johndoe</username>
+        <host>gmail</host>
+        <domain>com</domain>
+      </email>
+      <phone>
+        <countryCode>45</countryCode>
+        <number>12345678</number>
+      </phone>
+    </customer>
+    <customer>
+      <isPrivate>false</isPrivate>
+      <name>
+        <firstName>Mark</firstName>
+        <middleName></middleName>
+        <lastName>Stone</lastName>
+      </name>
+      <email>
+        <username>markstone</username>
+        <host>totallylegitcompany</host>
+        <domain>net</domain>
+      </email>
+      <phone>
+        <countryCode>48</countryCode>
+        <number>123456789</number>
+      </phone>
+      <customerCompany>
+        <name>Totally Legit Company</name>
+        <CVR>213769420</CVR>
+      </customerCompany>
+    </customer>
+</allCustomers>
