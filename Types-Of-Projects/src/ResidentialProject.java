@@ -71,5 +71,6 @@ public class ResidentialProject extends Project implements Serializable {
     }
 
 
+
 }
 

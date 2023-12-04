@@ -1,7 +1,9 @@
+import java.io.Serializable;
 import java.util.*;
 
-public class CustomerList {
-        private final List<Customer> customers;
+public class CustomerList implements Serializable
+{
+        private ArrayList<Customer> customers;
 
         public CustomerList() {
             customers = new ArrayList<>();
@@ -15,8 +17,11 @@ public class CustomerList {
             customers.remove(customer);
         }
 
-        public List<Customer> getCustomers() {
-            return customers;
+        public Customer getCustomer(int index) {
+            return customers.get(index);
         }
 
+        public ArrayList<Customer> getCustomers(){
+          return customers;
+        }
 }

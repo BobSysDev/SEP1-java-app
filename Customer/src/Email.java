@@ -1,4 +1,7 @@
-public class Email {
+import java.io.Serializable;
+
+public class Email implements Serializable
+{
     private String user;
     private String host;
     private String domain;
