@@ -2,7 +2,7 @@
 <allProjects>
   <project type="Residential">
     <projectId>1</projectId>
-    <title>This guy's house</title>
+    <title>ZThis guy's house</title>
     <budgetEstimate>500.0</budgetEstimate>
     <budget>420.25</budget>
     <timeEstimate>7</timeEstimate>
@@ -37,9 +37,9 @@
   </project>
   <project type="Commercial">
     <projectId>2</projectId>
-    <title>Ikea Horsens</title>
+    <title>BIkea Horsens</title>
     <budgetEstimate>5.0</budgetEstimate>
-    <budget>123456.0</budget>
+    <budget>120.0</budget>
     <timeEstimate>9</timeEstimate>
     <timeInterval>12</timeInterval>
     <manHoursEstimate>800.0</manHoursEstimate>
@@ -73,9 +73,9 @@
   </project>
   <project type="Industrial">
     <projectId>3</projectId>
-    <title>The factory</title>
+    <title>AThe factory</title>
     <budgetEstimate>5.0</budgetEstimate>
-    <budget>123456.0</budget>
+    <budget>69.0</budget>
     <timeEstimate>9</timeEstimate>
     <timeInterval>12</timeInterval>
     <manHoursEstimate>800.0</manHoursEstimate>
@@ -105,9 +105,9 @@
   </project>
   <project type="Roadwork">
     <projectId>4</projectId>
-    <title>The road</title>
+    <title>GThe road</title>
     <budgetEstimate>5.0</budgetEstimate>
-    <budget>123456.0</budget>
+    <budget>75.3</budget>
     <timeEstimate>9</timeEstimate>
     <timeInterval>12</timeInterval>
     <manHoursEstimate>800.0</manHoursEstimate>
