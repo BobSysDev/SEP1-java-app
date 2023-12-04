@@ -2,7 +2,7 @@
 import java.io.Serializable;
 
 
-public class Project implements Serializable {
+public class Project implements Serializable, Comparable<Project> {
     private String title;
     private double budget;
     private double budgetEstimate;
@@ -144,7 +144,10 @@ public class Project implements Serializable {
         this.materials = materials;
     }
 
-
+    @Override public int compareTo(Project o)
+    {
+        return this.getTitle().compareTo(o.getTitle());
+    }
 }
 
 
