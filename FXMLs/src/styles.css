@@ -1,3 +1,33 @@
-.root{
-    -fx-background-color: orange;
+.Ongoing-Tab  {
+    -fx-background-color: #F58800;
 }
+
+.Past-Tab {
+    -fx-background-color: #FFFFFF;
+}
+
+.Settings-Tab{
+    -fx-background-color: #F58800;
+}
+
+.new-project-button{
+    -fx-background-color:  #F58800;
+}
+
+.Type, .Name, .StartDate{
+    -fx-color: #F58800;
+}
+
+
+.filter-sort{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F58800;
+    -fx-border-radius: 3px;
+}
+
+.button-sort{
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #F58800;
+    -fx-border-radius: 3px;
+}
+

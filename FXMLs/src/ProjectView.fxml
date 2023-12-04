@@ -15,15 +15,13 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-
-<VBox prefHeight="372.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="view.ProjectView">
+<VBox prefHeight="372.0" prefWidth="600.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectView">
    <children>
       <HBox prefHeight="321.0" prefWidth="600.0">
          <children>
             <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="369.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab text="Settings">
+                  <Tab styleClass="Settings-Tab" text="Settings">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -39,7 +37,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="    Past    ">
+                  <Tab styleClass="Past-Tab" text="    Past    ">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
@@ -47,7 +45,7 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="280.0">
                                        <children>
-                                          <ChoiceBox prefHeight="25.0" prefWidth="75.0">
+                                          <ChoiceBox prefHeight="25.0" prefWidth="75.0" styleClass="button-sort">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -57,7 +55,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </Text>
-                                          <ChoiceBox prefHeight="25.0" prefWidth="66.0">
+                                          <ChoiceBox prefHeight="25.0" prefWidth="66.0" styleClass="filter-sort">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -88,16 +86,16 @@
                               </HBox>
                               <TableView layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Type" />
-                                    <TableColumn prefWidth="357.0" text="Name" />
-                                    <TableColumn prefWidth="140.0" text="Start date" />
+                                    <TableColumn prefWidth="75.0" styleClass="Type" text="Type" />
+                                    <TableColumn prefWidth="357.0" styleClass="Name" text="Name" />
+                                    <TableColumn prefWidth="140.0" styleClass="StartDate" text="Start date" />
                                  </columns>
                               </TableView>
                            </children>
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Ongoing">
+                  <Tab closable="false" styleClass="Ongoing-Tab" text="Ongoing">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
@@ -105,7 +103,7 @@
                                  <children>
                                     <HBox alignment="CENTER_RIGHT" prefHeight="90.0" prefWidth="280.0">
                                        <children>
-                                          <ChoiceBox prefHeight="25.0" prefWidth="75.0">
+                                          <ChoiceBox prefHeight="25.0" prefWidth="75.0" styleClass="button-sort">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -115,7 +113,7 @@
                                                 <Insets />
                                              </HBox.margin>
                                           </Text>
-                                          <ChoiceBox prefHeight="25.0" prefWidth="66.0">
+                                          <ChoiceBox prefHeight="25.0" prefWidth="66.0" styleClass="filter-sort">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -133,7 +131,7 @@
                                                 <Font size="18.0" />
                                              </font>
                                           </Text>
-                                          <TextField />
+                                          <TextField styleClass="search-button" />
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -146,9 +144,9 @@
                               </HBox>
                               <TableView layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Type" />
-                                    <TableColumn prefWidth="357.0" text="Name" />
-                                    <TableColumn prefWidth="140.0" text="Start date" />
+                                    <TableColumn prefWidth="75.0" styleClass="Type" text="Type" />
+                                    <TableColumn prefWidth="357.0" styleClass="Name" text="Name" />
+                                    <TableColumn prefWidth="140.0" styleClass="StartDate" text="Start date" />
                                  </columns>
                               </TableView>
                            </children>
@@ -162,7 +160,7 @@
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="600.0">
          <children>
             <Label prefHeight="17.0" prefWidth="505.0" text="ERR:" />
-            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="New Project">
+            <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" styleClass="new-project-button" text="New Project" textFill="WHITE">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
