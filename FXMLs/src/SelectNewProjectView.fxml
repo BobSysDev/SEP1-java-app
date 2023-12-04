@@ -20,7 +20,7 @@
             </Text>
          </children>
       </HBox>
-      <VBox prefHeight="181.0" prefWidth="336.0">
+      <VBox prefHeight="181.0" prefWidth="336.0" stylesheets="@style.css">
          <children>
             <RadioButton fx:id="resButton" mnemonicParsing="false" onAction="#getType" text="Residential">
                <font>

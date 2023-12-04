@@ -9,17 +9,17 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditDetailsView">
+<VBox prefHeight="527.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditDetailsView">
     <children>
-        <HBox prefHeight="41.0" prefWidth="600.0" />
+        <HBox prefHeight="41.0" prefWidth="600.0" styleClass="nav-bar" />
         <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="600.0">
             <children>
             <TextField promptText="Type" />
             <TextField promptText="Name" />
-                <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
+                <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0" styleClass="margin-for-big-boxes">
                     <children>
-                        <Button mnemonicParsing="false" text="Discard" />
-                  <Button mnemonicParsing="false" text="Save">
+                        <Button mnemonicParsing="false" styleClass="clicked-button" text="Discard" textFill="#f58800" />
+                  <Button mnemonicParsing="false" styleClass="not-clicked-button" text="Save" textFill="WHITE">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>

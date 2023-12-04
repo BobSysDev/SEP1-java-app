@@ -1,0 +1,18 @@
+.nav-bar {
+-fx-background-color: #F58800;
+}
+
+.not-clicked-button{
+-fx-background-color: #F58800;
+-fx-font-weight: bold;
+}
+
+.clicked-button{
+-fx-background-color: #ffffff;
+-fx-border-width: 1px;
+-fx-border-color: #F58800;
+-fx-border-style: solid;
+-fx-border-radius: 3px;
+-fx-font-weight: bold;
+}
+

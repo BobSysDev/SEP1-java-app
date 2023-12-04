@@ -7,9 +7,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsView">
+<VBox prefHeight="527.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsView">
    <children>
-      <HBox prefHeight="41.0" prefWidth="600.0" />
+      <HBox prefHeight="41.0" prefWidth="600.0" styleClass="nav-bar" />
       <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="(TYPE)">
@@ -24,9 +24,9 @@
             </Text>
             <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#archiveButtonPressed" text="Archive" />
-                  <Button mnemonicParsing="false" onAction="#editButtonPressed" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#archiveButtonPressed" styleClass="not-clicked-button" text="Archive" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#editButtonPressed" styleClass="not-clicked-button" text="Edit" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" styleClass="not-clicked-button" text="Delete" textFill="WHITE" />
                </children>
             </HBox>
          </children>
@@ -256,7 +256,7 @@
       </VBox>
       <HBox prefHeight="36.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" text="Back">
+            <Button mnemonicParsing="false" styleClass="not-clicked-button" text="Back" textFill="WHITE">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>
