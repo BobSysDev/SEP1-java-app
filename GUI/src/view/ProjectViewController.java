@@ -35,6 +35,9 @@ public class ProjectViewController
     this.viewModel = new ProjectListViewModel(model);
 
     typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
+    nameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty()));
+    //dateColumn.setCellValueFactory(cellData -> cellData.getValue().getDa);
+
 
     projectListTable.setItems(viewModel.getList());
   }

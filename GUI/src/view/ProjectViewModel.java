@@ -1,12 +1,14 @@
 package view;
 
 import model.Customer;
+import model.MyDate;
 import model.Project;
 
 import javafx.beans.property.*;
 
 public class ProjectViewModel
 {
+  private StringProperty typeProperty;
   private StringProperty titleProperty;
   private DoubleProperty budgetProperty;
   private DoubleProperty budgetEstimateProperty;
@@ -19,10 +21,11 @@ public class ProjectViewModel
   private StringProperty detailsProperty;
   private StringProperty materialsProperty;
   private StringProperty customerNameProperty;
+  private ObjectProperty<MyDate> dateProperty;
 
   public ProjectViewModel(Project project)
   {
-    typeProperty = new SimpleStringProperty(project.)
+    typeProperty = new SimpleStringProperty(project.getType());
     titleProperty = new SimpleStringProperty(project.getTitle());
     budgetProperty = new SimpleDoubleProperty(project.getBudget());
     budgetEstimateProperty = new SimpleDoubleProperty(project.getBudgetEstimate());
@@ -35,8 +38,13 @@ public class ProjectViewModel
     detailsProperty = new SimpleStringProperty(project.getDetails());
     materialsProperty = new SimpleStringProperty(project.getMaterials());
     customerNameProperty = new SimpleStringProperty(project.getCustomer().getName().getFullName());
+    //dateProperty = new ObjectProperty<MyDate>(project.)
+
   }
 
+  public StringProperty getTypeProperty() {
+    return typeProperty;
+  }
   public StringProperty getTitleProperty()
   {
     return titleProperty;

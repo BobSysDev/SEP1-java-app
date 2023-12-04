@@ -3,7 +3,7 @@ import java.io.Serializable;
 
 
 
-public abstract class Project implements Serializable {
+public abstract class Project implements Serializable, Comparable<Project> {
     private static final Set<Integer> usedIDs = new HashSet<>();
 
     private String title;
