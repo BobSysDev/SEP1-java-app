@@ -10,6 +10,7 @@
     <manHoursEstimate>500.0</manHoursEstimate>
     <manHours>540.0</manHours>
     <isArchived>false</isArchived>
+    <startDate>01.02.2021</startDate>
     <customer>
       <isPrivate>true</isPrivate>
       <name>
@@ -33,6 +34,7 @@
       <numberOfBathrooms>2</numberOfBathrooms>
       <numberOfOtherRoomsWithPlumbing>1</numberOfOtherRoomsWithPlumbing>
       <isNewBuilding>true</isNewBuilding>
+      <type>house</type>
     </residential>
   </project>
   <project type="Commercial">
@@ -45,6 +47,7 @@
     <manHoursEstimate>800.0</manHoursEstimate>
     <manHours>5200.0</manHours>
     <isArchived>false</isArchived>
+    <startDate>04.12.2020</startDate>
     <customer>
       <isPrivate>false</isPrivate>
       <name>
@@ -81,6 +84,7 @@
     <manHoursEstimate>800.0</manHoursEstimate>
     <manHours>5200.0</manHours>
     <isArchived>false</isArchived>
+    <startDate>24.12.2023</startDate>
     <customer>
       <isPrivate>true</isPrivate>
       <name>
@@ -113,6 +117,7 @@
     <manHoursEstimate>800.0</manHoursEstimate>
     <manHours>5200.0</manHours>
     <isArchived>false</isArchived>
+    <startDate>15.01.2020</startDate>
     <customer>
       <isPrivate>false</isPrivate>
       <name>
@@ -139,6 +144,7 @@
       <width>10.0</width>
       <numberOfBridges>2</numberOfBridges>
       <obstacles>mountains</obstacles>
+      <type>highway</type>
     </roadwork>
   </project>
 </allProjects>
