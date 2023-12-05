@@ -35,6 +35,7 @@ public abstract class Project implements Serializable, Comparable<Project> {
         this.materials = materials;
         this.customer = customer;
         this.startDate = startDate;
+        this.projectID = projectID;
     }
 
 

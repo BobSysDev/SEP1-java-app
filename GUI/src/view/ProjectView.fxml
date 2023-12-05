@@ -129,11 +129,11 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <TableView layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
+                              <TableView fx:id="ongoingProjectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
                                  <columns>
-                                    <TableColumn prefWidth="75.0" text="Type" />
-                                    <TableColumn prefWidth="357.0" text="Name" />
-                                    <TableColumn prefWidth="140.0" text="Start date" />
+                                    <TableColumn fx:id="ongoingTypeColumn" prefWidth="75.0" text="Type" />
+                                    <TableColumn fx:id="ongoingNameColumn" prefWidth="357.0" text="Name" />
+                                    <TableColumn fx:id="ongoingDateColumn" prefWidth="140.0" text="Start date" />
                                  </columns>
                               </TableView>
                            </children>

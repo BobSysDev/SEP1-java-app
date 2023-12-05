@@ -16,6 +16,7 @@ public class RoadXMLReaderWriter
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
+    XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
 
     XMLData += CustomerXMLReaderWriter.write(project.getCustomer()) + "\n";
 
@@ -24,6 +25,7 @@ public class RoadXMLReaderWriter
     XMLData += "      <width>" + project.getWidth() + "</width>\n";
     XMLData += "      <numberOfBridges>" + project.getNumberOfBridges() + "</numberOfBridges>\n";
     XMLData += "      <obstacles>" + project.getObstacles() + "</obstacles>\n";
+    XMLData += "      <type>" + project.getType() + "</type>\n";
     XMLData += "    </roadwork>\n";
     XMLData += "  </project>";
 
@@ -40,8 +42,9 @@ public class RoadXMLReaderWriter
     double manHoursEstimate = Double.parseDouble(lines.get(7).replace("<manHoursEstimate>", "").replace("</manHoursEstimate>", "").trim());
     double manHours = Double.parseDouble(lines.get(8).replace("<manHours>", "").replace("</manHours>", "").trim());
     boolean isArchived = Boolean.parseBoolean(lines.get(9).replace("<isArchived>", "").replace("</isArchived>", "").trim());
+    String startDate = lines.get(10).replace("<startDate>", "").replace("</startDate>", "").trim();
 
-    int counter = 10;
+    int counter = 11;
     ArrayList<String> customerLines = new ArrayList<>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -54,9 +57,9 @@ public class RoadXMLReaderWriter
     double width = Double.parseDouble(lines.get(counter + 1).replace("<width>", "").replace("</width>", "").trim());
     int numberOfBridges = Integer.parseInt(lines.get(counter + 2).replace("<numberOfBridges>", "").replace("</numberOfBridges>", "").trim());
     String obstacles = lines.get(counter + 3).replace("<obstacles>", "").replace("</obstacles>", "").trim();
+    String type = lines.get(counter + 4).replace("<project type=\"", "").replace("\">", "").trim();
 
-    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", length, width, numberOfBridges, obstacles);
-    roadConstructionProject.setCustomer(customer);
+    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", length, width, numberOfBridges, obstacles, type, startDate, customer);
     return roadConstructionProject;
   }
 }

@@ -15,8 +15,8 @@ public class ViewHandler
   private ProjectViewController projectViewController;
 //  private DetailsViewController detailsViewController;
 //  private EditDetailsViewController editDetailsViewController;
-//  private NewProjectViewController newProjectViewController;
-//  private SelectNewProjectViewController selectNewProjectViewController;
+  private NewProjectViewController newProjectViewController;
+  private SelectNewProjectViewController selectNewProjectViewController;
 
   public ViewHandler(model.ConstructionCompanyModel model)
   {
@@ -43,12 +43,12 @@ public class ViewHandler
 //      case("edit details"):
 //        root = loadEditDetailsView("EditDetailsView.fxml");
 //        break;
-//      case("select new"):
-//        root = loadSelectNewProjectView("SelectNewProjectView.fxml");
-//        break;
-//      case("new"):
-//        root = loadNewProjectView("NewProjectView.fxml");
-//        break;
+      case("select new"):
+        root = loadSelectNewProjectView("SelectNewProjectView.fxml");
+        break;
+      case("new"):
+        root = loadNewProjectView("NewProjectView.fxml");
+        break;
 
     }
     currentScene.setRoot(root);
@@ -82,4 +82,43 @@ public class ViewHandler
     }
     return root;
   }
+
+  private Region loadSelectNewProjectView(String fxmlFile)
+  {
+    Region root = null;
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource(fxmlFile));
+      root = loader.load();
+      selectNewProjectViewController = loader.getController();
+      selectNewProjectViewController.init(root, model, this);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+    return root;
+  }
+
+  private Region loadNewProjectView(String fxmlFile)
+  {
+    Region root = null;
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource(fxmlFile));
+      root = loader.load();
+      newProjectViewController = loader.getController();
+      newProjectViewController.init(root, model, this);
+      newProjectViewController.setDefaults(selectNewProjectViewController.getTypeSelected());
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+    return root;
+  }
+
+
 }

@@ -2,6 +2,7 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.HBox?>
@@ -9,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="286.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectNewProjectView">
+<VBox prefHeight="286.0" prefWidth="336.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectNewProjectViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="76.0" prefWidth="336.0">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select the type of your new project:">
+            <Text fx:id="text" strokeWidth="0.0" text="Select the type of your new project:">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -61,16 +62,17 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="61.0" prefWidth="336.0" spacing="40.0">
          <children>
-            <Button mnemonicParsing="false" text="Cancel">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" text="OK">
+            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPressed" text="OK">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
+            <Label fx:id="label" prefHeight="17.0" prefWidth="83.0" text="" textFill="RED" />
          </children>
       </HBox>
    </children>

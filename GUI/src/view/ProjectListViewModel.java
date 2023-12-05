@@ -5,10 +5,12 @@ public class ProjectListViewModel
 {
   private ObservableList<ProjectViewModel> list;
   private ConstructionCompanyModel model;
+  private boolean displayArchivedData;
 
-  public ProjectListViewModel(ConstructionCompanyModel model){
+  public ProjectListViewModel(ConstructionCompanyModel model, boolean displayArchivedData){
     this.model = model;
     this.list = FXCollections.observableArrayList();
+    this.displayArchivedData = displayArchivedData;
     update();
   }
 
@@ -20,7 +22,9 @@ public class ProjectListViewModel
     list.clear();
     for (int i = 0; i < model.listSize(); i++)
     {
-      list.add(new ProjectViewModel(model.getProject(i)));
+      if(model.getProject(i).isArchived() == displayArchivedData){
+        list.add(new ProjectViewModel(model.getProject(i)));
+      }
     }
   }
 

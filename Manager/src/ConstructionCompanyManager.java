@@ -7,8 +7,8 @@ public class ConstructionCompanyManager
   private CustomerList customerList;
   private BinaryReaderWriter binaryFileInterface;
   private XMLReaderWriter xmlFileInterface;
-  private static final String BINARY_FILE_PATH_PROJECTS = "projectsDB.bin";
-  private static final String BINARY_FILE_PATH_CUSTOMERS = "customersDB.bin";
+  private static final String BINARY_FILE_PATH_PROJECTS = "projectDB.bin";
+  private static final String BINARY_FILE_PATH_CUSTOMERS = "customerDB.bin";
 
   public ConstructionCompanyManager()
   {

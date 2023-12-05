@@ -16,6 +16,7 @@ public class ResidentialXMLReaderWriter
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
+    XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
 
     XMLData += CustomerXMLReaderWriter.write(project.getCustomer()) + "\n";
 
@@ -25,6 +26,7 @@ public class ResidentialXMLReaderWriter
     XMLData += "      <numberOfBathrooms>" + project.getNumberOfBathrooms() + "</numberOfBathrooms>\n";
     XMLData += "      <numberOfOtherRoomsWithPlumbing>" + project.getOtherRoomsWithPlumbing() + "</numberOfOtherRoomsWithPlumbing>\n";
     XMLData += "      <isNewBuilding>" + project.isNewBuild() + "</isNewBuilding>\n";
+    XMLData += "      <type>" + project.getType() + "</type>\n";
     XMLData += "    </residential>\n";
     XMLData += "  </project>";
 
@@ -41,8 +43,9 @@ public class ResidentialXMLReaderWriter
     double manHoursEstimate = Double.parseDouble(lines.get(7).replace("<manHoursEstimate>", "").replace("</manHoursEstimate>", "").trim());
     double manHours = Double.parseDouble(lines.get(8).replace("<manHours>", "").replace("</manHours>", "").trim());
     boolean isArchived = Boolean.parseBoolean(lines.get(9).replace("<isArchived>", "").replace("</isArchived>", "").trim());
+    String startDate = lines.get(10).replace("<startDate>", "").replace("</startDate>", "").trim();
 
-    int counter = 10;
+    int counter = 11;
     ArrayList<String> customerLines = new ArrayList<String>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -56,9 +59,9 @@ public class ResidentialXMLReaderWriter
     int numberOfBathrooms = Integer.parseInt(lines.get(counter + 2).replace("<numberOfBathrooms>", "").replace("</numberOfBathrooms>", "").trim());
     int numberOfOtherRoomsWithPlumbing = Integer.parseInt(lines.get(counter + 3).replace("<numberOfOtherRoomsWithPlumbing>", "").replace("</numberOfOtherRoomsWithPlumbing>", "").trim());
     boolean isNewBuild = Boolean.parseBoolean(lines.get(counter + 4).replace("<isNewBuilding>", "").replace("</isNewBuilding>", "").trim());
+    String type = lines.get(counter + 5).replace("<type>", "").replace("</type>", "").trim();
 
-    ResidentialProject toReturn = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild);
-    toReturn.setCustomer(customer);
+    ResidentialProject toReturn = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild, type, startDate, customer);
     return toReturn;
   }
 }
