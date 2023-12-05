@@ -18,7 +18,7 @@ public class ProjectViewController
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
   @FXML private TableColumn<ProjectViewModel, String> nameColumn;
-  @FXML private TableColumn<ProjectViewModel, MyDate> dateColumn;
+  @FXML private TableColumn<ProjectViewModel, String> dateColumn;
   @FXML private Label errorLabel;
 
   private Region root;
@@ -35,8 +35,8 @@ public class ProjectViewController
     this.viewModel = new ProjectListViewModel(model);
 
     typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
-    nameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty()));
-    //dateColumn.setCellValueFactory(cellData -> cellData.getValue().getDa);
+    nameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
+    dateColumn.setCellValueFactory(cellData -> cellData.getValue().getStartDateProperty());
 
 
     projectListTable.setItems(viewModel.getList());
@@ -51,42 +51,10 @@ public class ProjectViewController
     return root;
   }
 
-  @FXML public void addGradeButtonPressed(){
-    viewHandler.openView("add");
+  @FXML public void newProjectButtonPressed(){
+    viewHandler.openView("select new");
   }
 
-  @FXML public void showGradeDetailsButtonPressed(){
-    viewHandler.openView("details");
-  }
 
-  @FXML public void removeGradeButtonPressed(){
-    errorLabel.setText("");
-    try{
-      GradeViewModel selectedItem = gradeListTable.getSelectionModel().getSelectedItem();
-      boolean remove = confirmation();
-      if (remove){
-        Grade grade = new Grade(selectedItem.getGradeProperty().get(),selectedItem.getCourseProperty().get());
-        model.removeGrade(grade);
-        viewModel.remove(grade);
-        gradeListTable.getSelectionModel().clearSelection();
-      }
-    }
-    catch (Exception e){
-      errorLabel.setText("Item not found: "+e.getMessage());
-    }
-  }
-
-  private boolean confirmation(){
-    int index = gradeListTable.getSelectionModel().getSelectedIndex();
-    GradeViewModel selectedItem = gradeListTable.getItems().get(index);
-    if (index<0 || index>=gradeListTable.getItems().size()){
-      return false;
-    }
-    Alert alert = new Alert(AlertType.CONFIRMATION);
-    alert.setTitle("Confirmation");
-    alert.setHeaderText("Removing grade{"+selectedItem.getCourseProperty()+" : "+selectedItem.getGradeProperty()+"}");
-    Optional<ButtonType> result = alert.showAndWait();
-    return (result.isPresent())&&(result.get()==ButtonType.OK);
-  }
 
 }
