@@ -75,6 +75,7 @@ public class ViewHandler
       root = loader.load();
       projectViewController = loader.getController();
       projectViewController.init(root, model, this);
+      projectViewController.selectDefaultTab();
     }
     catch (Exception e)
     {

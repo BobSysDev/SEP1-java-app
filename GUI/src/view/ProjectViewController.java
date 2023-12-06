@@ -14,6 +14,8 @@ import java.util.Optional;
 
 public class ProjectViewController
 {
+  @FXML private TabPane tabPane;
+  @FXML private Tab ongoingTab;
 
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
@@ -63,6 +65,10 @@ public class ProjectViewController
 
   public Region getRoot(){
     return root;
+  }
+
+  public void selectDefaultTab(){
+    tabPane.getSelectionModel().select(ongoingTab);
   }
 
   @FXML public void newProjectButtonPressed(){

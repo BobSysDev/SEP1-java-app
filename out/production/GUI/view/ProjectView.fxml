@@ -18,9 +18,9 @@
    <children>
       <HBox prefHeight="321.0" prefWidth="600.0">
          <children>
-            <TabPane nodeOrientation="RIGHT_TO_LEFT" prefHeight="369.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+            <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="369.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab text="Settings">
+                  <Tab fx:id="settingsTab" text="Settings">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -36,7 +36,7 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab text="Past">
+                  <Tab fx:id="pastTab" text="Past">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
@@ -88,7 +88,7 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab text="Ongoing">
+                  <Tab fx:id="ongoingTab" text="Ongoing">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
@@ -147,7 +147,7 @@
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="600.0">
          <children>
             <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="505.0" text="ERR:" />
-            <Button onAction="#newProjectButtonPressed" mnemonicParsing="false" prefHeight="25.0" prefWidth="104.0" text="New Project">
+            <Button mnemonicParsing="false" onAction="#newProjectButtonPressed" prefHeight="25.0" prefWidth="104.0" text="New Project">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>

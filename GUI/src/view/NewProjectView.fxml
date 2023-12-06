@@ -129,7 +129,7 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <DatePicker fx:id="startDatePicker">
+                                    <DatePicker fx:id="startDatePicker" onAction="#setupDate" promptText="Enter date">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -144,7 +144,7 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextArea fx:id="detailstextArea" prefHeight="106.0" prefWidth="357.0">
+                                    <TextArea fx:id="detailsTextArea" prefHeight="106.0" prefWidth="357.0">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -213,7 +213,7 @@
                                           <Insets right="10.0" top="13.0" />
                                        </VBox.margin>
                                     </Text>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Company name:">
+                                    <Text fx:id="companyNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Company name:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -221,7 +221,7 @@
                                           <Insets right="10.0" top="13.0" />
                                        </VBox.margin>
                                     </Text>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="CVR:">
+                                    <Text fx:id="cvrText" strokeType="OUTSIDE" strokeWidth="0.0" text="CVR:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -235,7 +235,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="377.0">
                                        <children>
-                                          <RadioButton fx:id="personRadioButton" mnemonicParsing="false" onAction="#isCompany" selected="true" text="Person">
+                                          <RadioButton fx:id="personRadioButton" mnemonicParsing="false" onAction="#isCompany" text="Person">
                                              <padding>
                                                 <Insets right="20.0" />
                                              </padding>
@@ -365,17 +365,17 @@
                               </VBox>
                               <VBox prefHeight="434.0" prefWidth="377.0">
                                  <children>
-                                    <TextField fx:id="nameTextField11">
+                                    <TextField fx:id="kitchensTextField">
                                        <VBox.margin>
                                           <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="customerTextField11">
+                                    <TextField fx:id="bathroomsTextField">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="eBudgetTextField11">
+                                    <TextField fx:id="plumbingTextField">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -385,12 +385,15 @@
                                           <Insets top="11.0" />
                                        </VBox.margin>
                                        <children>
-                                          <RadioButton mnemonicParsing="false" text="Yes">
+                                          <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#isNewBuild" selected="true" text="Yes">
                                              <padding>
                                                 <Insets right="20.0" />
                                              </padding>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="isNewBuild" />
+                                             </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton mnemonicParsing="false" text="No" />
+                                          <RadioButton fx:id="noRadioButton" mnemonicParsing="false" onAction="#isNewBuild" text="No" toggleGroup="$isNewBuild" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -414,7 +417,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="10.0" />
+                                          <Insets right="10.0" top="11.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Width:">
@@ -422,7 +425,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="10.0" />
+                                          <Insets right="10.0" top="11.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of bridges:">
@@ -430,7 +433,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="10.0" />
+                                          <Insets right="10.0" top="11.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Obstacles:">
@@ -438,7 +441,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="10.0" />
+                                          <Insets right="10.0" top="11.0" />
                                        </VBox.margin>
                                     </Text>
                                  </children>
@@ -447,22 +450,22 @@
                                  <children>
                                     <TextField fx:id="lengthTextField">
                                        <VBox.margin>
-                                          <Insets right="20.0" top="12.0" />
+                                          <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <TextField fx:id="widthTextField">
                                        <VBox.margin>
-                                          <Insets right="20.0" top="12.0" />
+                                          <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <TextField fx:id="bridgesTextField">
                                        <VBox.margin>
-                                          <Insets right="20.0" top="12.0" />
+                                          <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <TextField fx:id="obstaclesTextField">
                                        <VBox.margin>
-                                          <Insets right="20.0" top="12.0" />
+                                          <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
                                  </children>
@@ -479,7 +482,7 @@
       <HBox alignment="CENTER" prefHeight="51.0" prefWidth="597.0" spacing="30.0">
          <children>
             <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <Button mnemonicParsing="false" text="Create" />
+            <Button mnemonicParsing="false" onAction="#createButtonPressed" text="Create" />
          </children>
       </HBox>
       <Label prefHeight="17.0" prefWidth="610.0" text="ERR" />
