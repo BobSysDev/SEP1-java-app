@@ -14,6 +14,11 @@ import java.util.Optional;
 
 public class NewProjectViewController
 {
+  @FXML private Tab projectTab;
+  @FXML private Tab customerTab;
+  @FXML private Tab residentialTab;
+  @FXML private Tab roadTab;
+
   @FXML private TextField nameTextField;
   @FXML private Label typeLabel;
   @FXML private TextField customerTextField;
@@ -76,15 +81,31 @@ public class NewProjectViewController
     }
   }
 
+  public void tabAppearance(String type){
+    switch (type){
+      case ("Residential"):
+        roadTab.getTabPane().getTabs().remove(roadTab);
+        break;
+      case ("Commercial"), ("Industrial"):
+        roadTab.getTabPane().getTabs().remove(roadTab);
+        residentialTab.getTabPane().getTabs().remove(residentialTab);
+        break;
+      case ("Road"):
+        residentialTab.getTabPane().getTabs().remove(residentialTab);
+        break;
+
+    }
+
+  }
+  public void isCompany(){}
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
     //typeLabel.clear();
-    customerTextField.clear();
     eBudgetTextField.clear();
     eManHoursTextField.clear();
     sizeTextField.clear();
     materialsTextField.clear();
-    detailsTextField.clear();
+    //detailsTextField.clear();
 
 
     viewHandler.openView("select new");

@@ -112,6 +112,7 @@ public class ViewHandler
       newProjectViewController = loader.getController();
       newProjectViewController.init(root, model, this);
       newProjectViewController.setDefaults(selectNewProjectViewController.getTypeSelected());
+      newProjectViewController.tabAppearance(selectNewProjectViewController.getTypeSelected());
     }
     catch (Exception e)
     {
