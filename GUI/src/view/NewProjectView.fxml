@@ -32,7 +32,7 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Client:">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Customer:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -56,6 +56,14 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated time interval:" textAlignment="RIGHT" wrappingWidth="204.13671875">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets right="10.0" top="10.0" />
+                     </VBox.margin>
+                  </Text>
                   <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
                      <font>
                         <Font size="18.0" />
@@ -72,7 +80,7 @@
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </VBox.margin>
                   </Text>
-                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details:">
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="K">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -89,12 +97,12 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
-                  <TextField fx:id="typeTextField">
+                  <Label fx:id="typeLabel" prefHeight="22.0" prefWidth="377.0" text="(TYPE)">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
-                  </TextField>
-                  <TextField fx:id="clientTextField">
+                  </Label>
+                  <TextField fx:id="customerTextField">
                      <VBox.margin>
                         <Insets top="10.0" />
                      </VBox.margin>
@@ -124,6 +132,11 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </TextField>
+                  <TextField fx:id="sizeTextField1">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                  </TextField>
                </children>
             </VBox>
          </children>
@@ -131,7 +144,7 @@
       <HBox alignment="CENTER" prefHeight="51.0" prefWidth="597.0" spacing="30.0">
          <children>
             <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <Button mnemonicParsing="false"  text="Create" />
+            <Button mnemonicParsing="false" text="Create" />
          </children>
       </HBox>
       <Label prefHeight="17.0" prefWidth="610.0" text="ERR" />

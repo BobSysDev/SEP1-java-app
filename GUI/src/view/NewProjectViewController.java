@@ -15,8 +15,8 @@ import java.util.Optional;
 public class NewProjectViewController
 {
   @FXML private TextField nameTextField;
-  @FXML private TextField typeTextField;
-  @FXML private TextField clientTextField;
+  @FXML private Label typeLabel;
+  @FXML private TextField customerTextField;
   @FXML private TextField eBudgetTextField;
   @FXML private TextField eManHoursTextField;
   @FXML private TextField sizeTextField;
@@ -49,25 +49,25 @@ public class NewProjectViewController
   public void setDefaults(String type){
     switch (type){
       case ("Residential"):
-        typeTextField.setText(type);
+        typeLabel.setText(type);
         eBudgetTextField.setText("400 000");
         eManHoursTextField.setText("20 000");
         materialsTextField.setText("Bricks, Concrete, Wood");
         break;
       case ("Commercial"):
-        typeTextField.setText(type);
+        typeLabel.setText(type);
         eBudgetTextField.setText("600 000");
         eManHoursTextField.setText("30 000");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
         break;
       case ("Industrial"):
-        typeTextField.setText(type);
+        typeLabel.setText(type);
         eBudgetTextField.setText("800 000");
         eManHoursTextField.setText("60 000");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
         break;
       case ("Road"):
-        typeTextField.setText(type);
+        typeLabel.setText(type);
         eBudgetTextField.setText("500 000");
         eManHoursTextField.setText("30 000");
         materialsTextField.setText("Concrete, Asphalt");
@@ -78,8 +78,8 @@ public class NewProjectViewController
 
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
-    typeTextField.clear();
-    clientTextField.clear();
+    //typeLabel.clear();
+    customerTextField.clear();
     eBudgetTextField.clear();
     eManHoursTextField.clear();
     sizeTextField.clear();
@@ -90,4 +90,7 @@ public class NewProjectViewController
     viewHandler.openView("select new");
   }
 
+//  @FXML public void createButtonPressed(){
+//    new Project(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),Double.parseDouble(eBudgetTextField.getText()),);
+//  }
 }
