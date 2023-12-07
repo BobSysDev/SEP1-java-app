@@ -26,7 +26,6 @@ public class ResidentialXMLReaderWriter
     XMLData += "      <numberOfBathrooms>" + project.getNumberOfBathrooms() + "</numberOfBathrooms>\n";
     XMLData += "      <numberOfOtherRoomsWithPlumbing>" + project.getOtherRoomsWithPlumbing() + "</numberOfOtherRoomsWithPlumbing>\n";
     XMLData += "      <isNewBuilding>" + project.isNewBuild() + "</isNewBuilding>\n";
-    XMLData += "      <type>" + project.getType() + "</type>\n";
     XMLData += "    </residential>\n";
     XMLData += "  </project>";
 
@@ -59,9 +58,8 @@ public class ResidentialXMLReaderWriter
     int numberOfBathrooms = Integer.parseInt(lines.get(counter + 2).replace("<numberOfBathrooms>", "").replace("</numberOfBathrooms>", "").trim());
     int numberOfOtherRoomsWithPlumbing = Integer.parseInt(lines.get(counter + 3).replace("<numberOfOtherRoomsWithPlumbing>", "").replace("</numberOfOtherRoomsWithPlumbing>", "").trim());
     boolean isNewBuild = Boolean.parseBoolean(lines.get(counter + 4).replace("<isNewBuilding>", "").replace("</isNewBuilding>", "").trim());
-    String type = lines.get(counter + 5).replace("<type>", "").replace("</type>", "").trim();
 
-    ResidentialProject toReturn = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild, type, startDate, customer);
+    ResidentialProject toReturn = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild, startDate, customer);
     return toReturn;
   }
 }

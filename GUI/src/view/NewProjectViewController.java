@@ -173,6 +173,20 @@ public class NewProjectViewController
     return formattedStartDate;
   }
 
+  public String getProjectType(){
+    switch (typeLabel.getText()){
+      case ("Residential"):
+        return "Residential";
+      case ("Commercial"):
+        return "Commercial";
+      case ("Industrial"):
+        return "Industrial";
+      case ("Road"):
+        return "Road";
+    }
+    return null;
+  }
+
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
     //typeLabel.clear();
@@ -221,7 +235,7 @@ public class NewProjectViewController
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
             materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),
             Integer.parseInt(kitchensTextField.getText()), Integer.parseInt(bathroomsTextField.getText()),
-            Integer.parseInt(plumbingTextField.getText()),isNewBuild(),typeLabel.getText(),getFormattedStartDate(),customer);
+            Integer.parseInt(plumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
         model.addProject(resProject);
         break;
       case ("Commercial"):
@@ -229,7 +243,7 @@ public class NewProjectViewController
             Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
             Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),typeLabel.getText(),getFormattedStartDate(),customer);
+            materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),useTextField.getText(),getFormattedStartDate(),customer);
         model.addProject(comProject);
         break;
       case ("Industrial"):

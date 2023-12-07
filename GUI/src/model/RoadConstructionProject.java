@@ -8,16 +8,14 @@ public class RoadConstructionProject extends Project implements Serializable {
     double width;
     int numberOfBridges;
     String obstacles;
-    String type;
 
     // Constructor for the RoadConstructionProject class
-    public RoadConstructionProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double length, double width, int numberOfBridges, String obstacles, String type, String startDate, Customer customer){
+    public RoadConstructionProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double length, double width, int numberOfBridges, String obstacles, String startDate, Customer customer){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials, startDate, customer);
         this.length = length;
         this.width = width;
         this.numberOfBridges = numberOfBridges;
         this.obstacles = obstacles;
-        this.type = type;
     }
 
     //Setters and Getters
@@ -45,17 +43,8 @@ public class RoadConstructionProject extends Project implements Serializable {
         this.numberOfBridges = numberOfBridges;
     }
 
-    @Override
-    public double getSize() {
-        return length;
-    }
-
     @Override public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
+        return "Road";
     }
 
     public String getObstacles() {

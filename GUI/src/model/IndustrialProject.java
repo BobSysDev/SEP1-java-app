@@ -5,18 +5,18 @@ import java.io.Serializable;
 public class IndustrialProject extends Project implements Serializable {
 
     double size;
-    String type;
+    String intendedUse;
 
     // Constructor for the IndustrialProject class
-    public IndustrialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, String type,String startDate, Customer customer){
+    public IndustrialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, String intendedUse,String startDate, Customer customer){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials, startDate, customer);
         this.size = size;
-        this.type = type;
+        this.intendedUse = intendedUse;
 
     }
 
     //Setters and Getters
-    @Override public double getSize() {
+    public double getSize() {
         return size;
     }
 
@@ -25,10 +25,10 @@ public class IndustrialProject extends Project implements Serializable {
     }
 
     public String getType() {
-        return type;
+        return "Industrial";
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setType(String intendedUse) {
+        this.intendedUse = intendedUse;
     }
 }

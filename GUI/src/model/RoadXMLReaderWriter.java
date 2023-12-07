@@ -25,7 +25,6 @@ public class RoadXMLReaderWriter
     XMLData += "      <width>" + project.getWidth() + "</width>\n";
     XMLData += "      <numberOfBridges>" + project.getNumberOfBridges() + "</numberOfBridges>\n";
     XMLData += "      <obstacles>" + project.getObstacles() + "</obstacles>\n";
-    XMLData += "      <type>" + project.getType() + "</type>\n";
     XMLData += "    </roadwork>\n";
     XMLData += "  </project>";
 
@@ -57,9 +56,8 @@ public class RoadXMLReaderWriter
     double width = Double.parseDouble(lines.get(counter + 1).replace("<width>", "").replace("</width>", "").trim());
     int numberOfBridges = Integer.parseInt(lines.get(counter + 2).replace("<numberOfBridges>", "").replace("</numberOfBridges>", "").trim());
     String obstacles = lines.get(counter + 3).replace("<obstacles>", "").replace("</obstacles>", "").trim();
-    String type = lines.get(counter + 4).replace("<project type=\"", "").replace("\">", "").trim();
 
-    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", length, width, numberOfBridges, obstacles, type, startDate, customer);
+    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", length, width, numberOfBridges, obstacles, startDate, customer);
     return roadConstructionProject;
   }
 }

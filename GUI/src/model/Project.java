@@ -147,8 +147,6 @@ public abstract class Project implements Serializable, Comparable<Project> {
     }
 
 
-    public abstract double getSize();
-
     public abstract String getType();
 
 

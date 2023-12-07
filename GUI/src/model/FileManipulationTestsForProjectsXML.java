@@ -16,16 +16,16 @@ public class FileManipulationTestsForProjectsXML
         new Email("drfreeman", "blackmesa", "org"), new CustomerCompany("Black Mesa", "123456789"));
     ResidentialProject residentialProject = new ResidentialProject(
         "ZThis guy's house", 420.25, 500, 5, 7, 540, 500, 0, false, "none",
-        "rock and stone", 120, 1, 2, 1, true, "house", "01.02.2021", customerA);
+        "rock and stone", 120, 1, 2, 1, true, "01.02.2021", customerA);
     CommercialProject commercialProject = new CommercialProject("BIkea Horsens",
         120, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
-        "Retail store", "04.12.2020", customerB);
+        "Retail store", 4, "04.12.2020", customerB);
     IndustrialProject industrialProject = new IndustrialProject("AThe factory",
         69, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
         "Factory", "24.12.2023", customerC);
     RoadConstructionProject roadConstructionProject = new RoadConstructionProject(
         "GThe road", 75.3, 5, 12, 9, 5200, 800, 0, false, "none", "asphalt",
-        2000, 10, 2, "mountains", "highway", "15.01.2020", customerD);
+        2000, 10, 2, "mountains",  "15.01.2020", customerD);
     residentialProject.setCustomer(customerA);
     commercialProject.setCustomer(customerB);
     industrialProject.setCustomer(customerC);

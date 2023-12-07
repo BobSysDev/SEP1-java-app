@@ -22,6 +22,7 @@ public class CommercialXMLReaderWriter
 
     XMLData += "    <commercial>\n";
     XMLData += "      <size>" + project.getSize() + "</size>\n";
+    XMLData += "      <numberOfFloors>" + project.getNumberOfFloors() + "</numberOfFloors>\n";
     XMLData += "      <type>" + project.getType() + "</type>\n";
     XMLData += "    </commercial>\n";
     XMLData += "  </project>";
@@ -51,9 +52,10 @@ public class CommercialXMLReaderWriter
     Customer customer = CustomerXMLReaderWriter.read(customerLines);
 
     double size = Double.parseDouble(lines.get(counter).replace("<size>", "").replace("</size>", "").trim());
-    String type = lines.get(counter + 1).replace("<type>", "").replace("</type>", "").trim();
+    int numberOfFloors = Integer.parseInt(lines.get(counter + 1).replace("<numberOfFloors>", "").replace("</numberOfFloors>", "").trim());
+    String type = lines.get(counter + 2).replace("<type>", "").replace("</type>", "").trim();
 
-    CommercialProject commercialProject = new CommercialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", size, type, startDate, customer);
+    CommercialProject commercialProject = new CommercialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", size, type, numberOfFloors, startDate, customer);
     return commercialProject;
   }
 }
