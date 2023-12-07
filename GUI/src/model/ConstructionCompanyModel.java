@@ -23,4 +23,6 @@ public interface ConstructionCompanyModel
   public void readCustomersFromBinaryFile();
 
   public void writeCustomersToBinaryFile();
+
+  public void writeProjectsToXMLFile();
 }

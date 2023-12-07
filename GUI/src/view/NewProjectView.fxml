@@ -76,14 +76,6 @@
                                           <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                       <VBox.margin>
-                                          <Insets right="10.0" top="12.0" />
-                                       </VBox.margin>
-                                    </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Materials:">
                                        <font>
                                           <Font size="18.0" />
@@ -124,7 +116,7 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="eTimeIntervalTextField">
+                                    <TextField fx:id="eTimeIntervalTextField" promptText="in months">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -134,11 +126,6 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </DatePicker>
-                                    <TextField fx:id="sizeTextField">
-                                       <VBox.margin>
-                                          <Insets right="20.0" top="12.0" />
-                                       </VBox.margin>
-                                    </TextField>
                                     <TextField fx:id="materialsTextField">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
@@ -334,7 +321,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="11.0" />
+                                          <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Bathrooms:">
@@ -342,7 +329,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="11.0" />
+                                          <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Romms with plumbing:">
@@ -350,7 +337,15 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="11.0" />
+                                          <Insets right="10.0" top="12.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
                                     <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Is new build:">
@@ -358,7 +353,7 @@
                                           <Font size="18.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets right="10.0" top="11.0" />
+                                          <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
                                  </children>
@@ -367,7 +362,7 @@
                                  <children>
                                     <TextField fx:id="kitchensTextField">
                                        <VBox.margin>
-                                          <Insets right="20.0" top="11.0" />
+                                          <Insets right="20.0" top="13.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <TextField fx:id="bathroomsTextField">
@@ -375,7 +370,12 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="plumbingTextField">
+                                    <TextField fx:id="resPlumbingTextField">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="12.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="resSizeTextField" promptText="square meters">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -448,12 +448,12 @@
                               </VBox>
                               <VBox prefHeight="434.0" prefWidth="377.0">
                                  <children>
-                                    <TextField fx:id="lengthTextField">
+                                    <TextField fx:id="lengthTextField" promptText="in meters">
                                        <VBox.margin>
                                           <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="widthTextField">
+                                    <TextField fx:id="widthTextField" promptText="in meters">
                                        <VBox.margin>
                                           <Insets right="20.0" top="11.0" />
                                        </VBox.margin>
@@ -476,6 +476,111 @@
                   </AnchorPane>
                </content>
             </Tab>
+            <Tab fx:id="commercialTab" text="Commercial">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
+                     <children>
+                        <HBox prefHeight="436.0" prefWidth="597.0">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="510.0" prefWidth="220.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intended use:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Floors:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="434.0" prefWidth="377.0">
+                                 <children>
+                                    <TextField fx:id="comUseTextField">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="11.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="comFloorsTextField">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="12.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="comSizeTextField" promptText="square meters">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="12.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="industrialTab" text="Industrial">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
+                     <children>
+                        <HBox prefHeight="436.0" prefWidth="597.0">
+                           <children>
+                              <VBox alignment="TOP_RIGHT" prefHeight="510.0" prefWidth="220.0">
+                                 <children>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Intended use:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="10.0" />
+                                       </VBox.margin>
+                                    </Text>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="434.0" prefWidth="377.0">
+                                 <children>
+                                    <TextField fx:id="indUseTextField">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="11.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <TextField fx:id="indSizeTextField" promptText="square meters">
+                                       <VBox.margin>
+                                          <Insets right="20.0" top="12.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
         </tabs>
       </TabPane>
       <HBox prefHeight="43.0" prefWidth="597.0" />
@@ -485,6 +590,6 @@
             <Button mnemonicParsing="false" onAction="#createButtonPressed" text="Create" />
          </children>
       </HBox>
-      <Label prefHeight="17.0" prefWidth="610.0" text="ERR" />
+      <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="610.0" textAlignment="CENTER" textFill="RED" />
    </children>
 </VBox>

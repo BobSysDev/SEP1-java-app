@@ -26,7 +26,7 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="292.0" prefWidth="185.0">
                                  <children>
-                                    <Button mnemonicParsing="false" text="Export projects to XML">
+                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" text="Export projects to XML">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
@@ -101,7 +101,7 @@
                                                 <Insets left="10.0" />
                                              </HBox.margin>
                                           </Button>
-                                          <Button alignment="TOP_RIGHT" mnemonicParsing="false" text="Filter" textAlignment="RIGHT">
+                                          <Button alignment="TOP_RIGHT" mnemonicParsing="false" onAction="#filterButtonPressed" text="Filter" textAlignment="RIGHT">
                                              <HBox.margin>
                                                 <Insets left="20.0" right="20.0" />
                                              </HBox.margin>
@@ -146,7 +146,12 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="505.0" text="ERR:" />
+            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="369.0" text="ERR:" />
+            <Button fx:id="detailsButton" disable="true" mnemonicParsing="false" onAction="#detailsButtonPressed" prefHeight="25.0" prefWidth="74.0" text="Details...">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
             <Button mnemonicParsing="false" onAction="#newProjectButtonPressed" prefHeight="25.0" prefWidth="104.0" text="New Project">
                <HBox.margin>
                   <Insets right="20.0" />

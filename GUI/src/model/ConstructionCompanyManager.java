@@ -18,6 +18,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
   private BinaryReaderWriter binaryFileInterface;
   private XMLReaderWriter xmlFileInterface;
   private static final String BINARY_FILE_PATH_PROJECTS = "projectDB.bin";
+  private static final String XML_FILE_PATH_PROJECTS = "projectDB.xml";
   private static final String BINARY_FILE_PATH_CUSTOMERS = "customerDB.bin";
 
   public ConstructionCompanyManager()
@@ -107,6 +108,15 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
     catch (IOException e){
       System.out.println("ERROR: IOException has occurred while writing. Check the parameters. Printout: \n" + e);
+    }
+  }
+
+  @Override public void writeProjectsToXMLFile(){
+    try{
+      xmlFileInterface.writeProjectList(XML_FILE_PATH_PROJECTS, projectList);
+    }
+    catch (IOException e){
+      System.out.println("ERROR: IOException has occurred while writing to the XML file. Check the parameters. Printout: \n" + e);
     }
   }
 

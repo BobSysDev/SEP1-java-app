@@ -13,7 +13,7 @@ public class ViewHandler
   private Stage primaryStage;
   private model.ConstructionCompanyModel model;
   private ProjectViewController projectViewController;
-//  private DetailsViewController detailsViewController;
+  private DetailsViewController detailsViewController;
 //  private EditDetailsViewController editDetailsViewController;
   private NewProjectViewController newProjectViewController;
   private SelectNewProjectViewController selectNewProjectViewController;
@@ -37,9 +37,9 @@ public class ViewHandler
       case("projects"):
         root = loadProjectView("ProjectView.fxml");
         break;
-//      case("details"):
-//        root = loadDetailsView("DetailsView.fxml");
-//        break;
+      case("details"):
+        root = loadDetailsView("DetailsView.fxml");
+        break;
 //      case("edit details"):
 //        root = loadEditDetailsView("EditDetailsView.fxml");
 //        break;
@@ -121,6 +121,25 @@ public class ViewHandler
     }
     return root;
   }
+
+  private Region loadDetailsView(String fxmlFile)
+  {
+    Region root = null;
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource(fxmlFile));
+      root = loader.load();
+      detailsViewController = loader.getController();
+      detailsViewController.init(root, model, this);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+    return root;
+  }
+
 
 
 }

@@ -1,5 +1,8 @@
 package view;
 
+import javafx.event.ActionEvent;
+import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
@@ -8,8 +11,7 @@ import model.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
-
-
+import javafx.event.Event;
 import java.util.Optional;
 
 public class ProjectViewController
@@ -27,6 +29,7 @@ public class ProjectViewController
   @FXML private TableColumn<ProjectViewModel, String> ongoingNameColumn;
   @FXML private TableColumn<ProjectViewModel, String> ongoingDateColumn;
 
+  @FXML private Button detailsButton;
   @FXML private Label errorLabel;
 
   private Region root;
@@ -75,6 +78,18 @@ public class ProjectViewController
     viewHandler.openView("select new");
   }
 
+  @FXML public void exportProjectsToXMLButtonPressed(){
+    model.writeProjectsToXMLFile();
+  }
 
+  @FXML public void detailsButtonPressed(){
+    viewHandler.openView("details");
+  }
 
+  @FXML public void filterButtonPressed(){
+    detailsButton.setDisable(false);
+  }
+//  @Override public void handle(ActionEvent event)
+//  {
+//  }
 }

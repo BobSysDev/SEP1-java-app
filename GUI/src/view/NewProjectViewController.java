@@ -21,6 +21,8 @@ public class NewProjectViewController
   @FXML private Tab projectTab;
   @FXML private Tab customerTab;
   @FXML private Tab residentialTab;
+  @FXML private Tab commercialTab;
+  @FXML private Tab industrialTab;
   @FXML private Tab roadTab;
 
   //project tab
@@ -30,7 +32,6 @@ public class NewProjectViewController
   @FXML private TextField eManHoursTextField;
   @FXML private TextField eTimeIntervalTextField;
   @FXML private DatePicker startDatePicker;
-  @FXML private TextField sizeTextField;
   @FXML private TextField materialsTextField;
   @FXML private TextArea detailsTextArea;
 
@@ -54,9 +55,15 @@ public class NewProjectViewController
   //residential tab
   @FXML private TextField kitchensTextField;
   @FXML private TextField bathroomsTextField;
-  @FXML private TextField plumbingTextField;
+  @FXML private TextField resPlumbingTextField;
+  @FXML private TextField resSizeTextField;
   @FXML private RadioButton yesRadioButton;
   @FXML private RadioButton noRadioButton;
+
+  //commercial tab
+  @FXML private TextField comUseTextField;
+  @FXML private TextField comFloorsTextField;
+  @FXML private TextField comSizeTextField;
 
   //road tab
   @FXML private TextField lengthTextField;
@@ -64,7 +71,11 @@ public class NewProjectViewController
   @FXML private TextField bridgesTextField;
   @FXML private TextField obstaclesTextField;
 
+  //industrial tab
+  @FXML private TextField indUseTextField;
+  @FXML private TextField indSizeTextField;
 
+  @FXML private Label errorLabel;
 
   private Region root;
   private ConstructionCompanyModel model;
@@ -98,26 +109,32 @@ public class NewProjectViewController
     switch (type){
       case ("Residential"):
         typeLabel.setText(type);
-        eBudgetTextField.setText("400000");
-        eManHoursTextField.setText("20000");
+        eBudgetTextField.setText("300000");
+        eTimeIntervalTextField.setText("9");
+        kitchensTextField.setText("1");
+        bathroomsTextField.setText("1");
+        resPlumbingTextField.setText("1");
         materialsTextField.setText("Bricks, Concrete, Wood");
         break;
       case ("Commercial"):
         typeLabel.setText(type);
-        eBudgetTextField.setText("600000");
-        eManHoursTextField.setText("30000");
+        eBudgetTextField.setText("1250000");
+        eTimeIntervalTextField.setText("18");
+        comFloorsTextField.setText("1");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
         break;
       case ("Industrial"):
         typeLabel.setText(type);
-        eBudgetTextField.setText("800000");
-        eManHoursTextField.setText("60 000");
+        eBudgetTextField.setText("6000000");
+        eTimeIntervalTextField.setText("30");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
         break;
       case ("Road"):
         typeLabel.setText(type);
-        eBudgetTextField.setText("500000");
-        eManHoursTextField.setText("30000");
+        eBudgetTextField.setText("3000000");
+        eTimeIntervalTextField.setText("18");
+        bridgesTextField.setText("0");
+        obstaclesTextField.setText("none");
         materialsTextField.setText("Concrete, Asphalt");
         break;
 
@@ -128,13 +145,24 @@ public class NewProjectViewController
     switch (type){
       case ("Residential"):
         roadTab.getTabPane().getTabs().remove(roadTab);
+        commercialTab.getTabPane().getTabs().remove(commercialTab);
+        industrialTab.getTabPane().getTabs().remove(industrialTab);
+
         break;
-      case ("Commercial"), ("Industrial"):
+      case ("Commercial"):
         roadTab.getTabPane().getTabs().remove(roadTab);
         residentialTab.getTabPane().getTabs().remove(residentialTab);
+        industrialTab.getTabPane().getTabs().remove(industrialTab);
+        break;
+      case ("Industrial"):
+        residentialTab.getTabPane().getTabs().remove(residentialTab);
+        roadTab.getTabPane().getTabs().remove(roadTab);
+        commercialTab.getTabPane().getTabs().remove(commercialTab);
         break;
       case ("Road"):
         residentialTab.getTabPane().getTabs().remove(residentialTab);
+        commercialTab.getTabPane().getTabs().remove(commercialTab);
+        industrialTab.getTabPane().getTabs().remove(industrialTab);
         break;
 
     }
@@ -192,7 +220,7 @@ public class NewProjectViewController
     //typeLabel.clear();
     eBudgetTextField.clear();
     eManHoursTextField.clear();
-    sizeTextField.clear();
+    //sizeTextField.clear();
     materialsTextField.clear();
     //detailsTextField.clear();
 
@@ -233,17 +261,19 @@ public class NewProjectViewController
             Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
             Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),
+            materialsTextField.getText(),Double.parseDouble(resSizeTextField.getText()),
             Integer.parseInt(kitchensTextField.getText()), Integer.parseInt(bathroomsTextField.getText()),
-            Integer.parseInt(plumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
+            Integer.parseInt(resPlumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
         model.addProject(resProject);
+        model.writeProjectsToBinaryFile();
         break;
       case ("Commercial"):
         Project comProject = new CommercialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
             Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
             Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),useTextField.getText(),getFormattedStartDate(),customer);
+            materialsTextField.getText(),Double.parseDouble(comSizeTextField.getText()),comUseTextField.getText(),
+            Integer.parseInt(comFloorsTextField.getText()), getFormattedStartDate(),customer);
         model.addProject(comProject);
         break;
       case ("Industrial"):
@@ -251,7 +281,7 @@ public class NewProjectViewController
             Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
             Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(sizeTextField.getText()),typeLabel.getText(),getFormattedStartDate(),customer);
+            materialsTextField.getText(),Double.parseDouble(indSizeTextField.getText()),indUseTextField.getText(),getFormattedStartDate(),customer);
         model.addProject(indProject);
         break;
       case ("Road"):
@@ -260,9 +290,11 @@ public class NewProjectViewController
             Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
             Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
             materialsTextField.getText(),Double.parseDouble(lengthTextField.getText()),Double.parseDouble(widthTextField.getText()),
-            Integer.parseInt(obstaclesTextField.getText()),obstaclesTextField.getText(),typeLabel.getText(),getFormattedStartDate(),customer);
+            Integer.parseInt(bridgesTextField.getText()),obstaclesTextField.getText(),getFormattedStartDate(),customer);
+        model.addProject(roadProject);
         break;
     }
+    model.writeProjectsToBinaryFile();
     viewHandler.openView("projects");
   }
 }

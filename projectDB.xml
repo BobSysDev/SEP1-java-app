@@ -2,14 +2,14 @@
 <allProjects>
   <project type="Residential">
     <projectId>1</projectId>
-    <title>ZThis guy's house</title>
+    <title>This guy's house</title>
     <budgetEstimate>500.0</budgetEstimate>
     <budget>420.25</budget>
     <timeEstimate>7</timeEstimate>
     <timeInterval>5</timeInterval>
     <manHoursEstimate>500.0</manHoursEstimate>
     <manHours>540.0</manHours>
-    <isArchived>false</isArchived>
+    <isArchived>true</isArchived>
     <startDate>01.02.2021</startDate>
     <customer>
       <isPrivate>true</isPrivate>
@@ -34,66 +34,28 @@
       <numberOfBathrooms>2</numberOfBathrooms>
       <numberOfOtherRoomsWithPlumbing>1</numberOfOtherRoomsWithPlumbing>
       <isNewBuilding>true</isNewBuilding>
-      <type>house</type>
     </residential>
   </project>
   <project type="Commercial">
     <projectId>2</projectId>
-    <title>BIkea Horsens</title>
+    <title>Ikea Horsens</title>
     <budgetEstimate>5.0</budgetEstimate>
-    <budget>120.0</budget>
+    <budget>123456.0</budget>
     <timeEstimate>9</timeEstimate>
     <timeInterval>12</timeInterval>
     <manHoursEstimate>800.0</manHoursEstimate>
     <manHours>5200.0</manHours>
     <isArchived>false</isArchived>
-    <startDate>04.12.2020</startDate>
-    <customer>
-      <isPrivate>false</isPrivate>
-      <name>
-        <firstName>Mark</firstName>
-        <middleName></middleName>
-        <lastName>Stone</lastName>
-      </name>
-      <email>
-        <username>markstone</username>
-        <host>totallylegitcompany</host>
-        <domain>net</domain>
-      </email>
-      <phone>
-        <countryCode>48</countryCode>
-        <number>123456789</number>
-      </phone>
-      <customerCompany>
-        <name>Totally Legit Company</name>
-        <CVR>213769420</CVR>
-      </customerCompany>
-    </customer>
-    <commercial>
-      <size>69420.0</size>
-      <type>Retail store</type>
-    </commercial>
-  </project>
-  <project type="Industrial">
-    <projectId>3</projectId>
-    <title>AThe factory</title>
-    <budgetEstimate>5.0</budgetEstimate>
-    <budget>69.0</budget>
-    <timeEstimate>9</timeEstimate>
-    <timeInterval>12</timeInterval>
-    <manHoursEstimate>800.0</manHoursEstimate>
-    <manHours>5200.0</manHours>
-    <isArchived>false</isArchived>
-    <startDate>24.12.2023</startDate>
+    <startDate>03.02.2021</startDate>
     <customer>
       <isPrivate>true</isPrivate>
       <name>
-        <firstName>Alex</firstName>
+        <firstName>John</firstName>
         <middleName></middleName>
-        <lastName>Smith</lastName>
+        <lastName>Doe</lastName>
       </name>
       <email>
-        <username>alexsmith</username>
+        <username>johndoe</username>
         <host>gmail</host>
         <domain>com</domain>
       </email>
@@ -102,49 +64,46 @@
         <number>12345678</number>
       </phone>
     </customer>
-    <industrial>
+    <commercial>
       <size>69420.0</size>
-      <type>Factory</type>
-    </industrial>
+      <numberOfFloors>2</numberOfFloors>
+      <type>Commercial</type>
+    </commercial>
   </project>
-  <project type="Roadwork">
-    <projectId>4</projectId>
-    <title>GThe road</title>
-    <budgetEstimate>5.0</budgetEstimate>
-    <budget>75.3</budget>
+  <project type="Residential">
+    <projectId>3</projectId>
+    <title>Family house</title>
+    <budgetEstimate>300000.0</budgetEstimate>
+    <budget>300000.0</budget>
     <timeEstimate>9</timeEstimate>
-    <timeInterval>12</timeInterval>
-    <manHoursEstimate>800.0</manHoursEstimate>
-    <manHours>5200.0</manHours>
+    <timeInterval>9</timeInterval>
+    <manHoursEstimate>23123.0</manHoursEstimate>
+    <manHours>23123.0</manHours>
     <isArchived>false</isArchived>
-    <startDate>15.01.2020</startDate>
+    <startDate>07.12.2023</startDate>
     <customer>
-      <isPrivate>false</isPrivate>
+      <isPrivate>true</isPrivate>
       <name>
-        <firstName>Gordon</firstName>
-        <middleName></middleName>
-        <lastName>Freeman</lastName>
+        <firstName>asdasd</firstName>
+        <middleName>asdasd</middleName>
+        <lastName>asd</lastName>
       </name>
       <email>
-        <username>drfreeman</username>
-        <host>blackmesa</host>
-        <domain>org</domain>
+        <username>asdas</username>
+        <host>das</host>
+        <domain>dasd</domain>
       </email>
       <phone>
-        <countryCode>00</countryCode>
-        <number>111111111</number>
+        <countryCode>123</countryCode>
+        <number>123123123</number>
       </phone>
-      <customerCompany>
-        <name>Black Mesa</name>
-        <CVR>123456789</CVR>
-      </customerCompany>
     </customer>
-    <roadwork>
-      <length>2000.0</length>
-      <width>10.0</width>
-      <numberOfBridges>2</numberOfBridges>
-      <obstacles>mountains</obstacles>
-      <type>highway</type>
-    </roadwork>
+    <residential>
+      <size>234.0</size>
+      <numberOfKitchens>1</numberOfKitchens>
+      <numberOfBathrooms>1</numberOfBathrooms>
+      <numberOfOtherRoomsWithPlumbing>1</numberOfOtherRoomsWithPlumbing>
+      <isNewBuilding>true</isNewBuilding>
+    </residential>
   </project>
 </allProjects>
