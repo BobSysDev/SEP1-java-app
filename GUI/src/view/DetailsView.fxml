@@ -8,32 +8,39 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsViewController">
+<VBox prefHeight="699.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsViewController">
    <children>
       <HBox prefHeight="41.0" prefWidth="600.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="600.0">
          <children>
-            <Label fx:id="headerTypeLabel" text="type">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <Label fx:id="headerNameLabel" text="name">
-               <padding>
-                  <Insets left="10.0" />
-               </padding>
-               <font>
-                  <Font name="System Bold" size="16.0" />
-               </font>
-            </Label>
-            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
+            <HBox prefHeight="39.0" prefWidth="355.0">
+               <children>
+                  <Label fx:id="headerTypeLabel" prefHeight="25.0" prefWidth="147.0" text="type">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="headerNameLabel" prefHeight="25.0" prefWidth="258.0" text="name">
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                     <font>
+                        <Font name="System Bold" size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="39.0" prefWidth="215.0" spacing="10.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#archiveButtonPressed" text="Archive" />
                   <Button mnemonicParsing="false" onAction="#editButtonPressed" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" text="Delete">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
                </children>
             </HBox>
          </children>
@@ -45,40 +52,133 @@
          <children>
             <VBox prefHeight="102.0" prefWidth="296.0">
                <children>
-                  <Label fx:id="nameLabel" text="name">
+                  <Label fx:id="nameLabel" prefHeight="17.0" prefWidth="248.0" text="name">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="typeLabel" text="type">
+                  <Label fx:id="typeLabel" prefHeight="17.0" prefWidth="247.0" text="type">
                      <VBox.margin>
                         <Insets left="10.0" top="10.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="clientLabel" text="client">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
-                  <Label fx:id="idLabel" text="id">
-                     <VBox.margin>
-                        <Insets left="10.0" top="10.0" />
-                     </VBox.margin>
-                  </Label>
+                  <HBox prefHeight="100.0" prefWidth="200.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ID:">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="idLabel" prefHeight="17.0" prefWidth="245.0" text="id">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="0.0" prefWidth="296.0">
+                     <children>
+                        <Label fx:id="clientLabel" prefHeight="17.0" prefWidth="163.0" text="client">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="0.0" prefWidth="296.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone:">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="phoneLabel" prefHeight="17.0" prefWidth="163.0" text="phone">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="0.0" prefWidth="296.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="emailLabel" prefHeight="17.0" prefWidth="163.0" text="email">
+                           <HBox.margin>
+                              <Insets left="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
             <VBox alignment="TOP_RIGHT" prefHeight="102.0" prefWidth="302.0">
                <children>
-                  <Label fx:id="startDateLabel" text="starting date">
+                  <HBox alignment="TOP_RIGHT" prefHeight="12.0" prefWidth="302.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Start date:">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="startDateLabel" prefHeight="17.0" prefWidth="90.0" text="starting date" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
                      <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Label>
-                  <Label fx:id="durationLabel" text="duration">
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="7.0" prefWidth="302.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="durationLabel" prefHeight="17.0" prefWidth="90.0" text="duration" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
                      <VBox.margin>
-                        <Insets right="10.0" top="10.0" />
+                        <Insets />
                      </VBox.margin>
-                  </Label>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="7.0" prefWidth="302.0">
+                     <children>
+                        <Text fx:id="companyNameText" strokeType="OUTSIDE" strokeWidth="0.0" text="Company name:">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="companyNameLabel" prefHeight="17.0" prefWidth="90.0" text="c name" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox alignment="TOP_RIGHT" prefHeight="7.0" prefWidth="302.0">
+                     <children>
+                        <Text fx:id="cvrText" strokeType="OUTSIDE" strokeWidth="0.0" text="CVR:">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="cvrLabel" prefHeight="17.0" prefWidth="90.0" text="cvr" textAlignment="RIGHT">
+                           <HBox.margin>
+                              <Insets right="10.0" top="10.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
@@ -104,57 +204,57 @@
             </VBox>
             <VBox prefHeight="106.0" prefWidth="306.0">
                <children>
-                  <HBox alignment="TOP_CENTER" prefHeight="22.0" prefWidth="306.0" spacing="20.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="306.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resources">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Resources" wrappingWidth="90.44921875">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated" wrappingWidth="90.484375">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Actual">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Actual" wrappingWidth="90.15234375">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
                         </Text>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="22.0" prefWidth="306.0" spacing="20.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="306.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Man-hours">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Man-hours" wrappingWidth="90.34765625">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label fx:id="eManHoursLabel" text="emanhours">
+                        <Label fx:id="eManHoursLabel" prefHeight="17.0" prefWidth="90.0" text="emanhours">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="aManHoursLabel" text="amanhours">
+                        <Label fx:id="aManHoursLabel" prefHeight="17.0" prefWidth="90.0" text="amanhours">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
                         </Label>
                      </children>
                   </HBox>
-                  <HBox alignment="TOP_CENTER" prefHeight="22.0" prefWidth="306.0" spacing="20.0">
+                  <HBox alignment="TOP_RIGHT" prefHeight="22.0" prefWidth="306.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Budget">
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Budget" wrappingWidth="90.14453125">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Text>
-                        <Label fx:id="eBudgetLabel" text="ebudgrt">
+                        <Label fx:id="eBudgetLabel" prefHeight="17.0" prefWidth="90.0" text="ebudgrt">
                            <HBox.margin>
-                              <Insets top="10.0" />
+                              <Insets right="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <Label fx:id="aBudgetLabel" text="abudget">
+                        <Label fx:id="aBudgetLabel" prefHeight="17.0" prefWidth="89.0" text="abudget">
                            <HBox.margin>
                               <Insets top="10.0" />
                            </HBox.margin>
@@ -164,6 +264,9 @@
                </children>
             </VBox>
          </children>
+         <VBox.margin>
+            <Insets top="10.0" />
+         </VBox.margin>
       </HBox>
       <HBox prefHeight="74.0" prefWidth="600.0">
          <children>
@@ -171,7 +274,7 @@
                <children>
                   <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of bathrooms:">
+                        <Text fx:id="bathroomsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of bathrooms:">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
@@ -185,7 +288,7 @@
                   </HBox>
                   <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Number of kitchens:">
+                        <Text fx:id="kitchensText" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of kitchens:">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
@@ -199,12 +302,40 @@
                   </HBox>
                   <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms with plumbing:">
+                        <Text fx:id="plumbingText" strokeType="OUTSIDE" strokeWidth="0.0" text="Rooms with plumbing:">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
                         </Text>
                         <Label fx:id="plumbingLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="intendedUseText" strokeType="OUTSIDE" strokeWidth="0.0" text="Intended use:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="intendedUseLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="floorsText" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of floors:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="floorsLabel" text="Label">
                            <HBox.margin>
                               <Insets top="5.0" />
                            </HBox.margin>
@@ -217,7 +348,7 @@
                <children>
                   <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
+                        <Text fx:id="sizeText" strokeType="OUTSIDE" strokeWidth="0.0" text="Size:">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
@@ -231,7 +362,7 @@
                   </HBox>
                   <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
                      <children>
-                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="New building:">
+                        <Text fx:id="newBuildText" strokeType="OUTSIDE" strokeWidth="0.0" text="New building:">
                            <HBox.margin>
                               <Insets left="5.0" top="5.0" />
                            </HBox.margin>
@@ -243,26 +374,85 @@
                         </Label>
                      </children>
                   </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="lengthText" strokeType="OUTSIDE" strokeWidth="0.0" text="Length:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="lengthLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="widthText" strokeType="OUTSIDE" strokeWidth="0.0" text="Width:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="widthLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="bridgesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Number of bridges:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="bridgesLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="17.0" prefWidth="301.0" spacing="10.0">
+                     <children>
+                        <Text fx:id="obstaclesText" strokeType="OUTSIDE" strokeWidth="0.0" text="Obstacles:">
+                           <HBox.margin>
+                              <Insets left="5.0" top="5.0" />
+                           </HBox.margin>
+                        </Text>
+                        <Label fx:id="obstaclesLabel" text="Label">
+                           <HBox.margin>
+                              <Insets top="5.0" />
+                           </HBox.margin>
+                        </Label>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox prefHeight="106.0" prefWidth="600.0">
+      <VBox prefHeight="141.0" prefWidth="600.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Details" textAlignment="CENTER" wrappingWidth="598.63671875">
                <font>
                   <Font name="System Bold" size="15.0" />
                </font>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
             </Text>
-            <Label fx:id="detailsLabel" prefHeight="98.0" prefWidth="711.0" text="Label" textAlignment="CENTER">
+            <Label fx:id="detailsLabel" prefHeight="97.0" prefWidth="580.0" text="Label" textAlignment="CENTER">
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </VBox.margin></Label>
          </children>
       </VBox>
-      <HBox prefHeight="36.0" prefWidth="600.0">
+      <HBox prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" text="Back">
+            <Button mnemonicParsing="false" onAction="#backButtonPressed" text="Back">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

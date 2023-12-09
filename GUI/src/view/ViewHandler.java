@@ -17,6 +17,7 @@ public class ViewHandler
 //  private EditDetailsViewController editDetailsViewController;
   private NewProjectViewController newProjectViewController;
   private SelectNewProjectViewController selectNewProjectViewController;
+  private ProjectListViewModel viewModel;
 
   public ViewHandler(model.ConstructionCompanyModel model)
   {
@@ -131,7 +132,7 @@ public class ViewHandler
       loader.setLocation(getClass().getResource(fxmlFile));
       root = loader.load();
       detailsViewController = loader.getController();
-      detailsViewController.init(root, model, this);
+      detailsViewController.init(root, model, this, projectViewController, viewModel);
     }
     catch (Exception e)
     {

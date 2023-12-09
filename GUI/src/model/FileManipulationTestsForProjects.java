@@ -9,7 +9,7 @@ public class FileManipulationTestsForProjects
     ProjectList projectList = new ProjectList();
     Customer customerA = new Customer(new Name("John", "Doe"), new Phone("45", "12345678"), new Email("johndoe", "gmail", "com"));
     ResidentialProject residentialProject = new ResidentialProject("This guy's house", 420.25, 500, 5, 7, 540, 500, 0, true, "none", "rock and stone", 120, 1, 2, 1, true, "01.02.2021", customerA);
-    CommercialProject commercialProject = new CommercialProject("Ikea Horsens", 123456, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420, "Retail store", 2, "03.02.2021", customerA);
+    CommercialProject commercialProject = new CommercialProject("Ikea Horsens", 123456, 5, 12, 9, 5200, 800, 1, false, "none", "mostly concrete", 69420, "Retail store", 2, "03.02.2021", customerA);
     residentialProject.setCustomer(customerA);
 
     projectList.addProject(residentialProject);

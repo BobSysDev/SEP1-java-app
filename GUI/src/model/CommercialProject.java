@@ -40,4 +40,9 @@ public class CommercialProject extends Project implements Serializable {
     public void setIntendedUse(String intendedUse) {
         this.intendedUse = intendedUse;
     }
+
+    public String getIntendedUse() {
+        return intendedUse;
+    }
+
 }

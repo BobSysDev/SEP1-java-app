@@ -28,6 +28,9 @@ public class ProjectListViewModel
     }
   }
 
+  public ProjectViewModel getProjectByID(int id){
+    return getList().get(id-1);
+  }
   public void add(Project project){
     list.add(new ProjectViewModel(project));
   }
