@@ -14,7 +14,7 @@ public class ViewHandler
   private model.ConstructionCompanyModel model;
   private ProjectViewController projectViewController;
   private DetailsViewController detailsViewController;
-//  private EditDetailsViewController editDetailsViewController;
+  private EditDetailsViewController editDetailsViewController;
   private NewProjectViewController newProjectViewController;
   private SelectNewProjectViewController selectNewProjectViewController;
   private ProjectListViewModel viewModel;
@@ -41,9 +41,9 @@ public class ViewHandler
       case("details"):
         root = loadDetailsView("DetailsView.fxml");
         break;
-//      case("edit details"):
-//        root = loadEditDetailsView("EditDetailsView.fxml");
-//        break;
+      case("edit details"):
+        root = loadEditDetailsView("EditDetailsView.fxml");
+        break;
       case("select new"):
         root = loadSelectNewProjectView("SelectNewProjectView.fxml");
         break;
@@ -140,6 +140,25 @@ public class ViewHandler
     }
     return root;
   }
+
+  private Region loadEditDetailsView(String fxmlFile)
+  {
+    Region root = null;
+    try
+    {
+      FXMLLoader loader = new FXMLLoader();
+      loader.setLocation(getClass().getResource(fxmlFile));
+      root = loader.load();
+      editDetailsViewController = loader.getController();
+      editDetailsViewController.init(root, model, this, projectViewController, viewModel);
+    }
+    catch (Exception e)
+    {
+      e.printStackTrace();
+    }
+    return root;
+  }
+
 
 
 
