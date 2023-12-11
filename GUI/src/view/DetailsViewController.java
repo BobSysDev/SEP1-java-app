@@ -285,7 +285,13 @@ public class DetailsViewController
   @FXML public void editButtonPressed(){
     viewHandler.openView("edit details");
   }
-  @FXML public void deleteButtonPressed(){}
+  @FXML public void deleteButtonPressed(){
+    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+    Project project = model.getProjectByID(id);
+    model.removeProject(project);
+    model.writeProjectsToBinaryFile();
+    viewHandler.openView("projects");
+  }
   @FXML public void backButtonPressed(){
     viewHandler.openView("projects");
   }
