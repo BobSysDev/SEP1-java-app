@@ -70,7 +70,7 @@ public abstract class Project implements Serializable, Comparable<Project> {
         return budgetEstimate;
     }
 
-    public void setBudgetEstimate(int budgetEstimate) {
+    public void setBudgetEstimate(double budgetEstimate) {
         this.budgetEstimate = budgetEstimate;
     }
 

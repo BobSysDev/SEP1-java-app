@@ -18,12 +18,17 @@ public class EditDetailsViewController
 {
 
   //1st section
-  @FXML private TextField typeTextField;
+  @FXML private Label typeLabel;
   @FXML private TextField nameTextField;
   @FXML private Label idLabel;
-  @FXML private TextField clientTextField;
+  @FXML private TextField clientFTextField;
+  @FXML private TextField clientMTextField;
+  @FXML private TextField clientLTextField;
   @FXML private TextField phoneTextField;
-  @FXML private TextField emailTextField;
+  @FXML private TextField countryCodeTextField;
+  @FXML private TextField emailUTextField;
+  @FXML private TextField emailHTextField;
+  @FXML private TextField emailDTextField;
   @FXML private TextField startDateTextField;
   @FXML private TextField durationTextField;
   @FXML private TextField companyNameTextField;
@@ -39,6 +44,8 @@ public class EditDetailsViewController
   @FXML private TextField aBudgetTextField;
 
   //properties
+  @FXML private RadioButton yesRadioButton;
+  @FXML private RadioButton noRadioButton;
   @FXML private HBox rButtonsHBox;
   @FXML private TextField bathroomsTextField;
   @FXML private Text bathroomsText;
@@ -101,14 +108,19 @@ public class EditDetailsViewController
 
     //setting the labels to selected project properties
     nameTextField.setText(project.getTitle());
-    typeTextField.setText(project.getType());
+    typeLabel.setText(project.getType());
     idLabel.setText(String.valueOf(project.getProjectID()));
-    clientTextField.setText(project.getCustomer().getName().getFullName());
-    phoneTextField.setText(project.getCustomer().getPhone().getFullPhoneNumber());
-    emailTextField.setText(project.getCustomer().getEmail().getFullEmail());
+    clientFTextField.setText(project.getCustomer().getName().getFirstName());
+    clientMTextField.setText(project.getCustomer().getName().getMiddleName());
+    clientLTextField.setText(project.getCustomer().getName().getLastName());
+    phoneTextField.setText(project.getCustomer().getPhone().getPhoneNumber());
+    countryCodeTextField.setText(project.getCustomer().getPhone().getCountryCode());
+    emailUTextField.setText(project.getCustomer().getEmail().getUser());
+    emailHTextField.setText(project.getCustomer().getEmail().getHost());
+    emailDTextField.setText(project.getCustomer().getEmail().getDomain());
 
     if (project.getCustomer().getCompany() != null){
-      companyNameTextField.setText(project.getCustomer().getCompany().getFullCompanyName());
+      companyNameTextField.setText(project.getCustomer().getCompany().getName());
       cvrTextField.setText(project.getCustomer().getCompany().getCVR());
     }
     else {
@@ -140,9 +152,11 @@ public class EditDetailsViewController
         kitchensTextField.setText(String.valueOf(residentialProject.getNumberOfKitchens()));
         plumbingTextField.setText(String.valueOf(residentialProject.getOtherRoomsWithPlumbing()));
         sizeTextField.setText(String.valueOf(residentialProject.getSize()));
-        String newBuild = "Yes";
-        if (!residentialProject.isNewBuild()){
-          newBuild = "No";
+        if (residentialProject.isNewBuild()){
+          yesRadioButton.setSelected(true);
+        }
+        else {
+          noRadioButton.setSelected(true);
         }
         intendedUseTextField.setVisible(false);
         intendedUseText.setVisible(false);
@@ -237,8 +251,66 @@ public class EditDetailsViewController
   @FXML public void discardButtonPressed(){
     viewHandler.openView("details");
   };
-  @FXML public void saveButtonPressed(){};
-  @FXML public void isNewBuild(){};
+  @FXML public void saveButtonPressed(){
+    //getting the selected project from projectListController window
+    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+    Project project = model.getProject(id-1);
+    String type = project.getType();
+
+    //saving and overwriting the project with new or old information
+    project.setTitle(nameTextField.getText());
+
+    //setting name
+    project.getCustomer().getName().setFirstName(clientFTextField.getText());
+    project.getCustomer().getName().setMiddleName(clientMTextField.getText());
+    project.getCustomer().getName().setLastName(clientLTextField.getText());
+
+    //setting phone
+    project.getCustomer().getPhone().setCountryCode(countryCodeTextField.getText());
+    project.getCustomer().getPhone().setPhoneNumber(phoneTextField.getText());
+
+    //setting email
+    project.getCustomer().getEmail().setUser(emailUTextField.getText());
+    project.getCustomer().getEmail().setHost(emailHTextField.getText());
+    project.getCustomer().getEmail().setDomain(emailDTextField.getText());
+
+    //setting dates
+    project.setStartDate(startDateTextField.getText());
+    project.setTimeEstimate(Integer.parseInt(durationTextField.getText()));
+
+    //setting company if possible
+    if (!companyNameTextField.getText().isEmpty() || !cvrTextField.getText().isEmpty()){
+      project.getCustomer().getCompany().setName(companyNameTextField.getText());
+      project.getCustomer().getCompany().setCVR(cvrTextField.getText());
+    }
+
+    //setting materials
+    project.setMaterials(materialsTextArea.getText());
+
+    //setting table estimate/actual
+    project.setManHoursEstimate(Double.parseDouble(eManHoursTextField.getText()));
+    project.setManHours(Double.parseDouble(aManHoursTextField.getText()));
+    project.setBudgetEstimate(Double.parseDouble(eBudgetTextField.getText()));
+    project.setBudget(Double.parseDouble(aBudgetTextField.getText()));
+
+    //setting extra info depending on project type
+    switch (type){
+      case "Residential":
+        ResidentialProject residentialProject = (ResidentialProject) project;
+        residentialProject.setNumberOfBathrooms(Integer.parseInt(bathroomsTextField.getText()));
+        residentialProject.setNumberOfKitchens(Integer.parseInt(kitchensTextField.getText()));
+        residentialProject.setOtherRoomsWithPlumbing(Integer.parseInt(plumbingTextField.getText()));
+        residentialProject.setSize(Double.parseDouble(sizeTextField.getText()));
+        if (yesRadioButton.isSelected()){
+          residentialProject.setNewBuild(true);
+        }
+        else {
+          residentialProject.setNewBuild(false);
+        }
+    }
+    model.writeProjectsToBinaryFile();
+    viewHandler.openView("details");
+  };
 
 
 }
