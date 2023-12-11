@@ -28,7 +28,7 @@ public class IndustrialProject extends Project implements Serializable {
         return "Industrial";
     }
 
-    public void setType(String intendedUse) {
+    public void setIntendedUse(String intendedUse) {
         this.intendedUse = intendedUse;
     }
     public String getIntendedUse(){

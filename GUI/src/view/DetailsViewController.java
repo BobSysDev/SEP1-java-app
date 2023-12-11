@@ -19,6 +19,10 @@ public class DetailsViewController
   @FXML private Label headerTypeLabel;
   @FXML private Label headerNameLabel;
 
+  //buttons
+  @FXML private Button makeOngoingButton;
+  @FXML private Button archiveButton;
+
   //1st section
   @FXML private Label typeLabel;
   @FXML private Label nameLabel;
@@ -91,6 +95,7 @@ public class DetailsViewController
     this.viewModel = viewModel;
 
     setProjectDetails();
+    displayButtons();
   }
 
   public void reset(){
@@ -247,7 +252,36 @@ public class DetailsViewController
     }
 
   }
-  @FXML public void archiveButtonPressed(){}
+
+  public void displayButtons(){
+    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+    Project project = model.getProject(id-1);
+    if (project.isArchived()){
+      makeOngoingButton.setVisible(true);
+      archiveButton.setVisible(false);
+    }
+    else {
+      makeOngoingButton.setVisible(false);
+      archiveButton.setVisible(true);
+    }
+  }
+
+  @FXML public void archiveButtonPressed(){
+    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+    Project project = model.getProject(id-1);
+    project.setArchived(true);
+    model.writeProjectsToBinaryFile();
+    viewHandler.openView("projects");
+  }
+
+  @FXML public void makeOngoingButtonPressed(){
+    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+    Project project = model.getProject(id-1);
+    project.setArchived(false);
+    model.writeProjectsToBinaryFile();
+    viewHandler.openView("projects");
+
+  }
   @FXML public void editButtonPressed(){
     viewHandler.openView("edit details");
   }

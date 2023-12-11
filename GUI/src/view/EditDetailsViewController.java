@@ -307,6 +307,25 @@ public class EditDetailsViewController
         else {
           residentialProject.setNewBuild(false);
         }
+        break;
+      case "Commercial":
+        CommercialProject commercialProject = (CommercialProject) project;
+        commercialProject.setIntendedUse(intendedUseTextField.getText());
+        commercialProject.setSize(Double.parseDouble(sizeTextField.getText()));
+        commercialProject.setNumberOfFloors(Integer.parseInt(floorsTextField.getText()));
+        break;
+      case "Industrial":
+        IndustrialProject industrialProject = (IndustrialProject) project;
+        industrialProject.setIntendedUse(intendedUseTextField.getText());
+        industrialProject.setSize(Double.parseDouble(sizeTextField.getText()));
+        break;
+      case "Road":
+        RoadConstructionProject roadConstructionProject = (RoadConstructionProject) project;
+        roadConstructionProject.setLength(Double.parseDouble(lengthTextField.getText()));
+        roadConstructionProject.setWidth(Double.parseDouble(widthTextField.getText()));
+        roadConstructionProject.setNumberOfBridges(Integer.parseInt(bridgesTextField.getText()));
+        roadConstructionProject.setObstacles(obstaclesTextField.getText());
+        break;
     }
     model.writeProjectsToBinaryFile();
     viewHandler.openView("details");
