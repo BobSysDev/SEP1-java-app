@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Region;
@@ -12,7 +13,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.event.Event;
+
+import java.net.URL;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
 public class ProjectViewController
 {
@@ -20,6 +24,10 @@ public class ProjectViewController
   @FXML private Tab ongoingTab;
   @FXML private Tab pastTab;
   @FXML private Tab settingsTab;
+
+  @FXML private ChoiceBox<String> filterOngoingChoiceBox;
+  @FXML private ChoiceBox<String> filterPastChoiceBox;
+  private String[] types = {"Any","Residential","Commercial","Industrial","Road"};
 
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
@@ -49,6 +57,12 @@ public class ProjectViewController
     this.viewModel = new ProjectListViewModel(model, true);
     this.ongoingViewModel = new ProjectListViewModel(model, false);
 
+    //populating filter choice box
+    filterOngoingChoiceBox.getItems().addAll(types);
+    filterPastChoiceBox.getItems().addAll(types);
+    //setting action to choice box filter
+    filterOngoingChoiceBox.setOnAction(this::getFilterTypeOngoing);
+    filterPastChoiceBox.setOnAction(this::getFilterTypePast);
 
     typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
     nameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
@@ -67,7 +81,6 @@ public class ProjectViewController
     selectionModel.selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
       if (newSelection != null) {
         detailsButton.setDisable(false);
-        System.out.println(getProjectID(getSelectedTab()));
       } else {
         detailsButton.setDisable(true);
       }
@@ -96,9 +109,18 @@ public class ProjectViewController
     return root;
   }
 
-//  public ProjectViewModel getProjectByID(int id){
-//    return model.getProject(id - 1);
-//  }
+  public void getFilterTypeOngoing(ActionEvent event){
+    String type = filterOngoingChoiceBox.getValue();
+    System.out.println(type);
+    ongoingProjectListTable.setItems(ongoingViewModel.getList(type));
+  }
+
+  public void getFilterTypePast(ActionEvent event){
+    String type = filterPastChoiceBox.getValue();
+    projectListTable.setItems(viewModel.getList(type));
+  }
+
+
   public void selectDefaultTab(){
     tabPane.getSelectionModel().select(ongoingTab);
   }
@@ -145,7 +167,5 @@ public class ProjectViewController
     viewHandler.openView("details");
   }
 
-  @FXML public void filterButtonPressed(){
-    detailsButton.setDisable(false);
-  }
+
 }

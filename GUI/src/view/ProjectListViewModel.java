@@ -18,6 +18,45 @@ public class ProjectListViewModel
     return list;
   }
 
+  public ObservableList<ProjectViewModel> getList(String type){
+    ObservableList<ProjectViewModel> newList = FXCollections.observableArrayList();
+    switch (type){
+      case "Any":
+        newList = list;
+        break;
+      case "Residential":
+        for (int i = 0; i < list.size(); i++) {
+          if (list.get(i).getTypeProperty().get().equals("Residential")){
+            newList.add(list.get(i));
+          }
+        }
+        break;
+      case "Commercial":
+        for (int i = 0; i < list.size(); i++) {
+          if (list.get(i).getTypeProperty().get().equals("Commercial")){
+            newList.add(list.get(i));
+          }
+        }
+        break;
+      case "Industrial":
+        for (int i = 0; i < list.size(); i++) {
+          if (list.get(i).getTypeProperty().get().equals("Industrial")){
+            newList.add(list.get(i));
+          }
+        }
+        break;
+      case "Road":
+        for (int i = 0; i < list.size(); i++) {
+          if (list.get(i).getTypeProperty().get().equals("Road")){
+            newList.add(list.get(i));
+          }
+        }
+        break;
+
+    }
+    return newList;
+  }
+
   public void update(){
     list.clear();
     for (int i = 0; i < model.listSize(); i++)
@@ -28,9 +67,6 @@ public class ProjectListViewModel
     }
   }
 
-  public ProjectViewModel getProjectByID(int id){
-    return getList().get(id-1);
-  }
   public void add(Project project){
     list.add(new ProjectViewModel(project));
   }
