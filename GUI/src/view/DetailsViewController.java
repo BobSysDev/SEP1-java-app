@@ -109,7 +109,7 @@ public class DetailsViewController
   public void setProjectDetails(){
     //getting the selected project from projectListController window
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
 
 
     //setting the labels to selected project properties
@@ -255,7 +255,7 @@ public class DetailsViewController
 
   public void displayButtons(){
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
     if (project.isArchived()){
       makeOngoingButton.setVisible(true);
       archiveButton.setVisible(false);
@@ -268,7 +268,7 @@ public class DetailsViewController
 
   @FXML public void archiveButtonPressed(){
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
     project.setArchived(true);
     model.writeProjectsToBinaryFile();
     viewHandler.openView("projects");
@@ -276,7 +276,7 @@ public class DetailsViewController
 
   @FXML public void makeOngoingButtonPressed(){
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
     project.setArchived(false);
     model.writeProjectsToBinaryFile();
     viewHandler.openView("projects");

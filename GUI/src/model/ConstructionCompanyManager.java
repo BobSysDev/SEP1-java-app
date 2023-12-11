@@ -51,6 +51,18 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return projectList.getProject(index);
   }
 
+  @Override public Project getProjectByID(int id)
+  {
+    for (int i = 0; i < projectList.getSize(); i++)
+    {
+      Project tmp = projectList.getProject(i);
+      if (tmp.getProjectID()==id){
+        return tmp;
+      }
+    }
+    return null;
+  }
+
   //public void getProjectByID(int =======)
 
   @Override

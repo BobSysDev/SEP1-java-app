@@ -12,6 +12,8 @@ public interface ConstructionCompanyModel
 
   public Project getProject(int index);
 
+  public Project getProjectByID(int id);
+
   public void addCustomer(Customer customer);
 
   public void removeCustomer(Customer customer);

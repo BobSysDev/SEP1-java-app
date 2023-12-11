@@ -103,7 +103,7 @@ public class EditDetailsViewController
   public void setProjectDetails(){
     //getting the selected project from projectListController window
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
 
 
     //setting the labels to selected project properties
@@ -254,7 +254,7 @@ public class EditDetailsViewController
   @FXML public void saveButtonPressed(){
     //getting the selected project from projectListController window
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProject(id-1);
+    Project project = model.getProjectByID(id);
     String type = project.getType();
 
     //saving and overwriting the project with new or old information
