@@ -92,6 +92,14 @@
                                           <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Cover photo for website:">
+                                       <font>
+                                          <Font size="18.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets right="10.0" top="91.0" />
+                                       </VBox.margin>
+                                    </Text>
                                  </children>
                               </VBox>
                               <VBox prefHeight="434.0" prefWidth="377.0">
@@ -136,6 +144,11 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextArea>
+                                    <Button mnemonicParsing="false" onAction="#uploadButtonPressed" text="Upload (optional)" textAlignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                    </Button>
                                  </children>
                               </VBox>
                            </children>

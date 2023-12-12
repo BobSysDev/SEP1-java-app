@@ -81,6 +81,7 @@ public class NewProjectViewController
   private ConstructionCompanyModel model;
   private ViewHandler viewHandler;
   private ProjectListViewModel viewModel;
+  private SelectNewProjectViewController selectNewProjectViewController;
   private ProjectListViewModel ongoingViewModel;
   //initialize formatted date
   private String formattedStartDate = "";
@@ -95,6 +96,11 @@ public class NewProjectViewController
     this.root = root;
     this.model = model;
     this.viewHandler = viewHandler;
+
+
+
+//    setDefaults(selectNewProjectViewController.getTypeSelected());
+//    tabAppearance(selectNewProjectViewController.getTypeSelected());
   }
 
   public void reset(){
@@ -115,6 +121,12 @@ public class NewProjectViewController
         bathroomsTextField.setText("1");
         resPlumbingTextField.setText("1");
         materialsTextField.setText("Bricks, Concrete, Wood");
+        personRadioButton.setSelected(true);
+        companyNameTextField.setVisible(false);
+        companyNameText.setVisible(false);
+        cvrTextField.setVisible(false);
+        cvrText.setVisible(false);
+
         break;
       case ("Commercial"):
         typeLabel.setText(type);
@@ -122,12 +134,14 @@ public class NewProjectViewController
         eTimeIntervalTextField.setText("18");
         comFloorsTextField.setText("1");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
+        companyRadioButton.setSelected(true);
         break;
       case ("Industrial"):
         typeLabel.setText(type);
         eBudgetTextField.setText("6000000");
         eTimeIntervalTextField.setText("30");
         materialsTextField.setText("Bricks, Concrete, Wood, Steel");
+        companyRadioButton.setSelected(true);
         break;
       case ("Road"):
         typeLabel.setText(type);
@@ -136,6 +150,7 @@ public class NewProjectViewController
         bridgesTextField.setText("0");
         obstaclesTextField.setText("none");
         materialsTextField.setText("Concrete, Asphalt");
+        companyRadioButton.setSelected(true);
         break;
 
     }
@@ -215,6 +230,7 @@ public class NewProjectViewController
     return null;
   }
 
+  @FXML public void uploadButtonPressed(){}
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
     //typeLabel.clear();
@@ -229,72 +245,84 @@ public class NewProjectViewController
   }
 
   @FXML public void createButtonPressed(){
-    //name create
-    Name name;
-    if(middleNameTextField.getText().isEmpty()){
-      name = new Name(firstNameTextField.getText(),lastNameTextField.getText());
+    try
+    {
+      //name create
+      Name name;
+      if(middleNameTextField.getText().isEmpty()){
+        name = new Name(firstNameTextField.getText(),lastNameTextField.getText());
+      }
+      else {
+        name = new Name(firstNameTextField.getText(), middleNameTextField.getText(), lastNameTextField.getText());
+      }
+
+      //phone create
+      Phone phone = new Phone(countryCodeTextField.getText(), phoneNumberTextField.getText());
+
+      //email create
+      Email email = new Email(userTextField.getText(), hostTextField.getText(), domainTextField.getText());
+
+
+      //customer create
+      if (personRadioButton.isSelected()){
+        customer = new Customer(name, phone, email);
+      }
+      else if (companyRadioButton.isSelected()) {
+        CustomerCompany company = new CustomerCompany(companyNameTextField.getText(),cvrTextField.getText());
+        customer = new Customer(name, phone, email, company);
+      }
+      else {
+        throw new Exception("Please select person or company.");
+      }
+
+      switch (typeLabel.getText()){
+        case ("Residential"):
+          Project resProject = new ResidentialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
+              Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
+              Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
+              Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
+              materialsTextField.getText(),Double.parseDouble(resSizeTextField.getText()),
+              Integer.parseInt(kitchensTextField.getText()), Integer.parseInt(bathroomsTextField.getText()),
+              Integer.parseInt(resPlumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
+          model.addProject(resProject);
+          model.writeProjectsToBinaryFile();
+          break;
+        case ("Commercial"):
+          Project comProject = new CommercialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
+              Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
+              Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
+              Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
+              materialsTextField.getText(),Double.parseDouble(comSizeTextField.getText()),comUseTextField.getText(),
+              Integer.parseInt(comFloorsTextField.getText()), getFormattedStartDate(),customer);
+          model.addProject(comProject);
+          break;
+        case ("Industrial"):
+          Project indProject = new IndustrialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
+              Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
+              Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
+              Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
+              materialsTextField.getText(),Double.parseDouble(indSizeTextField.getText()),indUseTextField.getText(),getFormattedStartDate(),customer);
+          model.addProject(indProject);
+          break;
+        case ("Road"):
+          Project roadProject = new RoadConstructionProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
+              Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
+              Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
+              Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
+              materialsTextField.getText(),Double.parseDouble(lengthTextField.getText()),Double.parseDouble(widthTextField.getText()),
+              Integer.parseInt(bridgesTextField.getText()),obstaclesTextField.getText(),getFormattedStartDate(),customer);
+          model.addProject(roadProject);
+          break;
+      }
+      model.writeProjectsToBinaryFile();
+      viewHandler.openView("projects");
+
     }
-    else {
-      name = new Name(firstNameTextField.getText(), middleNameTextField.getText(), lastNameTextField.getText());
+    catch (RuntimeException e){
+      errorLabel.setText("Something went wrong! Fill out every window or check details you have entered.");
     }
-
-    //phone create
-    Phone phone = new Phone(countryCodeTextField.getText(), phoneNumberTextField.getText());
-
-    //email create
-    Email email = new Email(userTextField.getText(), hostTextField.getText(), domainTextField.getText());
-
-
-    //customer create
-    if (personRadioButton.isSelected()){
-      customer = new Customer(name, phone, email);
+    catch (Exception e){
+      errorLabel.setText(e.getMessage());
     }
-    else if (companyRadioButton.isSelected()) {
-      CustomerCompany company = new CustomerCompany(companyNameTextField.getText(),cvrTextField.getText());
-      customer = new Customer(name, phone, email, company);
-
-    }
-
-    switch (typeLabel.getText()){
-      case ("Residential"):
-        Project resProject = new ResidentialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
-            Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
-            Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
-            Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(resSizeTextField.getText()),
-            Integer.parseInt(kitchensTextField.getText()), Integer.parseInt(bathroomsTextField.getText()),
-            Integer.parseInt(resPlumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
-        model.addProject(resProject);
-        model.writeProjectsToBinaryFile();
-        break;
-      case ("Commercial"):
-        Project comProject = new CommercialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
-            Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
-            Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
-            Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(comSizeTextField.getText()),comUseTextField.getText(),
-            Integer.parseInt(comFloorsTextField.getText()), getFormattedStartDate(),customer);
-        model.addProject(comProject);
-        break;
-      case ("Industrial"):
-        Project indProject = new IndustrialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
-            Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
-            Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
-            Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(indSizeTextField.getText()),indUseTextField.getText(),getFormattedStartDate(),customer);
-        model.addProject(indProject);
-        break;
-      case ("Road"):
-        Project roadProject = new RoadConstructionProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
-            Double.parseDouble(eBudgetTextField.getText()),Integer.parseInt(eTimeIntervalTextField.getText()),
-            Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
-            Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
-            materialsTextField.getText(),Double.parseDouble(lengthTextField.getText()),Double.parseDouble(widthTextField.getText()),
-            Integer.parseInt(bridgesTextField.getText()),obstaclesTextField.getText(),getFormattedStartDate(),customer);
-        model.addProject(roadProject);
-        break;
-    }
-    model.writeProjectsToBinaryFile();
-    viewHandler.openView("projects");
   }
 }
