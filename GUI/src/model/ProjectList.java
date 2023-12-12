@@ -26,6 +26,9 @@ public class ProjectList implements Serializable
         }
     }
 
+    public int getSize(){
+        return projects.size();
+    }
     public void removeProject(Project project) {
         projects.remove(project);
     }

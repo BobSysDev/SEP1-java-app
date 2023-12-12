@@ -6,24 +6,24 @@ public class FileManipulationTestsForProjectsXML
   public static void main(String[] args)
   {
     ProjectList projectList = new ProjectList();
-    ResidentialProject residentialProject = new ResidentialProject(
-        "ZThis guy's house", 420.25, 500, 5, 7, 540, 500, 0, false, "none",
-        "rock and stone", 120, 1, 2, 1, true);
-    CommercialProject commercialProject = new CommercialProject("BIkea Horsens",
-        120, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
-        "Retail store");
-    IndustrialProject industrialProject = new IndustrialProject("AThe factory",
-        69, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
-        "Factory");
-    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(
-        "GThe road", 75.3, 5, 12, 9, 5200, 800, 0, false, "none", "asphalt",
-        2000, 10, 2, "mountains");
     Customer customerA = new Customer(new Name("John", "Doe"), new Phone("45", "12345678"), new Email("johndoe", "gmail", "com"));
     Customer customerB = new Customer(new Name("Mark", "Stone"), new Phone("48", "123456789"),
         new Email("markstone", "totallylegitcompany", "net"), new CustomerCompany("Totally Legit Company", "213769420"));
     Customer customerC = new Customer(new Name("Alex", "Smith"), new Phone("45", "12345678"), new Email("alexsmith", "gmail", "com"));
     Customer customerD = new Customer(new Name("Gordon", "Freeman"), new Phone("00", "111111111"),
         new Email("drfreeman", "blackmesa", "org"), new CustomerCompany("Black Mesa", "123456789"));
+    ResidentialProject residentialProject = new ResidentialProject(
+        "ZThis guy's house", 420.25, 500, 5, 7, 540, 500, 0, false, "none",
+        "rock and stone", 120, 1, 2, 1, true, "house", "01.02.2021", customerA);
+    CommercialProject commercialProject = new CommercialProject("BIkea Horsens",
+        120, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
+        "Retail store", "04.12.2020", customerB);
+    IndustrialProject industrialProject = new IndustrialProject("AThe factory",
+        69, 5, 12, 9, 5200, 800, 0, false, "none", "mostly concrete", 69420,
+        "Factory", "24.12.2023", customerC);
+    RoadConstructionProject roadConstructionProject = new RoadConstructionProject(
+        "GThe road", 75.3, 5, 12, 9, 5200, 800, 0, false, "none", "asphalt",
+        2000, 10, 2, "mountains", "highway", "15.01.2020", customerD);
     residentialProject.setCustomer(customerA);
     commercialProject.setCustomer(customerB);
     industrialProject.setCustomer(customerC);
@@ -58,13 +58,15 @@ public class FileManipulationTestsForProjectsXML
           System.out.println("ERROR: IOException has occurred while reading. Check the parameters. Printout: " + e);
         }
 
-        ArrayList<Project> sortedProjects = retrievedList.getProjectsSortedByBudget();
+        ArrayList<Project> sortedProjects = retrievedList.getProjects();
+        sortedProjects.sort(new ProjectDateComparator());
 
         System.out.println("Information retrieved. Displaying...");
         System.out.println("==========================\nTest 1 of 4: Project 1\n");
         System.out.println(sortedProjects.get(0).getProjectID());
         System.out.println(sortedProjects.get(0).getTitle());
         System.out.println(sortedProjects.get(0).getBudget());
+        System.out.println(sortedProjects.get(0).getStartDate());
 //        ResidentialProject resP2 = (ResidentialProject) retrievedList.getProject(0);
 //        System.out.println(resP2.getTitle());
 //        System.out.println(resP2.getNumberOfKitchens());
@@ -75,6 +77,7 @@ public class FileManipulationTestsForProjectsXML
         System.out.println(sortedProjects.get(1).getProjectID());
         System.out.println(sortedProjects.get(1).getTitle());
         System.out.println(sortedProjects.get(1).getBudget());
+        System.out.println(sortedProjects.get(1).getStartDate());
 //        CommercialProject comP2 = (CommercialProject) retrievedList.getProject(1);
 //        System.out.println(comP2.getTitle());
 //        System.out.println(comP2.getSize());
@@ -84,6 +87,7 @@ public class FileManipulationTestsForProjectsXML
         System.out.println(sortedProjects.get(2).getProjectID());
         System.out.println(sortedProjects.get(2).getTitle());
         System.out.println(sortedProjects.get(2).getBudget());
+        System.out.println(sortedProjects.get(2).getStartDate());
 //        IndustrialProject indP2 = (IndustrialProject) retrievedList.getProject(2);
 //        System.out.println(indP2.getTitle());
 //        System.out.println(indP2.getSize());
@@ -93,6 +97,7 @@ public class FileManipulationTestsForProjectsXML
         System.out.println(sortedProjects.get(3).getProjectID());
         System.out.println(sortedProjects.get(3).getTitle());
         System.out.println(sortedProjects.get(3).getBudget());
+        System.out.println(sortedProjects.get(3).getStartDate());
 //        RoadConstructionProject roadP2 = (RoadConstructionProject) retrievedList.getProject(3);
 //        System.out.println(roadP2.getTitle());
 //        System.out.println(roadP2.getLength());

@@ -1,5 +1,6 @@
 import java.io.InvalidClassException;
 import java.io.Serializable;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ProjectList implements Serializable
@@ -88,6 +89,18 @@ public class ProjectList implements Serializable
     public ArrayList<Project> getProjectsSortedByBudget(){
         ArrayList<Project> projectsToReturn = new ArrayList<>(projects);
         projectsToReturn.sort(new ProjectBudgetComparator());
+        return projectsToReturn;
+    }
+
+    public ArrayList<Project> getProjectsSortedByDate(){
+        ArrayList<Project> projectsToReturn = new ArrayList<>(projects);
+        projectsToReturn.sort(new ProjectDateComparator());
+        return projectsToReturn;
+    }
+
+    public ArrayList<Project> getProjectsSortedById(){
+        ArrayList<Project> projectsToReturn = new ArrayList<>(projects);
+        projectsToReturn.sort(new ProjectIDComparator());
         return projectsToReturn;
     }
 
