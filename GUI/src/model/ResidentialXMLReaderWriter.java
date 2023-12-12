@@ -15,6 +15,8 @@ public class ResidentialXMLReaderWriter
     XMLData += "    <timeInterval>" + project.getTimeInterval() + "</timeInterval>\n";
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
+    XMLData += "    <details>" + project.getDetails() + "</details>\n";
+    XMLData += "    <materials>" + project.getMaterials() + "</materials>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
     XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
 
@@ -41,10 +43,12 @@ public class ResidentialXMLReaderWriter
     int timeInterval = Integer.parseInt(lines.get(6).replace("<timeInterval>", "").replace("</timeInterval>", "").trim());
     double manHoursEstimate = Double.parseDouble(lines.get(7).replace("<manHoursEstimate>", "").replace("</manHoursEstimate>", "").trim());
     double manHours = Double.parseDouble(lines.get(8).replace("<manHours>", "").replace("</manHours>", "").trim());
-    boolean isArchived = Boolean.parseBoolean(lines.get(9).replace("<isArchived>", "").replace("</isArchived>", "").trim());
-    String startDate = lines.get(10).replace("<startDate>", "").replace("</startDate>", "").trim();
+    String details = lines.get(9).replace("<details>", "").replace("</details>", "").trim();
+    String materials = lines.get(10).replace("<materials>", "").replace("</materials>", "").trim();
+    boolean isArchived = Boolean.parseBoolean(lines.get(11).replace("<isArchived>", "").replace("</isArchived>", "").trim());
+    String startDate = lines.get(12).replace("<startDate>", "").replace("</startDate>", "").trim();
 
-    int counter = 11;
+    int counter = 13;
     ArrayList<String> customerLines = new ArrayList<String>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -59,7 +63,9 @@ public class ResidentialXMLReaderWriter
     int numberOfOtherRoomsWithPlumbing = Integer.parseInt(lines.get(counter + 3).replace("<numberOfOtherRoomsWithPlumbing>", "").replace("</numberOfOtherRoomsWithPlumbing>", "").trim());
     boolean isNewBuild = Boolean.parseBoolean(lines.get(counter + 4).replace("<isNewBuilding>", "").replace("</isNewBuilding>", "").trim());
 
-    ResidentialProject toReturn = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild, startDate, customer);
-    return toReturn;
+    ResidentialProject residentialProject = new ResidentialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, id, isArchived, "", "", size, numberOfKitchens, numberOfBathrooms, numberOfOtherRoomsWithPlumbing, isNewBuild, startDate, customer);
+    residentialProject.setDetails(details);
+    residentialProject.setMaterials(materials);
+    return residentialProject;
   }
 }

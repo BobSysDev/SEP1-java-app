@@ -16,6 +16,8 @@ public class CommercialXMLReaderWriter
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
+    XMLData += "    <details>" + project.getDetails() + "</details>\n";
+    XMLData += "    <materials>" + project.getMaterials() + "</materials>\n";
     XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
 
     XMLData += CustomerXMLReaderWriter.write(project.getCustomer()) + "\n";
@@ -39,10 +41,12 @@ public class CommercialXMLReaderWriter
     int timeInterval = Integer.parseInt(lines.get(6).replace("<timeInterval>", "").replace("</timeInterval>", "").trim());
     double manHoursEstimate = Double.parseDouble(lines.get(7).replace("<manHoursEstimate>", "").replace("</manHoursEstimate>", "").trim());
     double manHours = Double.parseDouble(lines.get(8).replace("<manHours>", "").replace("</manHours>", "").trim());
-    boolean isArchived = Boolean.parseBoolean(lines.get(9).replace("<isArchived>", "").replace("</isArchived>", "").trim());
-    String startDate = lines.get(10).replace("<startDate>", "").replace("</startDate>", "").trim();
+    String details = lines.get(9).replace("<details>", "").replace("</details>", "").trim();
+    String materials = lines.get(10).replace("<materials>", "").replace("</materials>", "").trim();
+    boolean isArchived = Boolean.parseBoolean(lines.get(11).replace("<isArchived>", "").replace("</isArchived>", "").trim());
+    String startDate = lines.get(12).replace("<startDate>", "").replace("</startDate>", "").trim();
 
-    int counter = 11;
+    int counter = 13;
     ArrayList<String> customerLines = new ArrayList<>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -56,6 +60,8 @@ public class CommercialXMLReaderWriter
     String type = lines.get(counter + 2).replace("<type>", "").replace("</type>", "").trim();
 
     CommercialProject commercialProject = new CommercialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", size, type, numberOfFloors, startDate, customer);
+    commercialProject.setDetails(details);
+    commercialProject.setMaterials(materials);
     return commercialProject;
   }
 }

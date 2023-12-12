@@ -15,6 +15,8 @@ public class RoadXMLReaderWriter
     XMLData += "    <timeInterval>" + project.getTimeInterval() + "</timeInterval>\n";
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
+    XMLData += "    <details>" + project.getDetails() + "</details>\n";
+    XMLData += "    <materials>" + project.getMaterials() + "</materials>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
     XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
 
@@ -40,10 +42,12 @@ public class RoadXMLReaderWriter
     int timeInterval = Integer.parseInt(lines.get(6).replace("<timeInterval>", "").replace("</timeInterval>", "").trim());
     double manHoursEstimate = Double.parseDouble(lines.get(7).replace("<manHoursEstimate>", "").replace("</manHoursEstimate>", "").trim());
     double manHours = Double.parseDouble(lines.get(8).replace("<manHours>", "").replace("</manHours>", "").trim());
-    boolean isArchived = Boolean.parseBoolean(lines.get(9).replace("<isArchived>", "").replace("</isArchived>", "").trim());
-    String startDate = lines.get(10).replace("<startDate>", "").replace("</startDate>", "").trim();
+    String details = lines.get(9).replace("<details>", "").replace("</details>", "").trim();
+    String materials = lines.get(10).replace("<materials>", "").replace("</materials>", "").trim();
+    boolean isArchived = Boolean.parseBoolean(lines.get(11).replace("<isArchived>", "").replace("</isArchived>", "").trim());
+    String startDate = lines.get(12).replace("<startDate>", "").replace("</startDate>", "").trim();
 
-    int counter = 11;
+    int counter = 13;
     ArrayList<String> customerLines = new ArrayList<>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -58,6 +62,8 @@ public class RoadXMLReaderWriter
     String obstacles = lines.get(counter + 3).replace("<obstacles>", "").replace("</obstacles>", "").trim();
 
     RoadConstructionProject roadConstructionProject = new RoadConstructionProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", length, width, numberOfBridges, obstacles, startDate, customer);
+    roadConstructionProject.setDetails(details);
+    roadConstructionProject.setMaterials(materials);
     return roadConstructionProject;
   }
 }
