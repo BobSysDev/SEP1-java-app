@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import model.*;
 import javafx.scene.control.Label;
@@ -25,9 +27,17 @@ public class ProjectViewController
   @FXML private Tab pastTab;
   @FXML private Tab settingsTab;
 
+  @FXML private TextField searchOngoingTextField;
+  @FXML private TextField searchPastTextField;
+  @FXML private Button enterOngoingButton;
+  @FXML private Button enterPastButton;
+
   @FXML private ChoiceBox<String> filterOngoingChoiceBox;
   @FXML private ChoiceBox<String> filterPastChoiceBox;
+  @FXML private ChoiceBox<String> sortOngoingChoiceBox;
+  @FXML private ChoiceBox<String> sortPastChoiceBox;
   private String[] types = {"Any","Residential","Commercial","Industrial","Road"};
+  private String[] sortings = {"Date (asc.)","Date (desc.)","Alphabetically (asc.)","Alphabetically (desc.)"};
 
   @FXML private TableView<ProjectViewModel> projectListTable;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
@@ -47,6 +57,7 @@ public class ProjectViewController
   private ViewHandler viewHandler;
   private ProjectListViewModel viewModel;
   private ProjectListViewModel ongoingViewModel;
+  private ProjectDateComparator dateComparator;
 
   public ProjectViewController(){}
 
@@ -64,17 +75,34 @@ public class ProjectViewController
     filterOngoingChoiceBox.setOnAction(this::getFilterTypeOngoing);
     filterPastChoiceBox.setOnAction(this::getFilterTypePast);
 
+    //populating sort choice box
+    sortOngoingChoiceBox.getItems().addAll(sortings);
+    sortPastChoiceBox.getItems().addAll(sortings);
+    //setting action to choice box sort
+    sortOngoingChoiceBox.setOnAction(this::getSortOngoing);
+    sortPastChoiceBox.setOnAction(this::getSortPast);
+
     typeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
     nameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
     dateColumn.setCellValueFactory(cellData -> cellData.getValue().getStartDateProperty());
+
+    typeColumn.setSortable(false);
+    nameColumn.setSortable(false);
+    dateColumn.setSortable(false);
 
     ongoingTypeColumn.setCellValueFactory(cellData -> cellData.getValue().getTypeProperty());
     ongoingNameColumn.setCellValueFactory(cellData -> cellData.getValue().getTitleProperty());
     ongoingDateColumn.setCellValueFactory(cellData -> cellData.getValue().getStartDateProperty());
 
+    ongoingTypeColumn.setSortable(false);
+    ongoingNameColumn.setSortable(false);
+    ongoingDateColumn.setSortable(false);
+
 
     projectListTable.setItems(viewModel.getList());
     ongoingProjectListTable.setItems(ongoingViewModel.getList());
+
+
 
     //enabling the details button in past projects table
     TableSelectionModel<ProjectViewModel> selectionModel = projectListTable.getSelectionModel();
@@ -98,6 +126,14 @@ public class ProjectViewController
       }
     });
 
+//    enterOngoingButton.setOnKeyPressed(new EventHandler<KeyEvent>() {
+//      @Override
+//      public void handle(KeyEvent event) {
+//        if (event.getCode() == KeyCode.ENTER) {
+//          enterOngoingButtonPressed();
+//        }
+//      }
+//    });
   }
 
   public void reset(){
@@ -109,15 +145,34 @@ public class ProjectViewController
     return root;
   }
 
+  @FXML void enterOngoingButtonPressed(){
+    String ongoingSearchText = searchOngoingTextField.getText();
+    ongoingProjectListTable.setItems(ongoingViewModel.getProjectListByTitle(ongoingSearchText));
+  }
+
+  @FXML void enterPastButtonPressed(){
+    String ongoingSearchText = searchPastTextField.getText();
+    projectListTable.setItems(viewModel.getProjectListByTitle(ongoingSearchText));
+  }
+
   public void getFilterTypeOngoing(ActionEvent event){
     String type = filterOngoingChoiceBox.getValue();
-    System.out.println(type);
     ongoingProjectListTable.setItems(ongoingViewModel.getList(type));
   }
 
   public void getFilterTypePast(ActionEvent event){
     String type = filterPastChoiceBox.getValue();
     projectListTable.setItems(viewModel.getList(type));
+  }
+
+  public void getSortOngoing(ActionEvent event){
+    String sorting = sortOngoingChoiceBox.getValue();
+    ongoingProjectListTable.setItems(ongoingViewModel.getList(sorting));
+  }
+
+  public void getSortPast(ActionEvent event){
+    String sorting = sortPastChoiceBox.getValue();
+    projectListTable.setItems(viewModel.getList(sorting));
   }
 
 

@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <VBox prefHeight="372.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectViewController">
@@ -45,34 +44,36 @@
                                  <children>
                                     <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0">
                                        <children>
-                                          <Button alignment="TOP_RIGHT" mnemonicParsing="false" text="Sort" textAlignment="RIGHT">
+                                          <ChoiceBox fx:id="sortPastChoiceBox" prefHeight="25.0" prefWidth="90.0" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="26.787109375">
                                              <HBox.margin>
-                                                <Insets left="10.0" right="5.0" />
+                                                <Insets right="5.0" />
                                              </HBox.margin>
-                                          </Button>
+                                          </Text>
                                           <ChoiceBox fx:id="filterPastChoiceBox" prefHeight="25.0" prefWidth="90.0">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </ChoiceBox>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="31.287109375">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375">
                                              <HBox.margin>
-                                                <Insets left="5.0" />
+                                                <Insets />
                                              </HBox.margin>
                                           </Text>
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="359.0">
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="330.0">
                                        <children>
-                                          <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:">
+                                          <TextField fx:id="searchPastTextField" promptText="Search by title">
                                              <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
+                                                <Insets left="15.0" />
                                              </HBox.margin>
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField />
+                                          </TextField>
+                                          <Button fx:id="enterPastButton" mnemonicParsing="false" onAction="#enterPastButtonPressed" text="Enter">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
+                                             </HBox.margin>
+                                          </Button>
                                        </children>
                                        <opaqueInsets>
                                           <Insets />
@@ -102,34 +103,31 @@
                                  <children>
                                     <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0">
                                        <children>
-                                          <Button alignment="TOP_RIGHT" mnemonicParsing="false" text="Sort" textAlignment="RIGHT">
-                                             <HBox.margin>
-                                                <Insets left="10.0" right="5.0" />
-                                             </HBox.margin>
-                                          </Button>
-                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0">
+                                          <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </ChoiceBox>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="31.287109375">
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="22.287109375">
                                              <HBox.margin>
-                                                <Insets left="5.0" />
+                                                <Insets left="5.0" right="5.0" />
                                              </HBox.margin>
                                           </Text>
+                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" />
+                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375" />
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="359.0">
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="328.0">
                                        <children>
-                                          <Text nodeOrientation="LEFT_TO_RIGHT" strokeType="OUTSIDE" strokeWidth="0.0" text="Search:">
+                                          <TextField fx:id="searchOngoingTextField" promptText="Search by title">
                                              <HBox.margin>
-                                                <Insets left="20.0" right="20.0" />
+                                                <Insets left="15.0" />
+                                             </HBox.margin></TextField>
+                                          <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed"  text="Enter">
+                                             <HBox.margin>
+                                                <Insets left="10.0" />
                                              </HBox.margin>
-                                             <font>
-                                                <Font size="18.0" />
-                                             </font>
-                                          </Text>
-                                          <TextField />
+                                          </Button>
                                        </children>
                                        <opaqueInsets>
                                           <Insets />

@@ -99,4 +99,94 @@ public class ProjectViewModel
     return startDateProperty;
   }
 
+  public boolean dateComparatorAscending( StringProperty spdate1, StringProperty spdate2){
+    String stringDate1 = spdate1.get();
+    String stringDate2 = spdate2.get();
+
+    int[] date1 = new int[3];
+    int[] date2 = new int[3];
+    int i = 0;
+    for(String num : stringDate1.split("\\.")){
+      date1[i] = Integer.parseInt(num);
+      i++;
+    }
+
+    i = 0;
+    for(String num : stringDate2.split("\\.")){
+      date2[i] = Integer.parseInt(num);
+      i++;
+    }
+    if (date1[2]>date2[2]){
+      return true;
+    }
+    else if (date1[2]<date2[2]) {
+      return false;
+    }
+    else {
+      if (date1[1]>date2[1]){
+        return true;
+      }
+      else if (date1[1]<date2[1]) {
+        return false;
+      }
+      else {
+        if (date1[0]>date2[0]){
+          return true;
+        }
+        else if (date1[0]<date2[0]) {
+          return false;
+        }
+        else {
+          return false;
+        }
+      }
+    }
+
+  }
+
+  public boolean dateComparatorDescending(StringProperty spdate1, StringProperty spdate2){
+    String stringDate1 = spdate1.get();
+    String stringDate2 = spdate2.get();
+
+    int[] date1 = new int[3];
+    int[] date2 = new int[3];
+    int i = 0;
+    for(String num : stringDate1.split("\\.")){
+      date1[i] = Integer.parseInt(num);
+      i++;
+    }
+
+    i = 0;
+    for(String num : stringDate2.split("\\.")){
+      date2[i] = Integer.parseInt(num);
+      i++;
+    }
+    if (date1[2]>date2[2]){
+      return false;
+    }
+    else if (date1[2]<date2[2]) {
+      return true;
+    }
+    else {
+      if (date1[1]>date2[1]){
+        return false;
+      }
+      else if (date1[1]<date2[1]) {
+        return true;
+      }
+      else {
+        if (date1[0]>date2[0]){
+          return false;
+        }
+        else if (date1[0]<date2[0]) {
+          return true;
+        }
+        else {
+          return true;
+        }
+      }
+    }
+
+  }
+
 }

@@ -267,30 +267,53 @@ public class DetailsViewController
   }
 
   @FXML public void archiveButtonPressed(){
-    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProjectByID(id);
-    project.setArchived(true);
-    model.writeProjectsToBinaryFile();
-    viewHandler.openView("projects");
+    Alert alert = new Alert(AlertType.CONFIRMATION);
+    alert.setTitle("Are you sure?");
+    alert.setContentText("Do you want to archive this project?");
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.get() == ButtonType.OK){
+      int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+      Project project = model.getProjectByID(id);
+      project.setArchived(true);
+      model.writeProjectsToBinaryFile();
+      viewHandler.openView("projects");
+
+    }
+    else{}
   }
 
   @FXML public void makeOngoingButtonPressed(){
-    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProjectByID(id);
-    project.setArchived(false);
-    model.writeProjectsToBinaryFile();
-    viewHandler.openView("projects");
-
+    Alert alert = new Alert(AlertType.CONFIRMATION);
+    alert.setTitle("Are you sure?");
+    alert.setContentText("Do you want to make this project ongoing?");
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.get() == ButtonType.OK){
+      int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+      Project project = model.getProjectByID(id);
+      project.setArchived(false);
+      model.writeProjectsToBinaryFile();
+      viewHandler.openView("projects");
+    }
   }
   @FXML public void editButtonPressed(){
     viewHandler.openView("edit details");
   }
   @FXML public void deleteButtonPressed(){
-    int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
-    Project project = model.getProjectByID(id);
-    model.removeProject(project);
-    model.writeProjectsToBinaryFile();
-    viewHandler.openView("projects");
+    Alert alert = new Alert(AlertType.CONFIRMATION);
+    alert.setTitle("Are you sure?");
+    alert.setContentText("Do you want to delete this project permanently?");
+    Optional<ButtonType> result = alert.showAndWait();
+    if (result.get() == ButtonType.OK){
+      int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
+      Project project = model.getProjectByID(id);
+      model.removeProject(project);
+      model.writeProjectsToBinaryFile();
+      viewHandler.openView("projects");
+    }
+    else{
+
+    }
+
   }
   @FXML public void backButtonPressed(){
     viewHandler.openView("projects");
