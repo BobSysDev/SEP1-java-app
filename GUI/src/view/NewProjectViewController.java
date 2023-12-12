@@ -5,14 +5,19 @@ import javafx.scene.control.*;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.Region;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import model.*;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.event.ActionEvent;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.security.PrivilegedAction;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
 import java.util.Optional;
 
 public class NewProjectViewController
@@ -77,6 +82,8 @@ public class NewProjectViewController
 
   @FXML private Label errorLabel;
 
+  @FXML private Text imagePathLabel;
+
   private Region root;
   private ConstructionCompanyModel model;
   private ViewHandler viewHandler;
@@ -85,6 +92,8 @@ public class NewProjectViewController
   private ProjectListViewModel ongoingViewModel;
   //initialize formatted date
   private String formattedStartDate = "";
+  private String finalPhotoPath = "";
+
   //customer initialize
   Customer customer;
 
@@ -230,7 +239,27 @@ public class NewProjectViewController
     return null;
   }
 
-  @FXML public void uploadButtonPressed(){}
+  @FXML public void uploadButtonPressed(){
+    String pathToCopyTo = model.readPathForPhotosForTheWebsite();
+    String pathOfThePhoto = "";
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Select a cover photo for this project");
+    fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
+    File selectedFile = fileChooser.showOpenDialog(null);
+    try
+    {
+      Files.copy(selectedFile.toPath(), new File(pathToCopyTo + "/" + selectedFile.getName()).toPath());
+
+      String[] pathTemp = pathToCopyTo.split("\\\\");
+      int pathTempLen = pathTemp.length;
+      finalPhotoPath = pathTemp[pathTempLen-1] + "/" + selectedFile.getName();
+      imagePathLabel.setText(finalPhotoPath);
+    }
+    catch (IOException e){
+      errorLabel.setText("There was a problem copying the photo. Please try again.");
+    }
+  }
+
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
     //typeLabel.clear();
@@ -284,8 +313,8 @@ public class NewProjectViewController
               materialsTextField.getText(),Double.parseDouble(resSizeTextField.getText()),
               Integer.parseInt(kitchensTextField.getText()), Integer.parseInt(bathroomsTextField.getText()),
               Integer.parseInt(resPlumbingTextField.getText()),isNewBuild(),getFormattedStartDate(),customer);
+          resProject.setPhotoPathForWebsite(finalPhotoPath);
           model.addProject(resProject);
-          model.writeProjectsToBinaryFile();
           break;
         case ("Commercial"):
           Project comProject = new CommercialProject(nameTextField.getText(),Double.parseDouble(eBudgetTextField.getText()),
@@ -294,6 +323,7 @@ public class NewProjectViewController
               Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
               materialsTextField.getText(),Double.parseDouble(comSizeTextField.getText()),comUseTextField.getText(),
               Integer.parseInt(comFloorsTextField.getText()), getFormattedStartDate(),customer);
+          comProject.setPhotoPathForWebsite(finalPhotoPath);
           model.addProject(comProject);
           break;
         case ("Industrial"):
@@ -302,6 +332,7 @@ public class NewProjectViewController
               Integer.parseInt(eTimeIntervalTextField.getText()),Double.parseDouble(eManHoursTextField.getText()),
               Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
               materialsTextField.getText(),Double.parseDouble(indSizeTextField.getText()),indUseTextField.getText(),getFormattedStartDate(),customer);
+          indProject.setPhotoPathForWebsite(finalPhotoPath);
           model.addProject(indProject);
           break;
         case ("Road"):
@@ -311,6 +342,7 @@ public class NewProjectViewController
               Double.parseDouble(eManHoursTextField.getText()), model.listSize(), false, detailsTextArea.getText(),
               materialsTextField.getText(),Double.parseDouble(lengthTextField.getText()),Double.parseDouble(widthTextField.getText()),
               Integer.parseInt(bridgesTextField.getText()),obstaclesTextField.getText(),getFormattedStartDate(),customer);
+          roadProject.setPhotoPathForWebsite(finalPhotoPath);
           model.addProject(roadProject);
           break;
       }

@@ -20,6 +20,7 @@ public abstract class Project implements Serializable, Comparable<Project> {
     private String materials;
     private Customer customer;
     private String startDate;
+    private String photoPathForWebsite;
 
     // Constructor for the Project class
     public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, String startDate, Customer customer) {
@@ -36,8 +37,17 @@ public abstract class Project implements Serializable, Comparable<Project> {
         this.customer = customer;
         this.startDate = startDate;
         this.projectID = projectID;
+        photoPathForWebsite = "";
     }
 
+
+    public String getPhotoPathForWebsite() {
+        return photoPathForWebsite;
+    }
+
+    public void setPhotoPathForWebsite(String photoPathForWebsite) {
+        this.photoPathForWebsite = photoPathForWebsite;
+    }
 
     public Customer getCustomer()
     {

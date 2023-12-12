@@ -19,6 +19,7 @@ public class IndustrialXMLReaderWriter
     XMLData += "    <materials>" + project.getMaterials() + "</materials>\n";
     XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
     XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
+    XMLData += "    <coverImage>" + project.getPhotoPathForWebsite() + "</coverImage>\n";
 
     XMLData += CustomerXMLReaderWriter.write(project.getCustomer()) + "\n";
 
@@ -44,8 +45,9 @@ public class IndustrialXMLReaderWriter
     String materials = lines.get(10).replace("<materials>", "").replace("</materials>", "").trim();
     boolean isArchived = Boolean.parseBoolean(lines.get(11).replace("<isArchived>", "").replace("</isArchived>", "").trim());
     String startDate = lines.get(12).replace("<startDate>", "").replace("</startDate>", "").trim();
+    String photoPathForWebsite = lines.get(13).replace("<coverImage>", "").replace("</coverImage>", "").trim();
 
-    int counter = 13;
+    int counter = 14;
     ArrayList<String> customerLines = new ArrayList<>();
     while(!lines.get(counter).contains("</customer>")){
       customerLines.add(lines.get(counter));
@@ -60,6 +62,7 @@ public class IndustrialXMLReaderWriter
     IndustrialProject industrialProject = new IndustrialProject(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, "", "", size, type, startDate, customer);
     industrialProject.setDetails(details);
     industrialProject.setMaterials(materials);
+    industrialProject.setPhotoPathForWebsite(photoPathForWebsite);
     return industrialProject;
   }
 }

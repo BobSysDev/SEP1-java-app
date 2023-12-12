@@ -27,4 +27,10 @@ public interface ConstructionCompanyModel
   public void writeCustomersToBinaryFile();
 
   public void writeProjectsToXMLFile();
+
+  public String getPathForPhotosForTheWebsite();
+  public String readPathForPhotosForTheWebsite();
+  boolean Confirmation(String s, String s1);
+  void reconstructDataBaseFromXML() throws IOException;
+  void importProjectsFromXML() throws IOException;
 }

@@ -26,13 +26,33 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="292.0" prefWidth="185.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" text="Export projects to XML">
+                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" prefHeight="25.0" prefWidth="160.0" text="Export projects to XML">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Button>
+                                    <Button mnemonicParsing="false" onAction="#setWebsitePhotoDirectory" prefHeight="25.0" prefWidth="160.0" text="Set photo directory">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#reconstructDataBaseFromXML" prefHeight="25.0" prefWidth="160.0" text="Re-construct from XML">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
+                                    <Button mnemonicParsing="false" onAction="#importProjectsFromXML" prefHeight="25.0" prefWidth="160.0" text="Import projects from XML">
+                                       <VBox.margin>
+                                          <Insets top="20.0" />
+                                       </VBox.margin>
+                                    </Button>
                                  </children>
                               </VBox>
+                              <Text layoutX="197.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Export all of the projects to an XML file" />
+                              <Text layoutX="197.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set a new directory to copy photos for the websites to" />
+                              <Text layoutX="197.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-construct the entire database from an XML file" />
+                              <Text layoutX="197.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Import a project or many projects from an XML file to the database" wrappingWidth="354.474609375" />
+                              <Text layoutX="197.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[!] This option will overwrite the current database" wrappingWidth="354.474609375" />
                            </children></AnchorPane>
                     </content>
                   </Tab>
@@ -123,7 +143,7 @@
                                              <HBox.margin>
                                                 <Insets left="15.0" />
                                              </HBox.margin></TextField>
-                                          <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed"  text="Enter">
+                                          <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed" text="Enter">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -155,7 +175,7 @@
       </HBox>
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="600.0">
          <children>
-            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="369.0" text="ERR:" />
+            <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="369.0" />
             <Button fx:id="detailsButton" disable="true" mnemonicParsing="false" onAction="#detailsButtonPressed" prefHeight="25.0" prefWidth="74.0" text="Details...">
                <HBox.margin>
                   <Insets right="10.0" />

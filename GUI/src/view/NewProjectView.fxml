@@ -144,11 +144,12 @@
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextArea>
-                                    <Button mnemonicParsing="false" onAction="#uploadButtonPressed" text="Upload (optional)" textAlignment="CENTER">
-                                       <VBox.margin>
-                                          <Insets top="10.0" />
-                                       </VBox.margin>
-                                    </Button>
+                                    <AnchorPane prefHeight="38.0" prefWidth="377.0">
+                                       <children>
+                                          <Button layoutY="7.0" mnemonicParsing="false" onAction="#uploadButtonPressed" text="Upload (optional)" textAlignment="CENTER" />
+                                          <Text fx:id="imagePathLabel" layoutX="127.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[image path will be displayed here]" />
+                                       </children>
+                                    </AnchorPane>
                                  </children>
                               </VBox>
                            </children>

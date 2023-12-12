@@ -1,5 +1,6 @@
 package view;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.event.EventHandler;
@@ -10,12 +11,16 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.DirectoryChooser;
 import model.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.event.Event;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -58,8 +63,11 @@ public class ProjectViewController
   private ProjectListViewModel viewModel;
   private ProjectListViewModel ongoingViewModel;
   private ProjectDateComparator dateComparator;
+  private TXTFileHandlerForFilePathSettings txtFileHandlerForFilePathSettings;
 
-  public ProjectViewController(){}
+  public ProjectViewController(){
+    txtFileHandlerForFilePathSettings = new TXTFileHandlerForFilePathSettings();
+  }
 
   public void init(Region root, ConstructionCompanyModel model, ViewHandler viewHandler){
     this.root = root;
@@ -222,5 +230,53 @@ public class ProjectViewController
     viewHandler.openView("details");
   }
 
+  public void setWebsitePhotoDirectory(ActionEvent actionEvent)
+  {
+    if(model.Confirmation("Warning", "This will change the directory for the cover\nphotos for the website. Are you sure you want to continue? \n\n (This action cannot be reversed)")){
+      try{
+        String path = "";
+        DirectoryChooser directoryChooser = new DirectoryChooser();
+        directoryChooser.setTitle("Select a folder that will contain the cover photos for the website");
+        File selectedFile = directoryChooser.showDialog(null);
+        path = selectedFile.getAbsolutePath();
+        txtFileHandlerForFilePathSettings.writeSettingsFilePath(path);
+        errorLabel.setText("");
+      }
+      catch(FileNotFoundException e2){
+        errorLabel.setText("Error: something went wrong. Try again...");
+      }
+      catch(NullPointerException e3){
+        errorLabel.setText("Error: the directory you selected is invalid. Try again...");
+      }
+    }
+  }
 
+  public void reconstructDataBaseFromXML(ActionEvent actionEvent)
+  {
+    if(model.Confirmation("WARNING", "This will DELETE ALL the projects in the database\n and REPLACE them with the projects from the XML file.\n Are you ABSOLUTELY sure you want to continue? \n\n (This action CANNOT be reversed)")){
+      try{
+        model.reconstructDataBaseFromXML();
+        errorLabel.setText("");
+      }
+      catch(IOException e){
+        errorLabel.setText("Error: something went wrong. Try again...");
+      }
+    }
+  }
+
+  public void importProjectsFromXML(ActionEvent actionEvent)
+  {
+    if(model.Confirmation("Warning", "This will append all projects from the later specified file\nto the file database. Are you sure you want to continue? \n\n (This action cannot be reversed)")){
+      try{
+        model.importProjectsFromXML();
+        errorLabel.setText("");
+      }
+      catch(IOException e){
+        errorLabel.setText("Error: something went wrong. Try again...");
+      }
+      catch(NullPointerException e2){
+        errorLabel.setText("Error: the file you selected is invalid. Try again...");
+      }
+    }
+  }
 }

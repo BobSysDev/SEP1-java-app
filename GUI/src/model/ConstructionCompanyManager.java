@@ -5,7 +5,11 @@ import javafx.application.Platform;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
+import javafx.stage.DirectoryChooser;
+import javafx.stage.FileChooser;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
@@ -17,6 +21,9 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
   private CustomerList customerList;
   private BinaryReaderWriter binaryFileInterface;
   private XMLReaderWriter xmlFileInterface;
+
+  private String pathForPhotosForTheWebsite = "";
+  private TXTFileHandlerForFilePathSettings txtFileHandlerForFilePathSettings;
   private static final String BINARY_FILE_PATH_PROJECTS = "projectDB.bin";
   private static final String XML_FILE_PATH_PROJECTS = "projectDB.xml";
   private static final String BINARY_FILE_PATH_CUSTOMERS = "customerDB.bin";
@@ -27,6 +34,9 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     customerList = new CustomerList();
     binaryFileInterface = new BinaryReaderWriter();
     xmlFileInterface = new XMLReaderWriter();
+    txtFileHandlerForFilePathSettings = new TXTFileHandlerForFilePathSettings();
+    pathForPhotosForTheWebsite = "";
+    readPathForPhotosForTheWebsite();
     readCustomersFromBinaryFile();
     readProjectsFromBinaryFile();
   }
@@ -81,7 +91,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
     catch (IOException e){
 //      System.out.println("ERROR: IOException has occurred while reading. Check the parameters. Printout: \n" + e);
-      if(Confirmation("File \"" + BINARY_FILE_PATH_PROJECTS + "\" could not be found. \nPress OK if you want to create a new empty file\nor CANCEL to close the application.\n\n(If you're launching the app for the\nfirst time, press OK)")){
+      if(Confirmation("Warning: database file not found", "File \"" + BINARY_FILE_PATH_PROJECTS + "\" could not be found. \nPress OK if you want to create a new empty file\nor CANCEL to close the application.\n\n(If you're launching the app for the\nfirst time, press OK)")){
         writeProjectsToBinaryFile();
       }
       else{
@@ -105,7 +115,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
     catch (IOException e){
 //      System.out.println("ERROR: IOException has occurred while reading. Check the parameters. Printout: \n" + e);
-      if(Confirmation("File \"" + BINARY_FILE_PATH_CUSTOMERS + "\" could not be found. \nPress OK if you want to create a new empty file\nor CANCEL to close the application\n\n(If you're launching the app for the\nfirst time, press OK)")){
+      if(Confirmation("Warning: database file not found", "File \"" + BINARY_FILE_PATH_CUSTOMERS + "\" could not be found. \nPress OK if you want to create a new empty file\nor CANCEL to close the application\n\n(If you're launching the app for the\nfirst time, press OK)")){
         writeProjectsToBinaryFile();
       }
       else{
@@ -132,9 +142,9 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
   }
 
-  private boolean Confirmation(String query){
+  public boolean Confirmation(String title, String query){
     Alert alert = new Alert(Alert.AlertType.WARNING);
-    alert.setTitle("Warning: database file not found");
+    alert.setTitle(title);
     alert.setHeaderText(query);
 
     alert.getButtonTypes().clear();
@@ -148,5 +158,67 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
 
     Optional<ButtonType> result = alert.showAndWait();
     return (result.isPresent()) && (result.get() == ButtonType.OK);
+  }
+
+  public String getPathForPhotosForTheWebsite(){
+    return pathForPhotosForTheWebsite;
+  }
+
+  public String readPathForPhotosForTheWebsite(){
+    String toReturn = null;
+    try{
+      toReturn = this.txtFileHandlerForFilePathSettings.readSettingsFilePath();
+    }
+    catch(FileNotFoundException e){
+      if(Confirmation("Warning: the settings file wasn't found", "You can create a new one by clicking OK,\nor close the application by clicking cancel.\n\nIf this is the first time you're launching the app,\nclick OK to set a path to which the cover\nphotos fot the website will be copied.")){
+        try{
+          String path = "";
+          DirectoryChooser directoryChooser = new DirectoryChooser();
+          directoryChooser.setTitle("Select a folder that will contain the cover photos for the website");
+          File selectedFile = directoryChooser.showDialog(null);
+          path = selectedFile.getAbsolutePath();
+          this.txtFileHandlerForFilePathSettings.writeSettingsFilePath(path);
+          return path;
+        }
+        catch(FileNotFoundException e2){
+          System.out.println("ERROR: FileNotFoundException has occurred while writing to the settings file. Check the parameters. Printout: \n" + e2);
+        }
+      }
+      else{
+        Platform.exit();
+      }
+    }
+    return toReturn;
+  }
+
+  public void setPathForPhotosForTheWebsite(String pathForPhotosForTheWebsite){
+    this.pathForPhotosForTheWebsite = pathForPhotosForTheWebsite;
+
+    try{
+      this.txtFileHandlerForFilePathSettings.writeSettingsFilePath(pathForPhotosForTheWebsite);
+    }
+    catch(FileNotFoundException e){
+      System.out.println("ERROR: FileNotFoundException has occurred while writing to the settings file. Check the parameters. Printout: \n" + e);
+    }
+  }
+
+  public void reconstructDataBaseFromXML() throws IOException
+  {
+    projectList = xmlFileInterface.readProjectList(XML_FILE_PATH_PROJECTS);
+    writeProjectsToBinaryFile();
+  }
+
+  public void importProjectsFromXML() throws IOException
+  {
+    FileChooser fileChooser = new FileChooser();
+    fileChooser.setTitle("Select the XML file that contains the projects you want to import");
+    fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("XML files", "*.xml"));
+    File selectedFile = fileChooser.showOpenDialog(null);
+
+    ProjectList importedList = xmlFileInterface.readProjectList(selectedFile.getAbsolutePath());
+    for(int i = 0; i < importedList.getSize(); i++){
+      projectList.addProject(importedList.getProject(i));
+    }
+    writeProjectsToBinaryFile();
   }
 }
