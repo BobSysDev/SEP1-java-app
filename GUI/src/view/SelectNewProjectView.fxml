@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="329.0" prefWidth="355.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectNewProjectViewController">
+<VBox prefHeight="329.0" prefWidth="355.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.SelectNewProjectViewController">
    <children>
       <HBox alignment="CENTER" prefHeight="76.0" prefWidth="336.0">
          <children>
@@ -28,7 +28,7 @@
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </VBox.margin>
                <toggleGroup>
                   <ToggleGroup fx:id="type" />
@@ -39,7 +39,7 @@
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </VBox.margin>
             </RadioButton>
             <RadioButton fx:id="indButton" mnemonicParsing="false" onAction="#getType" text="Industrial" toggleGroup="$type">
@@ -47,7 +47,7 @@
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </VBox.margin>
             </RadioButton>
             <RadioButton fx:id="roadButton" mnemonicParsing="false" onAction="#getType" text="Roads" toggleGroup="$type">
@@ -55,7 +55,7 @@
                   <Font size="18.0" />
                </font>
                <VBox.margin>
-                  <Insets left="10.0" top="10.0" />
+                  <Insets left="30.0" top="10.0" />
                </VBox.margin>
             </RadioButton>
             <Label fx:id="label" prefHeight="29.0" prefWidth="439.0" text="" textFill="RED">
@@ -66,12 +66,12 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="314.0" spacing="40.0">
          <children>
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" prefWidth="78.0" styleClass="button-white" text="Cancel">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPressed" text="OK">
+            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="38.0" prefWidth="78.0" styleClass="button-orange" text="OK">
                <font>
                   <Font size="17.0" />
                </font>
