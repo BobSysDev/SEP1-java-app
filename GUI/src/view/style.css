@@ -3,6 +3,7 @@
 .button-white{
 -fx-background-color: white;
 -fx-text-fill: #F58800;
+-fx-text-base-color: #F58800;
 -fx-font-weight: bold;
 }
 
@@ -56,17 +57,17 @@
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: #F58800;
+    -fx-background-color: white;
 }
 
 .tab:selected {
-    -fx-background-color: white;
-    -fx-text-base-color: #F58800;
+    -fx-background-color: #F58800;
+    -fx-text-base-color: white;
 }
 
 
 .table-view .column-header {
-    -fx-background-color: #F58800;
+    -fx-background-color: #555555;
     -fx-border-color: white;
     -fx-border-style: solid;
     -fx-border-width: 1px;
@@ -76,3 +77,4 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+

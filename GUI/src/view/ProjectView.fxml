@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.String?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
@@ -20,7 +21,7 @@
          <children>
             <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="369.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab fx:id="settingsTab" styleClass="button-orange" text="Settings">
+                  <Tab fx:id="settingsTab" text="Settings">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
                            <children>
@@ -55,8 +56,12 @@
                               <Text layoutX="197.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[!] This option will overwrite the current database" wrappingWidth="354.474609375" />
                            </children></AnchorPane>
                     </content>
+                     <styleClass>
+                        <String fx:value="button-white" />
+                        <String fx:value="tab-padding" />
+                     </styleClass>
                   </Tab>
-                  <Tab fx:id="pastTab" styleClass="button-orange" text="Past">
+                  <Tab fx:id="pastTab" text="Past">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
@@ -114,14 +119,18 @@
                            </children>
                         </AnchorPane>
                      </content>
+                     <styleClass>
+                        <String fx:value="button-white" />
+                        <String fx:value="tab-padding" />
+                     </styleClass>
                   </Tab>
-                  <Tab fx:id="ongoingTab" styleClass="button-orange" text="Ongoing">
+                  <Tab fx:id="ongoingTab" text="Ongoing">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
                               <HBox prefHeight="46.0" prefWidth="600.0">
                                  <children>
-                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0" styleClass="orange-bg">
+                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="46.0" prefWidth="276.0" styleClass="orange-bg">
                                        <children>
                                           <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
                                              <HBox.margin>
@@ -168,6 +177,10 @@
                            </children>
                         </AnchorPane>
                      </content>
+                     <styleClass>
+                        <String fx:value="button-white" />
+                        <String fx:value="tab-padding" />
+                     </styleClass>
                   </Tab>
               </tabs>
             </TabPane>
