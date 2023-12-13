@@ -31,4 +31,19 @@ public class Phone implements Serializable
     public String getFullPhoneNumber() {
         return countryCode + phoneNumber;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Phone other)) {
+            return false;
+        }
+
+        if (!countryCode.equals(other.countryCode)) {
+            return false;
+        }
+
+        return phoneNumber.equals(other.phoneNumber);
+    }
+
+
 }

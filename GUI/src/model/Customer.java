@@ -2,8 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class Customer implements Serializable
-{
+public class Customer implements Serializable {
     private boolean isPrivate;
     private Name name;
     private Phone phone;
@@ -69,4 +68,31 @@ public class Customer implements Serializable
             this.company = company;
         }
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof Customer other)) {
+            return false;
+        }
+
+        if (isPrivate != other.isPrivate) {
+            return false;
+        }
+        if (isPrivate) {
+            if (company != null && other.company != null) {
+                return company.equals(other.company);
+            } else {
+                return company == other.company;
+            }
+        } else {
+            if (name == null) {
+                return null == other.name && phone.equals(other.phone) && email.equals(other.email) && company == other.company;
+            } else if (name.equals(other.name)) {
+                return phone.equals(other.phone) && email.equals(other.email) && company == other.company;
+            } else {
+                return false;
+            }
+        }
+    }
+
 }

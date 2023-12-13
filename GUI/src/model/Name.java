@@ -53,4 +53,13 @@ public class Name implements Serializable
         }
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (!(obj instanceof Name other)) {
+            return false;
+        }
+        return firstName.equals(other.firstName) &&
+                middleName.equals(other.middleName) &&
+                lastName.equals(other.lastName);
+    }
 }

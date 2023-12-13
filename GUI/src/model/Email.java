@@ -40,4 +40,13 @@ public class Email implements Serializable
         return user + "@" + host + "." + domain;
     }
 
+    @Override
+    public boolean equals(Object obj){
+        if (!(obj instanceof Email)) {
+            return false;
+        }
+        Email other = (Email) obj;
+        return user.equals(other.user) && host.equals(other.host) && domain.equals(other.domain);
+    }
+
 }

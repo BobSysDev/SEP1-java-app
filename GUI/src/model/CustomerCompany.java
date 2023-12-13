@@ -2,8 +2,7 @@ package model;
 
 import java.io.Serializable;
 
-public class CustomerCompany implements Serializable
-{
+public class CustomerCompany implements Serializable {
     private String name;
     private String CVR;
 
@@ -30,5 +29,14 @@ public class CustomerCompany implements Serializable
 
     public String getFullCompanyName() {
         return name + "\n" + CVR;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (!(obj instanceof CustomerCompany)) {
+            return false;
+        }
+        CustomerCompany other = (CustomerCompany) obj;
+        return name.equals(other.name) && CVR.equals(other.CVR);
     }
 }
