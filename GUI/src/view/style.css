@@ -57,7 +57,7 @@
 }
 
 .tab-pane .tab-header-area .tab-header-background {
-    -fx-background-color: white;
+    -fx-background-color: transparent;
 }
 
 .tab:selected {
@@ -77,4 +77,6 @@
     -fx-text-fill: white;
     -fx-font-weight: bold;
 }
+
+
 
