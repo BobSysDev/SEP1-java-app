@@ -1,0 +1,70 @@
+
+
+.button-white{
+-fx-background-color: white;
+-fx-text-fill: #F58800;
+-fx-font-weight: bold;
+}
+
+.button-orange{
+-fx-background-color: #F58800;
+-fx-text-fill: white;
+-fx-font-weight: bold;
+-fx-text-base-color: white;
+}
+
+.button-orange:pressed {
+    -fx-background-color: white;
+    -fx-text-fill: #F58800;
+    -fx-font-weight: bold;
+}
+
+.button-orange:hover {
+-fx-background-color: white;
+-fx-text-fill: #F58800;
+-fx-font-weight: bold;
+}
+
+
+.orange-border{
+-fx-border-color: #F58800;
+-fx-border-radius: 3px;
+-fx-border-style: solid;
+-fx-border-width: 1px;
+}
+
+.orange-bg {
+-fx-background-color: #F58800;
+-fx-text-fill: white;
+}
+
+.white-bg {
+-fx-background-color: white;
+}
+
+.white-font {
+-fx-text-fill: white;
+-fx-text-base-color: white;
+}
+
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #F58800;
+}
+
+.tab:selected {
+    -fx-background-color: white;
+    -fx-text-base-color: #F58800;
+}
+
+
+.table-view .column-header {
+    -fx-background-color: #F58800;
+    -fx-border-color: white;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}

@@ -14,34 +14,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="372.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectViewController">
+<VBox prefHeight="372.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.ProjectViewController">
    <children>
       <HBox prefHeight="321.0" prefWidth="600.0">
          <children>
             <TabPane fx:id="tabPane" nodeOrientation="RIGHT_TO_LEFT" prefHeight="369.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                  <Tab fx:id="settingsTab" text="Settings">
+                  <Tab fx:id="settingsTab" styleClass="button-orange" text="Settings">
                     <content>
                       <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="180.0" prefWidth="200.0">
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="292.0" prefWidth="185.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" prefHeight="25.0" prefWidth="160.0" text="Export projects to XML">
+                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Export projects to XML">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#setWebsitePhotoDirectory" prefHeight="25.0" prefWidth="160.0" text="Set photo directory">
+                                    <Button mnemonicParsing="false" onAction="#setWebsitePhotoDirectory" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Set photo directory">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#reconstructDataBaseFromXML" prefHeight="25.0" prefWidth="160.0" text="Re-construct from XML">
+                                    <Button mnemonicParsing="false" onAction="#reconstructDataBaseFromXML" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Re-construct from XML">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#importProjectsFromXML" prefHeight="25.0" prefWidth="160.0" text="Import projects from XML">
+                                    <Button mnemonicParsing="false" onAction="#importProjectsFromXML" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Import projects from XML">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -56,40 +56,40 @@
                            </children></AnchorPane>
                     </content>
                   </Tab>
-                  <Tab fx:id="pastTab" text="Past">
+                  <Tab fx:id="pastTab" styleClass="button-orange" text="Past">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
                               <HBox prefHeight="46.0" prefWidth="600.0">
                                  <children>
-                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0">
+                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0" styleClass="orange-bg">
                                        <children>
-                                          <ChoiceBox fx:id="sortPastChoiceBox" prefHeight="25.0" prefWidth="90.0" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="26.787109375">
+                                          <ChoiceBox fx:id="sortPastChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg" />
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="26.787109375">
                                              <HBox.margin>
                                                 <Insets right="5.0" />
                                              </HBox.margin>
                                           </Text>
-                                          <ChoiceBox fx:id="filterPastChoiceBox" prefHeight="25.0" prefWidth="90.0">
+                                          <ChoiceBox fx:id="filterPastChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </ChoiceBox>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375">
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </Text>
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="330.0">
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="330.0" styleClass="orange-bg">
                                        <children>
-                                          <TextField fx:id="searchPastTextField" promptText="Search by title">
+                                          <TextField fx:id="searchPastTextField" promptText="Search by title" styleClass="white-bg">
                                              <HBox.margin>
                                                 <Insets left="15.0" />
                                              </HBox.margin>
                                           </TextField>
-                                          <Button fx:id="enterPastButton" mnemonicParsing="false" onAction="#enterPastButtonPressed" text="Enter">
+                                          <Button fx:id="enterPastButton" mnemonicParsing="false" onAction="#enterPastButtonPressed" styleClass="button-white" text="Enter">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -104,7 +104,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <TableView fx:id="projectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
+                              <TableView fx:id="projectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0" styleClass="white-bg">
                                  <columns>
                                     <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
                                     <TableColumn fx:id="nameColumn" prefWidth="357.0" text="Name" />
@@ -115,35 +115,35 @@
                         </AnchorPane>
                      </content>
                   </Tab>
-                  <Tab fx:id="ongoingTab" text="Ongoing">
+                  <Tab fx:id="ongoingTab" styleClass="button-orange" text="Ongoing">
                      <content>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="268.0" prefWidth="600.0">
                            <children>
                               <HBox prefHeight="46.0" prefWidth="600.0">
                                  <children>
-                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0">
+                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0" styleClass="orange-bg">
                                        <children>
-                                          <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0">
+                                          <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
                                           </ChoiceBox>
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="22.287109375">
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="22.287109375">
                                              <HBox.margin>
                                                 <Insets left="5.0" right="5.0" />
                                              </HBox.margin>
                                           </Text>
-                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" />
-                                          <Text strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375" />
+                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg" />
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="white-font" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375" />
                                        </children>
                                     </HBox>
-                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="328.0">
+                                    <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="328.0" styleClass="orange-bg">
                                        <children>
-                                          <TextField fx:id="searchOngoingTextField" promptText="Search by title">
+                                          <TextField fx:id="searchOngoingTextField" promptText="Search by title" styleClass="white-bg">
                                              <HBox.margin>
                                                 <Insets left="15.0" />
                                              </HBox.margin></TextField>
-                                          <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed" text="Enter">
+                                          <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed" styleClass="button-white" text="Enter">
                                              <HBox.margin>
                                                 <Insets left="10.0" />
                                              </HBox.margin>
@@ -158,7 +158,7 @@
                                     </HBox>
                                  </children>
                               </HBox>
-                              <TableView fx:id="ongoingProjectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0">
+                              <TableView fx:id="ongoingProjectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0" styleClass="white-bg">
                                  <columns>
                                     <TableColumn fx:id="ongoingTypeColumn" prefWidth="75.0" text="Type" />
                                     <TableColumn fx:id="ongoingNameColumn" prefWidth="357.0" text="Name" />
@@ -181,7 +181,7 @@
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button mnemonicParsing="false" onAction="#newProjectButtonPressed" prefHeight="25.0" prefWidth="104.0" text="New Project">
+            <Button mnemonicParsing="false" onAction="#newProjectButtonPressed" prefHeight="25.0" prefWidth="104.0" styleClass="button-orange" text="New Project">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
