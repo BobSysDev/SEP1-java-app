@@ -159,9 +159,12 @@ public abstract class Project implements Serializable, Comparable<Project> {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Project)) return false;
-        Project project = (Project) o;
+        if (this == o) {
+            return true;
+        }
+        if (!(o instanceof Project project)) {
+            return false;
+        }
         return Double.compare(project.budget, budget) == 0 &&
                 Double.compare(project.budgetEstimate, budgetEstimate) == 0 &&
                 timeInterval == project.timeInterval &&

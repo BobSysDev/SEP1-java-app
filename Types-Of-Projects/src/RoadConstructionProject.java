@@ -1,7 +1,6 @@
 import java.io.Serializable;
 import java.util.Objects;
 
-import static jdk.internal.jrtfs.JrtFileAttributeView.AttrID.size;
 
 public class RoadConstructionProject extends Project implements Serializable {
 
@@ -70,9 +69,8 @@ public class RoadConstructionProject extends Project implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof RoadConstructionProject)) return false;
+        if (!(o instanceof RoadConstructionProject that)) return false;
         if (!super.equals(o)) return false;
-        RoadConstructionProject that = (RoadConstructionProject) o;
         return Double.compare(that.length, length) == 0 &&
                 Double.compare(that.width, width) == 0 &&
                 numberOfBridges == that.numberOfBridges &&
