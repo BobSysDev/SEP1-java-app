@@ -65,5 +65,17 @@ public class ResidentialProject extends Project implements Serializable {
     public void setNewBuild(boolean isNewBuild){
         this.isNewBuild = isNewBuild;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ResidentialProject that)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(that.size, size) == 0 &&
+                numberOfKitchens == that.numberOfKitchens &&
+                numberOfBathrooms == that.numberOfBathrooms &&
+                otherRoomsWithPlumbing == that.otherRoomsWithPlumbing &&
+                isNewBuild == that.isNewBuild;
+    }
 }
 

@@ -69,18 +69,21 @@
                                  <children>
                                     <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="90.0" prefWidth="280.0" styleClass="orange-bg">
                                        <children>
-                                          <ChoiceBox fx:id="sortPastChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg" />
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="26.787109375">
+                                          <ChoiceBox fx:id="sortPastChoiceBox" prefHeight="25.0" prefWidth="94.0" styleClass="white-bg">
+                                             <HBox.margin>
+                                                <Insets right="1.0" />
+                                             </HBox.margin></ChoiceBox>
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Sort" textAlignment="RIGHT" wrappingWidth="28.0">
                                              <HBox.margin>
                                                 <Insets right="5.0" />
                                              </HBox.margin>
                                           </Text>
                                           <ChoiceBox fx:id="filterPastChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
                                              <HBox.margin>
-                                                <Insets />
+                                                <Insets bottom="1.0" />
                                              </HBox.margin>
                                           </ChoiceBox>
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375">
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text=" Filter" textAlignment="RIGHT" wrappingWidth="30.287109375">
                                              <HBox.margin>
                                                 <Insets />
                                              </HBox.margin>
@@ -89,9 +92,9 @@
                                     </HBox>
                                     <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="330.0" styleClass="orange-bg">
                                        <children>
-                                          <TextField fx:id="searchPastTextField" promptText="Search by title" styleClass="white-bg">
+                                          <TextField fx:id="searchPastTextField" prefHeight="26.0" prefWidth="149.0" promptText="Search by title" styleClass="white-bg-search">
                                              <HBox.margin>
-                                                <Insets left="15.0" />
+                                                <Insets left="20.0" />
                                              </HBox.margin>
                                           </TextField>
                                           <Button fx:id="enterPastButton" mnemonicParsing="false" onAction="#enterPastButtonPressed" styleClass="button-white" text="Enter">
@@ -111,9 +114,9 @@
                               </HBox>
                               <TableView fx:id="projectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0" styleClass="white-bg">
                                  <columns>
-                                    <TableColumn fx:id="typeColumn" prefWidth="75.0" text="Type" />
+                                    <TableColumn fx:id="typeColumn" prefWidth="110.0" text="Type" />
                                     <TableColumn fx:id="nameColumn" prefWidth="357.0" text="Name" />
-                                    <TableColumn fx:id="dateColumn" prefWidth="140.0" text="Start date" />
+                                    <TableColumn fx:id="dateColumn" prefWidth="110.0" text="Start date" />
                                  </columns>
                               </TableView>
                            </children>
@@ -130,11 +133,11 @@
                            <children>
                               <HBox prefHeight="46.0" prefWidth="600.0">
                                  <children>
-                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="46.0" prefWidth="276.0" styleClass="orange-bg">
+                                    <HBox alignment="CENTER" nodeOrientation="RIGHT_TO_LEFT" prefHeight="46.0" prefWidth="280" styleClass="orange-bg">
                                        <children>
-                                          <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
+                                          <ChoiceBox fx:id="sortOngoingChoiceBox" prefHeight="25.0" prefWidth="94.0" styleClass="white-bg">
                                              <HBox.margin>
-                                                <Insets />
+                                                <Insets right="1.0" />
                                              </HBox.margin>
                                           </ChoiceBox>
                                           <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort" textAlignment="RIGHT" wrappingWidth="22.287109375">
@@ -142,15 +145,21 @@
                                                 <Insets left="5.0" right="5.0" />
                                              </HBox.margin>
                                           </Text>
-                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg" />
-                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="white-font" text=" Filter" textAlignment="RIGHT" wrappingWidth="35.287109375" />
+                                          <ChoiceBox fx:id="filterOngoingChoiceBox" prefHeight="25.0" prefWidth="90.0" styleClass="white-bg">
+                                             <HBox.margin>
+                                                <Insets bottom="1.0" />
+                                             </HBox.margin></ChoiceBox>
+                                          <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="white-font" text=" Filter" textAlignment="RIGHT" wrappingWidth="30.287109375">
+                                             <HBox.margin>
+                                                <Insets right="2.0" />
+                                             </HBox.margin></Text>
                                        </children>
                                     </HBox>
                                     <HBox nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="328.0" styleClass="orange-bg">
                                        <children>
-                                          <TextField fx:id="searchOngoingTextField" promptText="Search by title" styleClass="white-bg">
+                                          <TextField fx:id="searchOngoingTextField" prefHeight="26.0" prefWidth="149.0" promptText="Search by title" styleClass="white-bg-search">
                                              <HBox.margin>
-                                                <Insets left="15.0" />
+                                                <Insets left="20.0" />
                                              </HBox.margin></TextField>
                                           <Button fx:id="enterOngoingButton" mnemonicParsing="false" onAction="#enterOngoingButtonPressed" styleClass="button-white" text="Enter">
                                              <HBox.margin>
@@ -169,9 +178,9 @@
                               </HBox>
                               <TableView fx:id="ongoingProjectListTable" layoutX="11.0" layoutY="46.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="247.0" prefWidth="573.0" styleClass="white-bg">
                                  <columns>
-                                    <TableColumn fx:id="ongoingTypeColumn" prefWidth="75.0" text="Type" />
+                                    <TableColumn fx:id="ongoingTypeColumn" prefWidth="110.0" text="Type" />
                                     <TableColumn fx:id="ongoingNameColumn" prefWidth="357.0" text="Name" />
-                                    <TableColumn fx:id="ongoingDateColumn" prefWidth="140.0" text="Start date" />
+                                    <TableColumn fx:id="ongoingDateColumn" prefWidth="110.0" text="Start date" />
                                  </columns>
                               </TableView>
                            </children>
@@ -189,7 +198,7 @@
       <HBox alignment="CENTER_RIGHT" prefHeight="51.0" prefWidth="600.0">
          <children>
             <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="369.0" />
-            <Button fx:id="detailsButton" disable="true" mnemonicParsing="false" onAction="#detailsButtonPressed" prefHeight="25.0" prefWidth="74.0" text="Details...">
+            <Button fx:id="detailsButton" disable="true" mnemonicParsing="false" onAction="#detailsButtonPressed" prefHeight="25.0" prefWidth="74.0" styleClass="button-orange" text="Details...">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>

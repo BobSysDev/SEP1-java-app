@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class RoadConstructionProject extends Project implements Serializable {
 
@@ -53,5 +54,16 @@ public class RoadConstructionProject extends Project implements Serializable {
 
     public void setObstacles(String obstacles) {
         this.obstacles = obstacles;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof RoadConstructionProject project)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(project.length, length) == 0 &&
+                Double.compare(project.width, width) == 0 &&
+                project.numberOfBridges == numberOfBridges &&
+                Objects.equals(project.obstacles, obstacles);
     }
 }

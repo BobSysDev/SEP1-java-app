@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class CommercialProject extends Project implements Serializable {
 
@@ -43,6 +44,16 @@ public class CommercialProject extends Project implements Serializable {
 
     public String getIntendedUse() {
         return intendedUse;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof CommercialProject that)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(that.size, size) == 0 &&
+                numberOfFloors == that.numberOfFloors &&
+                Objects.equals(intendedUse, that.intendedUse);
     }
 
 }

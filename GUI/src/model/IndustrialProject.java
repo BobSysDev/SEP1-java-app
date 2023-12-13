@@ -1,6 +1,7 @@
 package model;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class IndustrialProject extends Project implements Serializable {
 
@@ -33,5 +34,13 @@ public class IndustrialProject extends Project implements Serializable {
     }
     public String getIntendedUse(){
         return intendedUse;
+    }
+
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof IndustrialProject that)) return false;
+        if (!super.equals(o)) return false;
+        return Double.compare(that.size, size) == 0 &&
+                Objects.equals(that.intendedUse, intendedUse);
     }
 }

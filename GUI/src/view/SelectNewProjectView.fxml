@@ -14,7 +14,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="76.0" prefWidth="336.0">
          <children>
-            <Text fx:id="text" strokeWidth="0.0" text="Select the type of your new project:">
+            <Text fx:id="text" strokeWidth="0.0" text="Select the type of your new project">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
@@ -23,7 +23,7 @@
       </HBox>
       <VBox prefHeight="181.0" prefWidth="336.0">
          <children>
-            <RadioButton fx:id="resButton" mnemonicParsing="false" onAction="#getType" text="Residential">
+            <RadioButton fx:id="resButton" mnemonicParsing="false" onAction="#getType" styleClass="radio-button-residential" text="Residential">
                <font>
                   <Font size="18.0" />
                </font>
@@ -34,7 +34,7 @@
                   <ToggleGroup fx:id="type" />
                </toggleGroup>
             </RadioButton>
-            <RadioButton fx:id="comButton" mnemonicParsing="false" onAction="#getType" text="Commercial" toggleGroup="$type">
+            <RadioButton fx:id="comButton" mnemonicParsing="false" onAction="#getType" styleClass="radio-button-residential" text="Commercial" toggleGroup="$type">
                <font>
                   <Font size="18.0" />
                </font>
@@ -42,7 +42,7 @@
                   <Insets left="30.0" top="10.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton fx:id="indButton" mnemonicParsing="false" onAction="#getType" text="Industrial" toggleGroup="$type">
+            <RadioButton fx:id="indButton" mnemonicParsing="false" onAction="#getType" styleClass="radio-button-residential" text="Industrial" toggleGroup="$type">
                <font>
                   <Font size="18.0" />
                </font>
@@ -50,7 +50,7 @@
                   <Insets left="30.0" top="10.0" />
                </VBox.margin>
             </RadioButton>
-            <RadioButton fx:id="roadButton" mnemonicParsing="false" onAction="#getType" text="Roads" toggleGroup="$type">
+            <RadioButton fx:id="roadButton" mnemonicParsing="false" onAction="#getType" styleClass="radio-button-residential" text="Roads" toggleGroup="$type">
                <font>
                   <Font size="18.0" />
                </font>
@@ -66,12 +66,12 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="66.0" prefWidth="314.0" spacing="40.0">
          <children>
-            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" prefWidth="78.0" styleClass="button-white" text="Cancel">
+            <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#cancelButtonPressed" prefWidth="78.0" styleClass="button-white-select-project-type-cancel" text="Cancel">
                <font>
                   <Font size="17.0" />
                </font>
             </Button>
-            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="38.0" prefWidth="78.0" styleClass="button-orange" text="OK">
+            <Button fx:id="okButton" mnemonicParsing="false" onAction="#okButtonPressed" prefHeight="38.0" prefWidth="78.0" styleClass="button-orange-select-project-type-ok" text="OK">
                <font>
                   <Font size="17.0" />
                </font>

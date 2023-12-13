@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public abstract class Project implements Serializable, Comparable<Project> {
@@ -163,6 +164,24 @@ public abstract class Project implements Serializable, Comparable<Project> {
      @Override public int compareTo(Project o)
     {
         return this.getTitle().compareTo(o.getTitle());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Project project)) return false;
+        return Double.compare(project.budget, budget) == 0 &&
+                Double.compare(project.budgetEstimate, budgetEstimate) == 0 &&
+                timeInterval == project.timeInterval &&
+                timeEstimate == project.timeEstimate &&
+                Double.compare(project.manHours, manHours) == 0 &&
+                Double.compare(project.manHoursEstimate, manHoursEstimate) == 0 &&
+                projectID == project.projectID &&
+                isArchived == project.isArchived &&
+                Objects.equals(title, project.title) &&
+                Objects.equals(details, project.details) &&
+                Objects.equals(materials, project.materials) &&
+                Objects.equals(customer, project.customer);
     }
 
 }

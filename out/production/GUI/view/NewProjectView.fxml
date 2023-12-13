@@ -16,11 +16,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="526.0" prefWidth="597.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NewProjectViewController">
+<VBox prefHeight="526.0" prefWidth="597.0" styleClass="white-bg" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.NewProjectViewController">
    <children>
       <TabPane prefHeight="501.0" prefWidth="597.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab fx:id="projectTab" text="Project">
+          <Tab fx:id="projectTab" styleClass="new-project-tabs" text="Project">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -28,7 +28,7 @@
                            <children>
                               <VBox alignment="TOP_RIGHT" prefHeight="510.0" prefWidth="220.0">
                                  <children>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-up" text="Name:">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -60,7 +60,7 @@
                                           <Insets right="10.0" top="12.0" />
                                        </VBox.margin>
                                     </Text>
-                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Estimated time interval:" textAlignment="RIGHT" wrappingWidth="204.13671875">
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" styleClass="text-down" text="Estimated time interval:" textAlignment="RIGHT" wrappingWidth="204.13671875">
                                        <font>
                                           <Font size="18.0" />
                                        </font>
@@ -104,27 +104,27 @@
                               </VBox>
                               <VBox prefHeight="434.0" prefWidth="377.0">
                                  <children>
-                                    <TextField fx:id="nameTextField">
+                                    <TextField fx:id="nameTextField" styleClass="border-color">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label fx:id="typeLabel" prefHeight="22.0" prefWidth="377.0" text="(TYPE)">
+                                    <Label fx:id="typeLabel" prefHeight="22.0" prefWidth="377.0" styleClass="text-type" text="(TYPE)">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField fx:id="eBudgetTextField">
+                                    <TextField fx:id="eBudgetTextField" styleClass="border-color">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="eManHoursTextField">
+                                    <TextField fx:id="eManHoursTextField" styleClass="border-color">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <TextField fx:id="eTimeIntervalTextField" promptText="in months">
+                                    <TextField fx:id="eTimeIntervalTextField" promptText="in months" styleClass="border-color">
                                        <VBox.margin>
                                           <Insets right="20.0" top="12.0" />
                                        </VBox.margin>
@@ -146,8 +146,8 @@
                                     </TextArea>
                                     <AnchorPane prefHeight="38.0" prefWidth="377.0">
                                        <children>
-                                          <Button layoutY="7.0" mnemonicParsing="false" onAction="#uploadButtonPressed" text="Upload (optional)" textAlignment="CENTER" />
-                                          <Text fx:id="imagePathLabel" layoutX="127.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[image path will be displayed here]" />
+                                          <Button layoutY="7.0" mnemonicParsing="false" onAction="#uploadButtonPressed" styleClass="button-orange-upload" text="Upload (optional)" textAlignment="CENTER" />
+                                          <Text fx:id="imagePathLabel" fill="#f58800" layoutX="127.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[image path will be displayed here]" />
                                        </children>
                                     </AnchorPane>
                                  </children>
@@ -158,7 +158,7 @@
                   </AnchorPane>
             </content>
           </Tab>
-            <Tab fx:id="customerTab" text="Customer">
+            <Tab fx:id="customerTab" styleClass="new-project-tabs" text="Customer">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -236,7 +236,7 @@
                                  <children>
                                     <HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="377.0">
                                        <children>
-                                          <RadioButton fx:id="personRadioButton" mnemonicParsing="false" onAction="#isCompany" text="Person">
+                                          <RadioButton fx:id="personRadioButton" mnemonicParsing="false" onAction="#isCompany" styleClass="radio-button-residential" text="Person">
                                              <padding>
                                                 <Insets right="20.0" />
                                              </padding>
@@ -244,7 +244,7 @@
                                                 <ToggleGroup fx:id="isCompany" />
                                              </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton fx:id="companyRadioButton" mnemonicParsing="false" onAction="#isCompany" text="Company" toggleGroup="$isCompany" />
+                                          <RadioButton fx:id="companyRadioButton" mnemonicParsing="false" onAction="#isCompany" style="-fx-mark-color: #F58800;;" styleClass="radio-button-residential" text="Company" toggleGroup="$isCompany" />
                                        </children>
                                        <VBox.margin>
                                           <Insets top="17.0" />
@@ -322,7 +322,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="residentialTab" text="Residential">
+            <Tab fx:id="residentialTab" styleClass="new-project-tabs" text="Residential">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -399,7 +399,7 @@
                                           <Insets top="11.0" />
                                        </VBox.margin>
                                        <children>
-                                          <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#isNewBuild" selected="true" text="Yes">
+                                          <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" onAction="#isNewBuild" selected="true" styleClass="radio-button-residential" text="Yes">
                                              <padding>
                                                 <Insets right="20.0" />
                                              </padding>
@@ -407,7 +407,7 @@
                                                 <ToggleGroup fx:id="isNewBuild" />
                                              </toggleGroup>
                                           </RadioButton>
-                                          <RadioButton fx:id="noRadioButton" mnemonicParsing="false" onAction="#isNewBuild" text="No" toggleGroup="$isNewBuild" />
+                                          <RadioButton fx:id="noRadioButton" mnemonicParsing="false" onAction="#isNewBuild" styleClass="radio-button-residential" text="No" toggleGroup="$isNewBuild" />
                                        </children>
                                     </HBox>
                                  </children>
@@ -418,7 +418,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="roadTab" text="Road">
+            <Tab fx:id="roadTab" styleClass="new-project-tabs" text="Road">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -490,7 +490,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="commercialTab" text="Commercial">
+            <Tab fx:id="commercialTab" styleClass="new-project-tabs" text="Commercial">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -549,7 +549,7 @@
                   </AnchorPane>
                </content>
             </Tab>
-            <Tab fx:id="industrialTab" text="Industrial">
+            <Tab fx:id="industrialTab" styleClass="new-project-tabs" text="Industrial">
                <content>
                   <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="454.0" prefWidth="597.0">
                      <children>
@@ -600,8 +600,8 @@
       <HBox prefHeight="43.0" prefWidth="597.0" />
       <HBox alignment="CENTER" prefHeight="51.0" prefWidth="597.0" spacing="30.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" text="Cancel" />
-            <Button mnemonicParsing="false" onAction="#createButtonPressed" text="Create" />
+            <Button mnemonicParsing="false" onAction="#cancelButtonPressed" styleClass="button-create-project" text="Cancel" textOverrun="CLIP" />
+            <Button mnemonicParsing="false" onAction="#createButtonPressed" styleClass="button-create-project" text="Create" textOverrun="CLIP" HBox.hgrow="NEVER" />
          </children>
       </HBox>
       <Label fx:id="errorLabel" prefHeight="17.0" prefWidth="610.0" textAlignment="CENTER" textFill="RED" />
