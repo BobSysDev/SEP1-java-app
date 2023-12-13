@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Objects;
 
 public class ResidentialProject extends Project implements Serializable {
 
@@ -70,7 +71,15 @@ public class ResidentialProject extends Project implements Serializable {
         this.isNewBuild = isNewBuild;
     }
 
-
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        if (!super.equals(o)) return false;
+        ResidentialProject that = (ResidentialProject) o;
+        return Double.compare(that.size, size) == 0 &&
+                Objects.equals(type, that.type);
+    }
 
 }
 
