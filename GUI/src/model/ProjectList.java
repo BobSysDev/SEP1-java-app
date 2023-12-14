@@ -21,8 +21,9 @@ public class ProjectList implements Serializable
 
     public void addProjectAndBypassIdCheck(Project project) { //This method is only to be used when reading from file [IMPORTANT]
         projects.add(project);
-        if(project.getProjectID() > projectCounter) {
+        if(project.getProjectID() >= projectCounter) {
             projectCounter = project.getProjectID() + 1;
+            System.out.println("Next free project ID: " + projectCounter);
         }
     }
 

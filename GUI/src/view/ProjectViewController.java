@@ -1,29 +1,16 @@
 package view;
 
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.*;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import javafx.stage.DirectoryChooser;
 import model.*;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.Region;
-import javafx.event.Event;
 
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.net.URL;
-import java.util.Optional;
-import java.util.ResourceBundle;
 
 public class ProjectViewController
 {
@@ -224,26 +211,24 @@ public class ProjectViewController
 
   @FXML public void exportProjectsToXMLButtonPressed(){
     model.writeProjectsToXMLFile();
+    errorLabel.setText("Success!");
   }
 
   @FXML public void detailsButtonPressed(){
     viewHandler.openView("details");
   }
 
-  public void setWebsitePhotoDirectory(ActionEvent actionEvent)
+  @FXML public void setWebsiteRootDirectory()
   {
-    if(model.Confirmation("Warning", "This will change the directory for the cover\nphotos for the website. Are you sure you want to continue? \n\n (This action cannot be reversed)")){
+    if(model.Confirmation("Warning", "You are about to select a new root folder\nof the website. Are you sure you\nwant to continue?\n\n (This action cannot be reversed)")){
       try{
         String path = "";
         DirectoryChooser directoryChooser = new DirectoryChooser();
-        directoryChooser.setTitle("Select a folder that will contain the cover photos for the website");
+        directoryChooser.setTitle("Select the root folder of your website (the one with index.html)");
         File selectedFile = directoryChooser.showDialog(null);
         path = selectedFile.getAbsolutePath();
-        txtFileHandlerForFilePathSettings.writeSettingsFilePath(path);
-        errorLabel.setText("");
-      }
-      catch(FileNotFoundException e2){
-        errorLabel.setText("Error: something went wrong. Try again...");
+        model.setPathForWebsiteRoot(path);
+        errorLabel.setText("Success!");
       }
       catch(NullPointerException e3){
         errorLabel.setText("Error: the directory you selected is invalid. Try again...");
@@ -251,25 +236,28 @@ public class ProjectViewController
     }
   }
 
-  public void reconstructDataBaseFromXML(ActionEvent actionEvent)
+  @FXML public void reconstructDataBaseFromXML()
   {
     if(model.Confirmation("WARNING", "This will DELETE ALL the projects in the database\n and REPLACE them with the projects from the XML file.\n Are you ABSOLUTELY sure you want to continue? \n\n (This action CANNOT be reversed)")){
       try{
         model.reconstructDataBaseFromXML();
-        errorLabel.setText("");
+        errorLabel.setText("Success!");
       }
       catch(IOException e){
         errorLabel.setText("Error: something went wrong. Try again...");
       }
     }
+
+    viewModel.update();
+    ongoingViewModel.update();
   }
 
-  public void importProjectsFromXML(ActionEvent actionEvent)
+  @FXML public void importProjectsFromXML()
   {
-    if(model.Confirmation("Warning", "This will append all projects from the later specified file\nto the file database. Are you sure you want to continue? \n\n (This action cannot be reversed)")){
+    if(model.Confirmation("Warning", "This will append all projects from the later specified file\nto the file database. Are you sure you want to continue? \n\n (This action cannot be reversed)\n(duplicates will not be imported)")){
       try{
         model.importProjectsFromXML();
-        errorLabel.setText("");
+        errorLabel.setText("Success!");
       }
       catch(IOException e){
         errorLabel.setText("Error: something went wrong. Try again...");
@@ -278,5 +266,7 @@ public class ProjectViewController
         errorLabel.setText("Error: the file you selected is invalid. Try again...");
       }
     }
+    viewModel.update();
+    ongoingViewModel.update();
   }
 }

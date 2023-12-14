@@ -1,1 +1,1 @@
-websiteImageFilePath=C:\Users\Electimore\Desktop\Uni stuff\WEB1\GitHub\WEB1-project2\images
+websiteImageFilePath=C:\Users\Electimore\Desktop\Uni stuff\WEB1\GitHub\WEB1-project2

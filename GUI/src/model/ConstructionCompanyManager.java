@@ -22,10 +22,10 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
   private BinaryReaderWriter binaryFileInterface;
   private XMLReaderWriter xmlFileInterface;
 
-  private String pathForPhotosForTheWebsite = "";
+  private String pathForWebsiteRoot = "";
   private TXTFileHandlerForFilePathSettings txtFileHandlerForFilePathSettings;
   private static final String BINARY_FILE_PATH_PROJECTS = "projectDB.bin";
-  private static final String XML_FILE_PATH_PROJECTS = "projectDB.xml";
+  private String xmlFilePathProjects = "projectDB.xml";
   private static final String BINARY_FILE_PATH_CUSTOMERS = "customerDB.bin";
 
   public ConstructionCompanyManager()
@@ -35,8 +35,9 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     binaryFileInterface = new BinaryReaderWriter();
     xmlFileInterface = new XMLReaderWriter();
     txtFileHandlerForFilePathSettings = new TXTFileHandlerForFilePathSettings();
-    pathForPhotosForTheWebsite = "";
-    readPathForPhotosForTheWebsite();
+    pathForWebsiteRoot = "";
+    pathForWebsiteRoot = readPathForWebsiteRoot();
+    xmlFilePathProjects = pathForWebsiteRoot + "/xml/projectDB.xml";
     readCustomersFromBinaryFile();
     readProjectsFromBinaryFile();
   }
@@ -135,7 +136,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
 
   @Override public void writeProjectsToXMLFile(){
     try{
-      xmlFileInterface.writeProjectList(XML_FILE_PATH_PROJECTS, projectList);
+      xmlFileInterface.writeProjectList(xmlFilePathProjects, projectList);
     }
     catch (IOException e){
       System.out.println("ERROR: IOException has occurred while writing to the XML file. Check the parameters. Printout: \n" + e);
@@ -160,21 +161,21 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
-  public String getPathForPhotosForTheWebsite(){
-    return pathForPhotosForTheWebsite;
+  public String getPathForWebsiteRoot(){
+    return pathForWebsiteRoot;
   }
 
-  public String readPathForPhotosForTheWebsite(){
+  public String readPathForWebsiteRoot(){
     String toReturn = null;
     try{
       toReturn = this.txtFileHandlerForFilePathSettings.readSettingsFilePath();
     }
     catch(FileNotFoundException e){
-      if(Confirmation("Warning: the settings file wasn't found", "You can create a new one by clicking OK,\nor close the application by clicking cancel.\n\nIf this is the first time you're launching the app,\nclick OK to set a path to which the cover\nphotos fot the website will be copied.")){
+      if(Confirmation("Warning: the settings file wasn't found", "You can create a new one by clicking OK,\nor close the application by clicking cancel.\n\nIf this is the first time you're launching the app,\nclick OK to set a path that corresponds to the\nroot folder of your website (the one with index.html)")){
         try{
           String path = "";
           DirectoryChooser directoryChooser = new DirectoryChooser();
-          directoryChooser.setTitle("Select a folder that will contain the cover photos for the website");
+          directoryChooser.setTitle("Select the root folder of your website (the one with index.html)");
           File selectedFile = directoryChooser.showDialog(null);
           path = selectedFile.getAbsolutePath();
           this.txtFileHandlerForFilePathSettings.writeSettingsFilePath(path);
@@ -191,11 +192,11 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return toReturn;
   }
 
-  public void setPathForPhotosForTheWebsite(String pathForPhotosForTheWebsite){
-    this.pathForPhotosForTheWebsite = pathForPhotosForTheWebsite;
+  public void setPathForWebsiteRoot(String pathForWebsiteRoot){
+    this.pathForWebsiteRoot = pathForWebsiteRoot;
 
     try{
-      this.txtFileHandlerForFilePathSettings.writeSettingsFilePath(pathForPhotosForTheWebsite);
+      this.txtFileHandlerForFilePathSettings.writeSettingsFilePath(pathForWebsiteRoot);
     }
     catch(FileNotFoundException e){
       System.out.println("ERROR: FileNotFoundException has occurred while writing to the settings file. Check the parameters. Printout: \n" + e);
@@ -204,7 +205,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
 
   public void reconstructDataBaseFromXML() throws IOException
   {
-    projectList = xmlFileInterface.readProjectList(XML_FILE_PATH_PROJECTS);
+    projectList = xmlFileInterface.readProjectList(xmlFilePathProjects);
     writeProjectsToBinaryFile();
   }
 
@@ -217,7 +218,18 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
 
     ProjectList importedList = xmlFileInterface.readProjectList(selectedFile.getAbsolutePath());
     for(int i = 0; i < importedList.getSize(); i++){
-      projectList.addProject(importedList.getProject(i));
+      boolean duplicate = false;
+      for(int j = 0; j < projectList.getSize(); j++){
+        System.out.println("Comparing " + importedList.getProject(i).getProjectID() + " with " + projectList.getProject(j).getProjectID());
+        System.out.println("Comparing " + importedList.getProject(i).getTitle() + " with " + projectList.getProject(j).getTitle());
+        if(importedList.getProject(i).equals(projectList.getProject(j))){
+          duplicate = true;
+          break;
+        }
+      }
+      if(!duplicate){
+        projectList.addProject(importedList.getProject(i));
+      }
     }
     writeProjectsToBinaryFile();
   }

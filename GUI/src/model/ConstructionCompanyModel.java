@@ -28,9 +28,10 @@ public interface ConstructionCompanyModel
 
   public void writeProjectsToXMLFile();
 
-  public String getPathForPhotosForTheWebsite();
-  public String readPathForPhotosForTheWebsite();
+  public String getPathForWebsiteRoot();
+  public String readPathForWebsiteRoot();
   boolean Confirmation(String s, String s1);
   void reconstructDataBaseFromXML() throws IOException;
   void importProjectsFromXML() throws IOException;
+  void setPathForWebsiteRoot(String path);
 }

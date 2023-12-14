@@ -32,7 +32,7 @@
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#setWebsitePhotoDirectory" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Set photo directory">
+                                    <Button mnemonicParsing="false" onAction="#setWebsiteRootDirectory" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Set website directory">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
@@ -50,7 +50,7 @@
                                  </children>
                               </VBox>
                               <Text layoutX="197.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Export all of the projects to an XML file" />
-                              <Text layoutX="197.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set a new directory to copy photos for the websites to" />
+                              <Text layoutX="197.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Select the root directory of your website" />
                               <Text layoutX="197.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Re-construct the entire database from an XML file" />
                               <Text layoutX="197.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Import a project or many projects from an XML file to the database" wrappingWidth="354.474609375" />
                               <Text layoutX="197.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="[!] This option will overwrite the current database" wrappingWidth="354.474609375" />

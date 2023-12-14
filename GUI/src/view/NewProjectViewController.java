@@ -240,8 +240,8 @@ public class NewProjectViewController
   }
 
   @FXML public void uploadButtonPressed(){
-    String pathToCopyTo = model.readPathForPhotosForTheWebsite();
-    String pathOfThePhoto = "";
+    String pathToCopyTo = model.getPathForWebsiteRoot() + "/images";
+    System.out.println(pathToCopyTo);
     FileChooser fileChooser = new FileChooser();
     fileChooser.setTitle("Select a cover photo for this project");
     fileChooser.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Image Files", "*.png", "*.jpg", "*.gif"));
@@ -250,13 +250,15 @@ public class NewProjectViewController
     {
       Files.copy(selectedFile.toPath(), new File(pathToCopyTo + "/" + selectedFile.getName()).toPath());
 
-      String[] pathTemp = pathToCopyTo.split("\\\\");
-      int pathTempLen = pathTemp.length;
-      finalPhotoPath = pathTemp[pathTempLen-1] + "/" + selectedFile.getName();
+
+      finalPhotoPath = "images/" + selectedFile.getName();
       imagePathLabel.setText(finalPhotoPath);
     }
     catch (IOException e){
       errorLabel.setText("There was a problem copying the photo. Please try again.");
+    }
+    catch (NullPointerException e2){
+      errorLabel.setText("You didn't select a photo. Please try again.");
     }
   }
 

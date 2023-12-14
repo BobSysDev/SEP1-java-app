@@ -74,9 +74,7 @@ public class XMLReaderWriter implements ConstructionCompanyFile
       }
       counter++;
       if(projectLines.get(0).contains("type=\"Residential\"")){
-        ResidentialProject resP = ResidentialXMLReaderWriter.read(projectLines);
-        System.out.println(resP.getProjectID());
-        projects.addProjectAndBypassIdCheck(resP);
+        projects.addProjectAndBypassIdCheck(ResidentialXMLReaderWriter.read(projectLines));
       }
       else if(projectLines.get(0).contains("type=\"Commercial\"")){
         projects.addProjectAndBypassIdCheck(CommercialXMLReaderWriter.read(projectLines));
