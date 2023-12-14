@@ -3,27 +3,58 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class CustomerList implements Serializable
-{
-        private ArrayList<Customer> customers;
+/**
+ * CustomerList represents a list of customers from Customer class.
+ *
+ * @author Karolina Anna Krysiak
+ * @version 1.0 - December 2023
+ * @see Customer
+ */
+public class CustomerList implements Serializable {
+    private ArrayList<Customer> customers;
 
-        public CustomerList() {
-            customers = new ArrayList<>();
-        }
+    /**
+     * Constructs a new customer list.
+     */
+    public CustomerList() {
+        customers = new ArrayList<>();
+    }
 
-        public void addCustomer(Customer customer) {
-            customers.add(customer);
-        }
+    /**
+     * Adds a customer to the list.
+     *
+     * @param customer The customer to add.
+     */
+    public void addCustomer(Customer customer) {
+        customers.add(customer);
+    }
 
-        public void removeCustomer(Customer customer) {
-            customers.remove(customer);
-        }
+    /**
+     * Removes a customer from the list.
+     *
+     * @param customer The customer to remove.
+     */
 
-        public Customer getCustomer(int index) {
-            return customers.get(index);
-        }
+    public void removeCustomer(Customer customer) {
+        customers.remove(customer);
+    }
 
-        public ArrayList<Customer> getCustomers(){
-          return customers;
-        }
+    /**
+     * Retrieves a customer from the list at the specified index.
+     *
+     * @param index The index of the customer to retrieve.
+     * @return The customer at the specified index.
+     */
+    public Customer getCustomer(int index) {
+        return customers.get(index);
+    }
+
+    /**
+     * Returns a list of all customers in the list.
+     *
+     * @return An ArrayList containing all customers in the list.
+     */
+    public ArrayList<Customer> getCustomers() {
+        return customers;
+    }
 }
