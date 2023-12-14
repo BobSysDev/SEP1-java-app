@@ -12,6 +12,14 @@ import javafx.scene.control.TextField;
 import java.io.File;
 import java.io.IOException;
 
+/**
+ * The class ProjectViewController is the controller of the ProjectView. [TO BE CHANGED]
+ *
+ * @author Samuel Knieza
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class ProjectViewController
 {
   @FXML private TabPane tabPane;
@@ -218,6 +226,9 @@ public class ProjectViewController
     viewHandler.openView("details");
   }
 
+  /**
+   * This method allows the user to select a new root folder of the website (this means to re-select the folder, not move the website).
+   */
   @FXML public void setWebsiteRootDirectory()
   {
     if(model.Confirmation("Warning", "You are about to select a new root folder\nof the website. Are you sure you\nwant to continue?\n\n (This action cannot be reversed)")){
@@ -236,6 +247,11 @@ public class ProjectViewController
     }
   }
 
+  /**
+   * This method calls the corresponding method in the model, which reconstructs (overwrites) the database from the XML file.
+   *
+   * @see ConstructionCompanyManager#reconstructDataBaseFromXML()
+   */
   @FXML public void reconstructDataBaseFromXML()
   {
     if(model.Confirmation("WARNING", "This will DELETE ALL the projects in the database\n and REPLACE them with the projects from the XML file.\n Are you ABSOLUTELY sure you want to continue? \n\n (This action CANNOT be reversed)")){
@@ -252,6 +268,11 @@ public class ProjectViewController
     ongoingViewModel.update();
   }
 
+  /**
+   * This method calls the corresponding method in the model, which imports (appends) projects from the XML file.
+   *
+   * @see ConstructionCompanyManager#importProjectsFromXML()
+   */
   @FXML public void importProjectsFromXML()
   {
     if(model.Confirmation("Warning", "This will append all projects from the later specified file\nto the file database. Are you sure you want to continue? \n\n (This action cannot be reversed)\n(duplicates will not be imported)")){

@@ -20,6 +20,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Optional;
 
+/**
+ * The controller class for the new project view. [TO BE CHANGED]
+ *
+ * @author Samuel Knieza
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class NewProjectViewController
 {
   //tabs
@@ -238,6 +246,12 @@ public class NewProjectViewController
     return null;
   }
 
+  /**
+   * Method for uploading a photo to the project. The photo selected in a popup window is copied to the project website's folder. The path for the website is retrieved from the ConstructionCompanyManager class.
+   * Displays an error message in the GUI if the photo is not copied or something went wrong in the process (i.e. user cancels the upload).
+   *
+   * @see ConstructionCompanyManager#getPathForWebsiteRoot()
+   */
   @FXML public void uploadButtonPressed(){
     String pathToCopyTo = model.getPathForWebsiteRoot() + "/images";
     System.out.println(pathToCopyTo);
@@ -248,7 +262,6 @@ public class NewProjectViewController
     try
     {
       Files.copy(selectedFile.toPath(), new File(pathToCopyTo + "/" + selectedFile.getName()).toPath());
-
 
       finalPhotoPath = "images/" + selectedFile.getName();
       imagePathLabel.setText(finalPhotoPath);

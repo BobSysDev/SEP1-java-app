@@ -13,6 +13,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Optional;
 
+/**
+ * A class that manages the project and customer lists. [TO BE CHANGED]
+ *
+ * @author Samuel Knieza
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class ConstructionCompanyManager implements ConstructionCompanyModel
 {
   private ConstructionCompanyModel model;
@@ -85,6 +93,12 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
   public void removeCustomer(Customer customer){
     customerList.removeCustomer(customer);
   }
+
+  /**
+   * Reads the project list from a binary file, using the BinaryReaderWriter class and stores it in a local variable. Shows a pop-up if the file is not found or could not be read.
+   *
+   * @see BinaryReaderWriter#readProjectList(String)
+   */
   @Override
   public void readProjectsFromBinaryFile(){
     try{
@@ -100,6 +114,12 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
       }
     }
   }
+
+  /**
+   * Writes the project list to a binary file, using the BinaryReaderWriter class.
+   *
+   * @see BinaryReaderWriter#writeProjectList(String, ProjectList)
+   */
   @Override
   public void writeProjectsToBinaryFile(){
     try{
@@ -109,6 +129,13 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
       System.out.println("ERROR: IOException has occurred while writing. Check the parameters. Printout: \n" + e);
     }
   }
+
+  /**
+   * Reads the customer list from a binary file, using the BinaryReaderWriter class and stores it in a local variable. Shows a pop-up if the file is not found or could not be read.
+   *
+   * @see BinaryReaderWriter#readCustomerList(String)
+   */
+
   @Override
   public void readCustomersFromBinaryFile(){
     try{
@@ -124,6 +151,12 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
       }
     }
   }
+
+  /**
+   * Writes the customer list to a binary file, using the BinaryReaderWriter class.
+   *
+   * @see BinaryReaderWriter#writeCustomerList(String, CustomerList)
+   */
   @Override
   public void writeCustomersToBinaryFile(){
     try{
@@ -134,6 +167,11 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
   }
 
+  /**
+   * Writes the project list to an XML file, using the XMLReaderWriter class.
+   *
+   * @see XMLReaderWriter#writeProjectList(String, ProjectList)
+   */
   @Override public void writeProjectsToXMLFile(){
     try{
       xmlFileInterface.writeProjectList(xmlFilePathProjects, projectList);
@@ -143,6 +181,9 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
   }
 
+  /**
+   * Create a pop-up window with a warning message and two buttons: OK and CANCEL. Returns true if OK is pressed, false if CANCEL is pressed.
+   */
   public boolean Confirmation(String title, String query){
     Alert alert = new Alert(Alert.AlertType.WARNING);
     alert.setTitle(title);
@@ -161,10 +202,19 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return (result.isPresent()) && (result.get() == ButtonType.OK);
   }
 
+  /**
+   * Returns the path to the root folder of the website (2nd part of the Project).
+   */
   public String getPathForWebsiteRoot(){
     return pathForWebsiteRoot;
   }
 
+  /**
+   * Reads the path to the root folder of the website (2nd part of the Project) from a text file, using the TXTFileHandlerForFilePathSettings class and stores it in a local variable. Shows a pop-up if the file is not found or could not be read, asking to set the path manually and then saves it back to the file.
+   *
+   * @see TXTFileHandlerForFilePathSettings#readSettingsFilePath()
+   * @see TXTFileHandlerForFilePathSettings#writeSettingsFilePath(String)
+   */
   public String readPathForWebsiteRoot(){
     String toReturn = null;
     try{
@@ -192,6 +242,11 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return toReturn;
   }
 
+  /**
+   * Sets the path to the root folder of the website (2nd part of the Project) and saves it to a text file, using the TXTFileHandlerForFilePathSettings class.
+   *
+   * @see TXTFileHandlerForFilePathSettings#writeSettingsFilePath(String)
+   */
   public void setPathForWebsiteRoot(String pathForWebsiteRoot){
     this.pathForWebsiteRoot = pathForWebsiteRoot;
 
@@ -203,12 +258,22 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     }
   }
 
+  /**
+   * Reads the provided XML file and reconstructs the project list from it, using the XMLReaderWriter class.
+   *
+   * @see XMLReaderWriter#readProjectList(String)
+   */
   public void reconstructDataBaseFromXML() throws IOException
   {
     projectList = xmlFileInterface.readProjectList(xmlFilePathProjects);
     writeProjectsToBinaryFile();
   }
 
+  /**
+   * Reads the provided XML file and imports the projects from it to the project list, using the XMLReaderWriter class. It only imports the projects that are not already in the list.
+   *
+   * @see XMLReaderWriter#readProjectList(String)
+   */
   public void importProjectsFromXML() throws IOException
   {
     FileChooser fileChooser = new FileChooser();

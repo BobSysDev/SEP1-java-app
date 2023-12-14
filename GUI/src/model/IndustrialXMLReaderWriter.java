@@ -2,8 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class for reading and writing XML files for IndustrialProject. Used by XMLReaderWriter class.
+ * XMLReaderWriter should be used instead to write/read an entire ProjectList
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class IndustrialXMLReaderWriter
 {
+  /**
+   * Writes an IndustrialProject object to XML format
+   * @param project IndustrialProject object to be written
+   * @return String containing XML data to be used by XMLReaderWriter
+   */
   public static String write(IndustrialProject project){
     String XMLData = "";
     XMLData += "  <project type=\"Industrial\">\n";
@@ -32,6 +45,11 @@ public class IndustrialXMLReaderWriter
     return XMLData;
   }
 
+  /**
+   * Reads an IndustrialProject object from XML format
+   * @param lines ArrayList of Strings containing XML data to be read
+   * @return IndustrialProject object containing data from XML file to be used by XMLReaderWriter
+   */
   public static IndustrialProject read(ArrayList<String> lines){
     int projectID = Integer.parseInt(lines.get(1).replace("<projectId>", "").replace("</projectId>", "").trim());
     String title = lines.get(2).replace("<title>", "").replace("</title>", "").trim();

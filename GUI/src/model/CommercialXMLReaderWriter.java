@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CommercialXMLReaderWriter
 {
   /**
-   * Writes CommercialProject to XML format
+   * Converts a CommercialProject object to XML format
    * @param project CommercialProject object to be written
    * @return String containing XML data to be used by XMLReaderWriter
    */
@@ -47,7 +47,7 @@ public class CommercialXMLReaderWriter
   }
 
   /**
-   * Reads CommercialProject from XML format
+   * Reads a CommercialProject object from XML format
    * @param lines ArrayList of Strings containing XML data to be read
    * @return CommercialProject object containing data from XML file to be used by XMLReaderWriter
    */

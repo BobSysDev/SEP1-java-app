@@ -2,8 +2,20 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class for reading and writing XML files for RoadConstructionProject. Used by XMLReaderWriter class.
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class RoadXMLReaderWriter
 {
+  /**
+   * Writes a RoadConstructionProject object to XML format
+   * @param project RoadConstructionProject object to be written
+   * @return String containing XML data to be used by XMLReaderWriter
+   */
   public static String write(RoadConstructionProject project){
     String XMLData = "";
     XMLData += "  <project type=\"Roadwork\">\n";
@@ -34,6 +46,11 @@ public class RoadXMLReaderWriter
     return XMLData;
   }
 
+  /**
+   * Reads a RoadConstructionProject object from XML format
+   * @param lines ArrayList of Strings containing XML data to be read
+   * @return RoadConstructionProject object containing data from XML file to be used by XMLReaderWriter
+   */
   public static RoadConstructionProject read(ArrayList<String> lines){
     int projectID = Integer.parseInt(lines.get(1).replace("<projectId>", "").replace("</projectId>", "").trim());
     String title = lines.get(2).replace("<title>", "").replace("</title>", "").trim();

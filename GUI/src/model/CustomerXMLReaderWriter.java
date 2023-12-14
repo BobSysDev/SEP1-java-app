@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class CustomerXMLReaderWriter
 {
   /**
-   * Writes Customer to XML format
+   * Writes a Customer object to XML format
    * @param customer Customer object to be written
    * @return String containing XML data to be used by XMLReaderWriter
    */
@@ -59,7 +59,7 @@ public class CustomerXMLReaderWriter
   }
 
   /**
-   * Reads Customer from XML format
+   * Reads a Customer object from XML format
    * @param XMLData ArrayList of Strings containing XML data to be read
    * @return Customer object containing data from XML file to be used by XMLReaderWriter
    */
