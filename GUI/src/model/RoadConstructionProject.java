@@ -3,12 +3,43 @@ package model;
 import java.io.Serializable;
 import java.util.Objects;
 
+/**
+ * RoadConstructionProject class represents a specific type of construction project focusing on road construction.
+ * It extends the Project class and includes attributes and functionalities specific to road construction projects.
+ *
+ *@author Marius Gafton
+ *@version 1.0 - December 2023
+ */
 public class RoadConstructionProject extends Project implements Serializable {
 
     double length;
     double width;
     int numberOfBridges;
     String obstacles;
+
+    /**
+     * Constructs a RoadConstructionProject with specified attributes.
+     *
+     * @param title                   Title of the project.
+     * @param budget                  Total budget allocated for the project.
+     * @param budgetEstimate          Estimated budget for the project.
+     * @param timeInterval            Time interval for the project.
+     * @param timeEstimate            Estimated time for project completion.
+     * @param manHours                Man-hours spent on the project.
+     * @param manHoursEstimate        Estimated man-hours for the project.
+     * @param projectID               Unique identifier for the project.
+     * @param isArchived              Indicates if the project is archived.
+     * @param details                 Details or description of the project.
+     * @param materials               Materials used for construction.
+     * @param length                  Length of the road construction project.
+     * @param width                   Width of the road construction project.
+     * @param numberOfBridges         Number of bridges within the road construction.
+     * @param obstacles               Obstacles encountered in the road construction.
+     * @param startDate               Start date of the project.
+     * @param customer                Customer associated with the project.
+     *
+     */
+
 
     // Constructor for the RoadConstructionProject class
     public RoadConstructionProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double length, double width, int numberOfBridges, String obstacles, String startDate, Customer customer){

@@ -5,6 +5,15 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ *The Project class represents a base class for construction projects.
+ *It includes attributes and methods common to all project types.
+ *This class is abstract and serves as a foundation for specific project types.
+ *
+ * @author Marius Gafton
+ * @version 1.0 - December 2023
+ */
+
 public abstract class Project implements Serializable, Comparable<Project> {
     private static final Set<Integer> usedIDs = new HashSet<>();
 
@@ -160,7 +169,15 @@ public abstract class Project implements Serializable, Comparable<Project> {
 
     public abstract String getType();
 
-
+    /**
+     * Compares this Project's title with another Project's title for ordering purposes.
+     *
+     * @param o The Project object to be compared with this Project.
+     * @return A negative integer, zero, or a positive integer as this Project's title
+     *         is less than, equal to, or greater than the specified Project's title.
+     * @author Marius Gafton
+     * @version 1.0 - December 2023
+     */
      @Override public int compareTo(Project o)
     {
         return this.getTitle().compareTo(o.getTitle());

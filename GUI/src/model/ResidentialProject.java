@@ -2,6 +2,14 @@ package model;
 
 import java.io.Serializable;
 
+/**
+ * ResidentialProject class represents a specific type of construction project focusing on residential properties.
+ * It extends the Project class and adds attributes and functionalities specific to residential projects.
+ *
+ *
+ *@author Marius Gafton
+ *@version 1.0 - December 2023
+ */
 public class ResidentialProject extends Project implements Serializable {
 
     private double size;
@@ -9,6 +17,31 @@ public class ResidentialProject extends Project implements Serializable {
     private int numberOfBathrooms;
     private int otherRoomsWithPlumbing;
     private boolean isNewBuild;
+
+    /**
+     * Constructs a ResidentialProject with specified attributes.
+     *
+     * @param title                   Title of the project.
+     * @param budget                  Total budget allocated for the project.
+     * @param budgetEstimate          Estimated budget for the project.
+     * @param timeInterval            Time interval for the project.
+     * @param timeEstimate            Estimated time for project completion.
+     * @param manHours                Man-hours spent on the project.
+     * @param manHoursEstimate        Estimated man-hours for the project.
+     * @param projectID               Unique identifier for the project.
+     * @param isArchived              Indicates if the project is archived.
+     * @param details                 Details or description of the project.
+     * @param materials               Materials used for construction.
+     * @param size                    Size of the residential property.
+     * @param numberOfKitchens        Number of kitchens in the property.
+     * @param numberOfBathrooms       Number of bathrooms in the property.
+     * @param otherRoomsWithPlumbing  Number of additional rooms with plumbing.
+     * @param isNewBuild              Indicates if it's a new build or existing property.
+     * @param startDate               Start date of the project.
+     * @param customer                Customer associated with the project.
+     *
+     */
+
 
     // Constructor for the ResidentialProject class
     public ResidentialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, int numberOfKitchens, int numberOfBathrooms, int otherRoomsWithPlumbing, boolean isNewBuild, String startDate, Customer customer){

@@ -3,11 +3,43 @@ package model;
 import java.io.Serializable;
 import java.util.Objects;
 
+
+/**
+ * CommercialProject class represents a specific type of commercial construction project.
+ * It extends the Project class and includes attributes and functionalities specific to commercial projects.
+ *
+ * @author Marius Gafton
+ * @version 1.0 - December 2023
+ */
 public class CommercialProject extends Project implements Serializable {
 
     double size;
     String intendedUse;
     int numberOfFloors;
+
+
+    /**
+     * Constructs a CommercialProject with specified attributes.
+     *
+     * @param title             Title of the project.
+     * @param budget            Total budget allocated for the project.
+     * @param budgetEstimate    Estimated budget for the project.
+     * @param timeInterval      Time interval for the project.
+     * @param timeEstimate      Estimated time for project completion.
+     * @param manHours          Man-hours spent on the project.
+     * @param manHoursEstimate  Estimated man-hours for the project.
+     * @param projectID         Unique identifier for the project.
+     * @param isArchived        Indicates if the project is archived.
+     * @param details           Details or description of the project.
+     * @param materials         Materials used for construction.
+     * @param size              Size of the commercial project.
+     * @param intendedUse       Intended use of the commercial project.
+     * @param numberOfFloors    Number of floors in the commercial project.
+     * @param startDate         Start date of the project.
+     * @param customer          Customer associated with the project.
+     *
+     */
+
 
     // Constructor for the CommercialProject class
     public CommercialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, String intendedUse, int numberOfFloors, String startDate, Customer customer){
