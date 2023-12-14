@@ -61,21 +61,7 @@ public class SelectNewProjectViewController
     }
   }
 
-  public void testingLabel(ActionEvent event){
-    if (resButton.isSelected()){
-      label.setText(resButton.getText());
-    }
-    if (comButton.isSelected()){
-      label.setText(comButton.getText());
-    }
-    if (indButton.isSelected()){
-      label.setText(indButton.getText());
-    }
-    if (roadButton.isSelected()){
-      label.setText(roadButton.getText());
-    }
-
-  }
+  
   public String getTypeSelected(){
     return typeSelected;
   }
