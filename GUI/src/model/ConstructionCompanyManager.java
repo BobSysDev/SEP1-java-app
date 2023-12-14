@@ -117,7 +117,7 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     catch (IOException e){
 //      System.out.println("ERROR: IOException has occurred while reading. Check the parameters. Printout: \n" + e);
       if(Confirmation("Warning: database file not found", "File \"" + BINARY_FILE_PATH_CUSTOMERS + "\" could not be found. \nPress OK if you want to create a new empty file\nor CANCEL to close the application\n\n(If you're launching the app for the\nfirst time, press OK)")){
-        writeProjectsToBinaryFile();
+        writeCustomersToBinaryFile();
       }
       else{
         Platform.exit();

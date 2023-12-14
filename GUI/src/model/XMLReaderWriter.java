@@ -6,8 +6,22 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Class for reading and writing XML files for CustomerList and ProjectList, dependent on other XMLReaderWriter classes (e.g. CustomerXMLReaderWriter) to function properly
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ * @see "ConstructionCompanyFile interface"
+ */
+
 public class XMLReaderWriter implements ConstructionCompanyFile
 {
+  /**
+   * Reads CustomerList from the specified XML file
+   * @param path String, path to the file. Can be relative or absolute
+   * @return CustomerList object
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public CustomerList readCustomerList(String path) throws IOException
   {
     File file = new File(path);
@@ -34,6 +48,12 @@ public class XMLReaderWriter implements ConstructionCompanyFile
     return customers;
   }
 
+  /**
+   * Writes CustomerList to the specified XML file
+   * @param path String, path to the file. Can be relative or absolute
+   * @param customerList CustomerList object to be written
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public void writeCustomerList(String path,
       CustomerList customerList) throws IOException
   {
@@ -53,6 +73,12 @@ public class XMLReaderWriter implements ConstructionCompanyFile
     }
   }
 
+  /**
+   * Reads ProjectList from the specified XML file
+   * @param path String, path to the file. Can be relative or absolute
+   * @return ProjectList object
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public ProjectList readProjectList(String path) throws IOException
   {
     File file = new File(path);
@@ -93,6 +119,12 @@ public class XMLReaderWriter implements ConstructionCompanyFile
     return projects;
   }
 
+  /**
+   * Writes ProjectList to the specified XML file
+   * @param path String, path to the file. Can be relative or absolute
+   * @param projectList ProjectList object to be written
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public void writeProjectList(String path, ProjectList projectList)
       throws IOException
   {

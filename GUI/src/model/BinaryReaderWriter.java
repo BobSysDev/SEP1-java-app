@@ -2,8 +2,23 @@ package model;
 
 import java.io.*;
 
+/**
+ * Class for reading and writing binary files for CustomerList and ProjectList
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ * @see "ConstructionCompanyFile interface"
+ */
+
 public class BinaryReaderWriter implements ConstructionCompanyFile
 {
+  /**
+   * Reads CustomerList from the specified binary file
+   *
+   * @param path String, path to the file. Can be relative or absolute
+   * @return CustomerList object
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public CustomerList readCustomerList(String path)
       throws IOException
   {
@@ -19,6 +34,13 @@ public class BinaryReaderWriter implements ConstructionCompanyFile
     return retrievedList;
   }
 
+  /**
+   * Writes CustomerList to the specified binary file
+   *
+   * @param path String, path to the file. Can be relative or absolute
+   * @param customerList CustomerList object to be written
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public void writeCustomerList(String path,
       CustomerList customerList) throws IOException
   {
@@ -29,6 +51,13 @@ public class BinaryReaderWriter implements ConstructionCompanyFile
     }
   }
 
+  /**
+   * Reads ProjectList from the specified binary file
+   *
+   * @param path String, path to the file. Can be relative or absolute
+   * @return ProjectList object
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public ProjectList readProjectList(String path) throws IOException
   {
     File file = new File(path);
@@ -44,6 +73,13 @@ public class BinaryReaderWriter implements ConstructionCompanyFile
     return retrievedList;
   }
 
+  /**
+   * Writes ProjectList to the specified binary file
+   *
+   * @param path String, path to the file. Can be relative or absolute
+   * @param projectList ProjectList object to be written
+   * @throws IOException if file could not be found or accessed
+   */
   @Override public void writeProjectList(String path, ProjectList projectList)
       throws IOException
   {

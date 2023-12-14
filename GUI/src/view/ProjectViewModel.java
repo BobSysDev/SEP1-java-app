@@ -1,7 +1,5 @@
 package view;
 
-import model.Customer;
-import model.MyDate;
 import model.Project;
 
 import javafx.beans.property.*;

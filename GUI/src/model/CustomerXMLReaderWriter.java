@@ -2,8 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class for reading and writing XML files for Customer. Used by XMLReaderWriter class.
+ * XMLReaderWriter should be used instead to write/read an entire CustomerList
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class CustomerXMLReaderWriter
 {
+  /**
+   * Writes Customer to XML format
+   * @param customer Customer object to be written
+   * @return String containing XML data to be used by XMLReaderWriter
+   */
   public static String write(Customer customer){
     String XMLData = "";
 
@@ -45,6 +58,11 @@ public class CustomerXMLReaderWriter
     return XMLData;
   }
 
+  /**
+   * Reads Customer from XML format
+   * @param XMLData ArrayList of Strings containing XML data to be read
+   * @return Customer object containing data from XML file to be used by XMLReaderWriter
+   */
   public static Customer read(ArrayList<String> XMLData){
     boolean isPrivate = Boolean.parseBoolean(XMLData.get(1).replace("<isPrivate>", "").replace("</isPrivate>", "").trim());
     String firstName = XMLData.get(3).replace("<firstName>", "").replace("</firstName>", "").trim();

@@ -27,22 +27,22 @@
                            <children>
                               <VBox alignment="TOP_CENTER" prefHeight="292.0" prefWidth="185.0">
                                  <children>
-                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Export projects to XML">
+                                    <Button mnemonicParsing="false" onAction="#exportProjectsToXMLButtonPressed" prefHeight="25.0" prefWidth="170.0" styleClass="button-orange" text="Export projects to XML">
                                        <VBox.margin>
                                           <Insets top="10.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#setWebsiteRootDirectory" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Set website directory">
+                                    <Button mnemonicParsing="false" onAction="#setWebsiteRootDirectory" prefHeight="25.0" prefWidth="170.0" styleClass="button-orange" text="Set website directory">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#reconstructDataBaseFromXML" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Re-construct from XML">
+                                    <Button mnemonicParsing="false" onAction="#reconstructDataBaseFromXML" prefHeight="25.0" prefWidth="170.0" styleClass="button-orange" text="Re-construct from XML">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>
                                     </Button>
-                                    <Button mnemonicParsing="false" onAction="#importProjectsFromXML" prefHeight="25.0" prefWidth="160.0" styleClass="button-orange" text="Import projects from XML">
+                                    <Button mnemonicParsing="false" onAction="#importProjectsFromXML" prefHeight="25.0" prefWidth="170.0" styleClass="button-orange" text="Import projects from XML">
                                        <VBox.margin>
                                           <Insets top="20.0" />
                                        </VBox.margin>

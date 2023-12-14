@@ -2,8 +2,21 @@ package model;
 
 import java.util.ArrayList;
 
+/**
+ * A helper class for reading and writing XML files for CommercialProject. Used by XMLReaderWriter class.
+ * XMLReaderWriter should be used instead to write/read an entire ProjectList
+ *
+ * @author Aleksander Gwozdz
+ * @version 1.0 - December 2023
+ */
+
 public class CommercialXMLReaderWriter
 {
+  /**
+   * Writes CommercialProject to XML format
+   * @param project CommercialProject object to be written
+   * @return String containing XML data to be used by XMLReaderWriter
+   */
   public static String write(CommercialProject project){
     String XMLData = "";
     XMLData += "  <project type=\"Commercial\">\n";
@@ -33,6 +46,11 @@ public class CommercialXMLReaderWriter
     return XMLData;
   }
 
+  /**
+   * Reads CommercialProject from XML format
+   * @param lines ArrayList of Strings containing XML data to be read
+   * @return CommercialProject object containing data from XML file to be used by XMLReaderWriter
+   */
   public static CommercialProject read(ArrayList<String> lines){
     int projectID = Integer.parseInt(lines.get(1).replace("<projectId>", "").replace("</projectId>", "").trim());
     String title = lines.get(2).replace("<title>", "").replace("</title>", "").trim();
