@@ -88,8 +88,7 @@ public class NewProjectViewController
   private ConstructionCompanyModel model;
   private ViewHandler viewHandler;
   private ProjectListViewModel viewModel;
-  private SelectNewProjectViewController selectNewProjectViewController;
-  private ProjectListViewModel ongoingViewModel;
+
   //initialize formatted date
   private String formattedStartDate = "";
   private String finalPhotoPath = "";
