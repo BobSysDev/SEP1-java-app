@@ -29,4 +29,6 @@ public class CommercialProject extends Project implements Serializable {
     public void setType(String type) {
         this.type = type;
     }
+
+
 }
