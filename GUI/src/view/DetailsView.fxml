@@ -8,14 +8,14 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="699.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsViewController">
+<VBox prefHeight="699.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.DetailsViewController">
    <children>
       <HBox prefHeight="41.0" prefWidth="600.0" />
       <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="600.0">
          <children>
-            <HBox prefHeight="41.0" prefWidth="296.0">
+            <HBox prefHeight="41.0" prefWidth="338.0">
                <children>
-                  <Label fx:id="headerTypeLabel" prefHeight="25.0" prefWidth="147.0" text="type">
+                  <Label fx:id="headerTypeLabel" prefHeight="25.0" prefWidth="147.0" text="Type">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -23,7 +23,7 @@
                         <Font name="System Bold" size="16.0" />
                      </font>
                   </Label>
-                  <Label fx:id="headerNameLabel" prefHeight="25.0" prefWidth="258.0" text="name">
+                  <Label fx:id="headerNameLabel" prefHeight="25.0" prefWidth="177.0" text="Name">
                      <padding>
                         <Insets left="10.0" />
                      </padding>
@@ -33,12 +33,12 @@
                   </Label>
                </children>
             </HBox>
-            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="310.0" spacing="10.0">
+            <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="406.0" spacing="10.0">
                <children>
-                  <Button fx:id="makeOngoingButton" mnemonicParsing="false" onAction="#makeOngoingButtonPressed" prefHeight="25.0" prefWidth="99.0" text="Make ongoing" />
-                  <Button fx:id="archiveButton" mnemonicParsing="false" onAction="#archiveButtonPressed" prefHeight="25.0" prefWidth="59.0" text="Archive" />
-                  <Button mnemonicParsing="false" onAction="#editButtonPressed" prefHeight="25.0" prefWidth="49.0" text="Edit" />
-                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" prefHeight="25.0" prefWidth="59.0" text="Delete">
+                  <Button fx:id="makeOngoingButton" mnemonicParsing="false" onAction="#makeOngoingButtonPressed" prefHeight="25.0" prefWidth="131.0" styleClass="button-create-project" text="Make ongoing" />
+                  <Button fx:id="archiveButton" mnemonicParsing="false" onAction="#archiveButtonPressed" prefHeight="25.0" prefWidth="94.0" styleClass="button-create-project" text="Archive" />
+                  <Button mnemonicParsing="false" onAction="#editButtonPressed" prefHeight="25.0" prefWidth="71.0" styleClass="button-create-project" text="Edit" />
+                  <Button mnemonicParsing="false" onAction="#deleteButtonPressed" prefHeight="25.0" prefWidth="99.0" styleClass="button-create-project" text="Delete">
                      <HBox.margin>
                         <Insets right="10.0" />
                      </HBox.margin></Button>
@@ -453,7 +453,7 @@
       </VBox>
       <HBox prefHeight="33.0" prefWidth="600.0">
          <children>
-            <Button mnemonicParsing="false" onAction="#backButtonPressed" text="Back">
+            <Button mnemonicParsing="false" onAction="#backButtonPressed" styleClass="button-create-project" stylesheets="@style.css" text="Back">
                <HBox.margin>
                   <Insets left="10.0" />
                </HBox.margin>

@@ -12,25 +12,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="527.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditDetailsViewController">
+<VBox prefHeight="527.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.EditDetailsViewController">
     <children>
         <HBox prefHeight="41.0" prefWidth="600.0" />
-        <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="600.0">
-            <children>
-                <HBox alignment="CENTER_RIGHT" prefHeight="41.0" prefWidth="492.0" spacing="10.0">
-                    <children>
-                        <Button mnemonicParsing="false" onAction="#discardButtonPressed" text="Discard" />
-                  <Button mnemonicParsing="false" onAction="#saveButtonPressed" text="Save">
-                     <HBox.margin>
-                        <Insets right="10.0" />
-                     </HBox.margin></Button>
-                    </children>
-                </HBox>
-            </children>
-            <opaqueInsets>
-                <Insets left="20.0" />
-            </opaqueInsets>
-        </HBox>
         <HBox prefHeight="102.0" prefWidth="600.0">
             <children>
                 <VBox prefHeight="102.0" prefWidth="296.0">
@@ -255,7 +239,7 @@
                                 </Text>
                         <HBox fx:id="rButtonsHBox" prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" text="Yes">
+                              <RadioButton fx:id="yesRadioButton" mnemonicParsing="false" styleClass="radio-button-residential" text="Yes">
                                  <HBox.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
@@ -263,7 +247,7 @@
                                     <ToggleGroup fx:id="newBuild" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton fx:id="noRadioButton" mnemonicParsing="false" text="No" toggleGroup="$newBuild">
+                              <RadioButton fx:id="noRadioButton" mnemonicParsing="false" styleClass="radio-button-residential" text="No" toggleGroup="$newBuild">
                                  <HBox.margin>
                                     <Insets right="5.0" top="5.0" />
                                  </HBox.margin>
@@ -324,6 +308,17 @@
                     </font>
                 </Text>
             <TextArea fx:id="detailsTextArea" prefHeight="95.0" prefWidth="600.0" />
+            <HBox prefHeight="100.0" prefWidth="200.0" />
+                <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="600.0" spacing="10.0">
+                    <children>
+                        <Button layoutX="10.0" mnemonicParsing="false" onAction="#discardButtonPressed" prefHeight="25.0" prefWidth="150.0" styleClass="button-create-project" text="Discard" textAlignment="CENTER" translateX="-125.0" />
+                  <Button layoutX="10.0" mnemonicParsing="false" onAction="#saveButtonPressed" prefHeight="25.0" prefWidth="150.0" styleClass="button-create-project" text="Save" textAlignment="CENTER" translateX="-125.0">
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin></Button>
+                    </children>
+                </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0" />
             </children>
         </VBox>
     </children>

@@ -15,9 +15,9 @@ public class CommercialXMLReaderWriter
     XMLData += "    <timeInterval>" + project.getTimeInterval() + "</timeInterval>\n";
     XMLData += "    <manHoursEstimate>" + project.getManHoursEstimate() + "</manHoursEstimate>\n";
     XMLData += "    <manHours>" + project.getManHours() + "</manHours>\n";
-    XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
     XMLData += "    <details>" + project.getDetails() + "</details>\n";
     XMLData += "    <materials>" + project.getMaterials() + "</materials>\n";
+    XMLData += "    <isArchived>" + project.isArchived() + "</isArchived>\n";
     XMLData += "    <startDate>" + project.getStartDate() + "</startDate>\n";
     XMLData += "    <coverImage>" + project.getPhotoPathForWebsite() + "</coverImage>\n";
 
