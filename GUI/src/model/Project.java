@@ -32,6 +32,27 @@ public abstract class Project implements Serializable, Comparable<Project> {
     private String startDate;
     private String photoPathForWebsite;
 
+
+    /**
+     * Constructs a Project object with specified parameters.
+     * Initializes the attributes of the Project object based on the provided parameters
+     *
+     * @param title            The title of the project.
+     * @param budget           The actual budget allocated for the project.
+     * @param budgetEstimate   The estimated budget for the project.
+     * @param timeInterval     The time interval (duration) for the project.
+     * @param timeEstimate     The estimated time for the project.
+     * @param manHours         The actual man-hours spent on the project.
+     * @param manHoursEstimate The estimated man-hours for the project.
+     * @param projectID        The unique identifier for the project.
+     * @param isArchived       A boolean indicating if the project is archived or active.
+     * @param details          Details or description of the project.
+     * @param materials        Materials used or required for the project.
+     * @param startDate        The start date of the project.
+     * @param customer         The customer associated with the project.
+     */
+
+
     // Constructor for the Project class
     public Project(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, String startDate, Customer customer) {
         this.title = title;
@@ -183,6 +204,12 @@ public abstract class Project implements Serializable, Comparable<Project> {
         return this.getTitle().compareTo(o.getTitle());
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one by comparing their attributes.
+     *
+     * @param o The reference object with which to compare.
+     * @return {@code true} if this object is the same as the o argument; {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
