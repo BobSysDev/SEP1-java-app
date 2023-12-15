@@ -7,7 +7,8 @@ import java.io.IOException;
  *
  * @author Aleksander Gwozdz
  * @version 1.0 - December 2023
- * @see "BinaryReaderWriter and XMLReaderWriter classes that implement this interface"
+ * @see BinaryReaderWriter
+ * @see XMLReaderWriter
  */
 
 public interface ConstructionCompanyFile

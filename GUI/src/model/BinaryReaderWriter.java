@@ -7,7 +7,7 @@ import java.io.*;
  *
  * @author Aleksander Gwozdz
  * @version 1.0 - December 2023
- * @see "ConstructionCompanyFile interface"
+ * @see ConstructionCompanyFile
  */
 
 public class BinaryReaderWriter implements ConstructionCompanyFile
