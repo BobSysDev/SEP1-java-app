@@ -13,6 +13,13 @@ import javafx.scene.layout.Region;
 
 import java.util.Optional;
 
+/**
+ * A class controlling detailsView.fxml window which is responsible of displaying parameters of projects.
+ *
+ * @author Samuel Knieza
+ * @version 1.0 December 2023
+ */
+
 public class DetailsViewController
 {
   //header
@@ -84,8 +91,27 @@ public class DetailsViewController
   private ProjectViewController projectViewController;
   private ProjectListViewModel viewModel;
 
+  /**
+   * Zero argument constructor representing this window controller class.
+   */
   public DetailsViewController(){}
 
+  /**
+   * Initializing method ran everytime when the window is launched,
+   * setting project of which parameters will show,
+   * displaying buttons (archive/make ongoing) depending if project is past or ongoing
+   *
+   * @param root
+   *      root
+   * @param model
+   *      interface with methods used for project manipulation
+   * @param viewHandler
+   *      class handling which window is showing
+   * @param projectViewController
+   *      class representing main window, project details are sourced from here
+   * @param viewModel
+   *      class with project properties accessible by javaFX
+   */
   public void init(Region root, ConstructionCompanyModel model, ViewHandler viewHandler, ProjectViewController projectViewController, ProjectListViewModel viewModel)
   {
     this.root = root;
@@ -97,15 +123,26 @@ public class DetailsViewController
     setProjectDetails();
     displayButtons();
   }
-
+  /**
+   * Resets project list, clearing it and then assigning all projects back
+   */
   public void reset(){
     viewModel.update();
   }
 
+  /**
+   * A getter for root
+   *
+   * @return root
+   */
   public Region getRoot(){
     return root;
   }
 
+  /**
+   * Setting details in this window, sourcing the project which was selected in projectView window.
+   * Displaying and hiding various labels texts and text-fields depending on which type of projects was selected.
+   */
   public void setProjectDetails(){
     //getting the selected project from projectListController window
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
@@ -253,6 +290,9 @@ public class DetailsViewController
 
   }
 
+  /**
+   * Displaying "archive" and "make ongoing" button depending on the project is ongoing or past.
+   */
   public void displayButtons(){
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());
     Project project = model.getProjectByID(id);
@@ -266,6 +306,9 @@ public class DetailsViewController
     }
   }
 
+  /**
+   * Makes displaying project archived "past" by pressing archive button.
+   */
   @FXML public void archiveButtonPressed(){
     Alert alert = new Alert(AlertType.CONFIRMATION);
     alert.setTitle("Are you sure?");
@@ -282,6 +325,9 @@ public class DetailsViewController
     else{}
   }
 
+  /**
+   * Makes displaying project ongoing by pressing make ongoing button.
+   */
   @FXML public void makeOngoingButtonPressed(){
     Alert alert = new Alert(AlertType.CONFIRMATION);
     alert.setTitle("Are you sure?");
@@ -295,9 +341,18 @@ public class DetailsViewController
       viewHandler.openView("projects");
     }
   }
+
+  /**
+   * Opens a new editDetailsView window by pressing edit button
+   */
+
   @FXML public void editButtonPressed(){
     viewHandler.openView("edit details");
   }
+
+  /**
+   * First opens a pop-up window with warning and if confirmed deleting displaying project permanently.
+   */
   @FXML public void deleteButtonPressed(){
     Alert alert = new Alert(AlertType.CONFIRMATION);
     alert.setTitle("Are you sure?");
@@ -315,6 +370,10 @@ public class DetailsViewController
     }
 
   }
+
+  /**
+   * Goes back to main projectView window.
+   */
   @FXML public void backButtonPressed(){
     viewHandler.openView("projects");
   }

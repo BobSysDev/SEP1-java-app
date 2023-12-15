@@ -14,6 +14,12 @@ import javafx.scene.layout.Region;
 
 import java.util.Optional;
 
+/**
+ * A class controlling editDetailsView.fxml window which is responsible of editing parameters of projects.
+ *
+ * @author Samuel Knieza
+ * @version 1.0 December 2023
+ */
 public class EditDetailsViewController
 {
 
@@ -79,8 +85,26 @@ public class EditDetailsViewController
   private ProjectViewController projectViewController;
   private ProjectListViewModel viewModel;
 
+  /**
+   * Zero argument constructor representing this window controller class.
+   */
   public EditDetailsViewController(){}
 
+  /**
+   * Initializing method ran everytime when the window is launched,
+   * setting already existing parameters to editable text-fields.
+   *
+   * @param root
+   *      root
+   * @param model
+   *      interface with methods used for project manipulation
+   * @param viewHandler
+   *      class handling which window is showing
+   * @param projectViewController
+   *      class representing main window, project details are sourced from here
+   * @param viewModel
+   *      class with project properties accessible by javaFX
+   */
   public void init(Region root, ConstructionCompanyModel model, ViewHandler viewHandler, ProjectViewController projectViewController, ProjectListViewModel viewModel)
   {
     this.root = root;
@@ -92,13 +116,29 @@ public class EditDetailsViewController
     setProjectDetails();
   }
 
+  /**
+   * Resets project list, clearing it and then assigning all projects back
+   */
   public void reset(){
     viewModel.update();
   }
 
+  /**
+   * A getter for root
+   *
+   * @return root
+   */
   public Region getRoot(){
     return root;
   }
+
+  /**
+   * Setting already existing parameters of project to editable text-fields,
+   * if  information about company is empty, then it is a person and everything related to company
+   * doesn't show.
+   * Depending on project type text-fields will be set to project parameters,
+   * and unrelated parameters of other project types will not display.
+   */
 
   public void setProjectDetails(){
     //getting the selected project from projectListController window
@@ -248,9 +288,18 @@ public class EditDetailsViewController
     }
   }
 
+  /**
+   * Discarding every change made by user and going back to detailsView
+   */
   @FXML public void discardButtonPressed(){
     viewHandler.openView("details");
-  };
+  }
+
+  /**
+   * Using setters to rewrite new parameters to the existing project,
+   * and writing it to .bin file
+   */
+
   @FXML public void saveButtonPressed(){
     //getting the selected project from projectListController window
     int id = projectViewController.getProjectID(projectViewController.getSelectedTab());

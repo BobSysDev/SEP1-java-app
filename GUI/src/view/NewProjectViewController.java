@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Optional;
 
 /**
- * The controller class for the new project view. [TO BE CHANGED]
+ * The controller class for the newProjectView window.
  *
  * @author Samuel Knieza
  * @author Aleksander Gwozdz
@@ -104,29 +104,47 @@ public class NewProjectViewController
   //customer initialize
   Customer customer;
 
-
+  /**
+   * Zero argument constructor representing this window controller class.
+   */
   public NewProjectViewController(){}
 
+  /**
+   * Initializing method ran everytime when the window is launched.
+   *
+   * @param root
+   *      root
+   * @param model
+   *      interface with methods used for project manipulation
+   * @param viewHandler
+   *      class handling which window is showing
+   */
   public void init(Region root, ConstructionCompanyModel model, ViewHandler viewHandler)
   {
     this.root = root;
     this.model = model;
     this.viewHandler = viewHandler;
-
-
-
-//    setDefaults(selectNewProjectViewController.getTypeSelected());
-//    tabAppearance(selectNewProjectViewController.getTypeSelected());
   }
 
+  /**
+   * Resets project list, clearing it and then assigning all projects back
+   */
   public void reset(){
     viewModel.update();
   }
 
+  /**
+   * A getter for root
+   *
+   * @return root
+   */
   public Region getRoot(){
     return root;
   }
 
+  /**
+   * Setting default values for selected project type.
+   */
   public void setDefaults(String type){
     switch (type){
       case ("Residential"):
@@ -172,6 +190,9 @@ public class NewProjectViewController
     }
   }
 
+  /**
+   * Showing tabs, depending of selected project type, Project and Customer tab are fixed.
+   */
   public void tabAppearance(String type){
     switch (type){
       case ("Residential"):
@@ -199,6 +220,12 @@ public class NewProjectViewController
     }
 
   }
+  /**
+   * Depending on which radio button is selected the according texts and text-fields will show.
+   *
+   * @param event
+   *      selection of radio button
+   */
   public void isCompany(ActionEvent event){
     if (personRadioButton.isSelected()){
       companyNameTextField.setVisible(false);
@@ -214,6 +241,12 @@ public class NewProjectViewController
     }
   }
 
+  /**
+   * Depending on which radio button is selected, returns true or false.
+   *
+   * @return true or false
+   */
+
   public boolean isNewBuild(){
     if (yesRadioButton.isSelected()){
       return true;
@@ -223,15 +256,31 @@ public class NewProjectViewController
     }
   }
 
+  /**
+   * Setting up the date from date picker to string in our format of days-months-years.
+   *
+   * @param event
+   *      picking date from DatePicker
+   */
   public void setupDate(ActionEvent event){
     LocalDate startDate = startDatePicker.getValue();
     formattedStartDate = startDate.format(DateTimeFormatter.ofPattern("dd.MM.yyyy"));
   }
 
+  /**
+   * A getter for formatted date string
+   *
+   * @return formattedStartDate
+   */
   public String getFormattedStartDate(){
     return formattedStartDate;
   }
 
+  /**
+   * A getter for project type sourced from typeLabel.
+   *
+   * @return String of type
+   */
   public String getProjectType(){
     switch (typeLabel.getText()){
       case ("Residential"):
@@ -274,6 +323,9 @@ public class NewProjectViewController
     }
   }
 
+  /**
+   * Clearing some text-fields and going back to window where user selects projects type (selectNewProjectView).
+   */
   @FXML public void cancelButtonPressed(){
     nameTextField.clear();
     //typeLabel.clear();
@@ -287,6 +339,12 @@ public class NewProjectViewController
     viewHandler.openView("select new");
   }
 
+  /**
+   * Creating Name, Phone, Email classes, sourcing information from dedicated text-fields.
+   * Using these classes and other information from text-fields to create a new project of selected type.
+   * Then adding it to project list and writing to .bin file.
+   * There is also try-catch block, if anything goes wrong the dedicated error message will appear on errorLabel.
+   */
   @FXML public void createButtonPressed(){
     try
     {

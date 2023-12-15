@@ -7,6 +7,12 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import javafx.application.Application;
 
+/**
+ * The class ViewHandler is the responsible for displaying and loading all the windows.
+ *
+ * @author Samuel Knieza
+ * @version 1.0 - December 2023
+ */
 public class ViewHandler
 {
   private Scene currentScene;
@@ -19,18 +25,36 @@ public class ViewHandler
   private SelectNewProjectViewController selectNewProjectViewController;
   private ProjectListViewModel viewModel;
 
+  /**
+   * One argument constructor initiating current scene and model Interface.
+   *
+   * @param model
+   *      model interface
+   */
   public ViewHandler(model.ConstructionCompanyModel model)
   {
     this.currentScene = new Scene(new Region());
     this.model = model;
   }
 
+  /**
+   * Initializing primary stage and opening the main projectView window.
+   *
+   * @param primaryStage
+   *      primary stage
+   */
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
     openView("projects");
   }
 
+  /**
+   * Using different loader methods based on string input.
+   *
+   * @param id
+   *      a string describing name of a window that should be opened.
+   */
   public void openView(String id)
   {
     Region root = null;
@@ -61,11 +85,25 @@ public class ViewHandler
     primaryStage.show();
   }
 
+  /**
+   * Closing primary stage
+   */
   public void closeView()
   {
     primaryStage.close();
   }
 
+  /**
+   * Loader method opening the projectView window.
+   * Initiating properties in this window with init() method.
+   * Selecting the ongoing tab with selectDefaultTab() method.
+   * Catching an error in case of occurring.
+   *
+   * @param fxmlFile
+   *      full name of fxml file representing projectView window.
+   *
+   * @return root
+   */
   private Region loadProjectView(String fxmlFile)
   {
     Region root = null;
@@ -85,6 +123,16 @@ public class ViewHandler
     return root;
   }
 
+  /**
+   * Loader method opening the selectNewProjectView window.
+   * Initiating properties in this window with init() method.
+   * Catching an error in case of occurring.
+   *
+   * @param fxmlFile
+   *      full name of fxml file representing selectNewProjectView window.
+   *
+   * @return root
+   */
   private Region loadSelectNewProjectView(String fxmlFile)
   {
     Region root = null;
@@ -103,6 +151,18 @@ public class ViewHandler
     return root;
   }
 
+  /**
+   * Loader method opening the newProjectView window.
+   * Initiating properties in this window with init() method.
+   * Setting default values for project.
+   * Showing only relevant tabs.
+   * Catching an error in case of occurring.
+   *
+   * @param fxmlFile
+   *      full name of fxml file representing newProjectView window.
+   *
+   * @return root
+   */
   private Region loadNewProjectView(String fxmlFile)
   {
     Region root = null;
@@ -123,6 +183,16 @@ public class ViewHandler
     return root;
   }
 
+  /**
+   * Loader method opening the detailsView window.
+   * Initiating properties in this window with init() method.
+   * Catching an error in case of occurring.
+   *
+   * @param fxmlFile
+   *      full name of fxml file representing detailsView window.
+   *
+   * @return root
+   */
   private Region loadDetailsView(String fxmlFile)
   {
     Region root = null;
@@ -141,6 +211,16 @@ public class ViewHandler
     return root;
   }
 
+  /**
+   * Loader method opening the editDetailsView window.
+   * Initiating properties in this window with init() method.
+   * Catching an error in case of occurring.
+   *
+   * @param fxmlFile
+   *      full name of fxml file representing editDetailsView window.
+   *
+   * @return root
+   */
   private Region loadEditDetailsView(String fxmlFile)
   {
     Region root = null;

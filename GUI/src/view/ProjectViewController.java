@@ -13,7 +13,7 @@ import java.io.File;
 import java.io.IOException;
 
 /**
- * The class ProjectViewController is the controller of the ProjectView. [TO BE CHANGED]
+ * The class ProjectViewController is the controller of the ProjectView main window.
  *
  * @author Samuel Knieza
  * @author Aleksander Gwozdz
@@ -60,10 +60,28 @@ public class ProjectViewController
   private ProjectDateComparator dateComparator;
   private TXTFileHandlerForFilePathSettings txtFileHandlerForFilePathSettings;
 
-  public ProjectViewController(){
-    txtFileHandlerForFilePathSettings = new TXTFileHandlerForFilePathSettings();
-  }
 
+  /**
+   * Zero argument constructor representing this window controller class.
+   */
+  public ProjectViewController(){}
+
+
+  /**
+   * Initializing method ran everytime when the window is launched.
+   * Both tables with past and ongoing project are populated.
+   * Choice-boxes are being populated.
+   * Embedded sorting with clicking on a column header is disabled.
+   * Enabling details button after clicking on a project from table.
+   *
+   *
+   * @param root
+   *      root
+   * @param model
+   *      interface with methods used for project manipulation
+   * @param viewHandler
+   *      class handling which window is showing
+   */
   public void init(Region root, ConstructionCompanyModel model, ViewHandler viewHandler){
     this.root = root;
     this.model = model;
@@ -129,60 +147,97 @@ public class ProjectViewController
       }
     });
 
-//    enterOngoingButton.setOnKeyPressed(new EventHandler<KeyEvent>() {
-//      @Override
-//      public void handle(KeyEvent event) {
-//        if (event.getCode() == KeyCode.ENTER) {
-//          enterOngoingButtonPressed();
-//        }
-//      }
-//    });
+    txtFileHandlerForFilePathSettings = new TXTFileHandlerForFilePathSettings();
   }
 
+  /**
+   * Resets project list, clearing it and then assigning all projects back
+   */
   public void reset(){
     errorLabel.setText("");
     viewModel.update();
   }
 
+  /**
+   * A getter for root
+   *
+   * @return root
+   */
   public Region getRoot(){
     return root;
   }
 
+  /**
+   * Searching for projects in ongoing table based on users input in searchOngoingTextField after clicking on enter button.
+   */
   @FXML void enterOngoingButtonPressed(){
     String ongoingSearchText = searchOngoingTextField.getText();
     ongoingProjectListTable.setItems(ongoingViewModel.getProjectListByTitle(ongoingSearchText));
   }
 
+  /**
+   * Searching for projects in past table based on users input in searchPsstTextField after clicking on enter button.
+   */
   @FXML void enterPastButtonPressed(){
     String ongoingSearchText = searchPastTextField.getText();
     projectListTable.setItems(viewModel.getProjectListByTitle(ongoingSearchText));
   }
 
+  /**
+   * Filtering projects that will show in ongoing table by selected project type.
+   *
+   * @param event
+   *      item from choice-box clicked
+   */
   public void getFilterTypeOngoing(ActionEvent event){
     String type = filterOngoingChoiceBox.getValue();
     ongoingProjectListTable.setItems(ongoingViewModel.getList(type));
   }
 
+  /**
+   * Filtering projects that will show in past table by selected project type.
+   *
+   * @param event
+   *      item from choice-box clicked
+   */
   public void getFilterTypePast(ActionEvent event){
     String type = filterPastChoiceBox.getValue();
     projectListTable.setItems(viewModel.getList(type));
   }
 
+  /**
+   * Sorting projects that will show in ongoing table by selected sorting.
+   *
+   * @param event
+   *      item from choice-box clicked
+   */
   public void getSortOngoing(ActionEvent event){
     String sorting = sortOngoingChoiceBox.getValue();
     ongoingProjectListTable.setItems(ongoingViewModel.getList(sorting));
   }
-
+  /**
+   * Sorting projects that will show in past table by selected sorting.
+   *
+   * @param event
+   *      item from choice-box clicked
+   */
   public void getSortPast(ActionEvent event){
     String sorting = sortPastChoiceBox.getValue();
     projectListTable.setItems(viewModel.getList(sorting));
   }
 
-
+  /**
+   * After launching this window the tab with ongoing projects will select automatically.
+   */
   public void selectDefaultTab(){
     tabPane.getSelectionModel().select(ongoingTab);
   }
 
+  /**
+   * This returns an int (index) of selected tab.
+   *
+   * @return n
+   */
   public int getSelectedTab(){
     int n = -1;
     if (ongoingTab.isSelected()){
@@ -197,6 +252,14 @@ public class ProjectViewController
     return n;
   }
 
+  /**
+   * Getting an ID property from selected project.
+   *
+   * @param tab
+   *      index returned from getSelectedTab() method
+   *
+   * @return id
+   */
   public int getProjectID(int tab){
     int id = -1;
     switch (tab){
@@ -213,15 +276,26 @@ public class ProjectViewController
     }
     return id;
   }
+
+  /**
+   * Opens a new window selectNewProjectView after clicking on the new project button.
+   */
   @FXML public void newProjectButtonPressed(){
     viewHandler.openView("select new");
   }
 
+  /**
+   * Writing projects from .bin file to .xml (for website)
+   * Informing user about the success.
+   */
   @FXML public void exportProjectsToXMLButtonPressed(){
     model.writeProjectsToXMLFile();
     errorLabel.setText("Success!");
   }
 
+  /**
+   * Opens a new detailsView window after clicking on Details button.
+   */
   @FXML public void detailsButtonPressed(){
     viewHandler.openView("details");
   }

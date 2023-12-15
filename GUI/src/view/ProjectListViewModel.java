@@ -5,6 +5,13 @@ import model.*;
 import java.util.ArrayList;
 import java.util.Collections;
 
+/**
+ * The class ProjectListViewModel is for initializing and "converting"
+ * projects in list, so it can be later used in JavaFX.
+ *
+ * @author Samuel Knieza
+ * @version 1.0 - December 2023
+ */
 public class ProjectListViewModel
 {
   private ObservableList<ProjectViewModel> list;
@@ -12,6 +19,17 @@ public class ProjectListViewModel
   private boolean displayArchivedData;
   private ObservableList<ProjectViewModel> newList;
 
+
+  /**
+   * Two argument constructor initiating parameters list (project list),
+   * and new list which is later used filters and sorters.
+   *
+   * @param model
+   *      model interface
+   *
+   * @param displayArchivedData
+   *      this boolean separates projects in two tables (ongoing/past)
+   */
   public ProjectListViewModel(ConstructionCompanyModel model, boolean displayArchivedData){
     this.model = model;
     this.list = FXCollections.observableArrayList();
@@ -21,10 +39,25 @@ public class ProjectListViewModel
     update();
   }
 
+  /**
+   * A getter method for observable list.
+   *
+   * @return list
+   */
   public ObservableList<ProjectViewModel> getList(){
     return list;
   }
 
+  /**
+   * A getter method for observable newList.
+   * Based on string input, filter or sorter will activate and write
+   * corresponding projects to newList.
+   *
+   * @param input
+   *      String which describes wanted action of filter or sorter
+   *
+   * @return newList
+   */
   public ObservableList<ProjectViewModel> getList(String input){
     updateNewList();
     switch (input){
@@ -167,7 +200,16 @@ public class ProjectListViewModel
     return newList;
   }
 
-
+  /**
+   * A getter method for observable newList.
+   * Searching for possible projects with similar content in title as user input (title)
+   * Successful projects will be added to newList.
+   *
+   * @param title
+   *      users input in search bar
+   *
+   * @return newList
+   */
   public ObservableList<ProjectViewModel> getProjectListByTitle(String title){
     if (title.equals("")){
       return list;
@@ -182,6 +224,9 @@ public class ProjectListViewModel
     return newList;
   }
 
+  /**
+   * Clearing the project list and then adding all projects from original list.
+   */
   public void update(){
     list.clear();
     for (int i = 0; i < model.listSize(); i++)
@@ -192,15 +237,20 @@ public class ProjectListViewModel
     }
   }
 
+  /**
+   * Clearing newList.
+   * This is used to prevent duplicating projects when using filters sorters and search by title.
+   */
   public void updateNewList(){
     newList.clear();
-//    for (int i = 0; i < list.size(); i++)
-//    {
-//      newList.add(list.get(i));
-//    }
   }
 
-
+  /**
+   * Adding project to observable list "list".
+   *
+   * @param project
+   *      project which will be added to the list
+   */
   public void add(Project project){
     list.add(new ProjectViewModel(project));
   }
