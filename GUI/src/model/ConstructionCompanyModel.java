@@ -2,6 +2,14 @@ package model;
 
 import java.io.IOException;
 
+/**
+ * Main interface which is connected to the GUI part of the project.
+ * Initializing methods used in the GUI part of the project.
+ * Methods are described in ConstructionCompanyManager.
+ *
+ * @author Samuel Knieza
+ * @version 1.0 - December 2023
+ */
 public interface ConstructionCompanyModel
 {
   public void addProject(Project project);

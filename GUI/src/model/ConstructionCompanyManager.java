@@ -14,7 +14,7 @@ import java.io.IOException;
 import java.util.Optional;
 
 /**
- * A class that manages the project and customer lists. [TO BE CHANGED]
+ * A class that manages the project and customer lists.
  *
  * @author Samuel Knieza
  * @author Aleksander Gwozdz
@@ -36,6 +36,13 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
   private String xmlFilePathProjects = "projectDB.xml";
   private static final String BINARY_FILE_PATH_CUSTOMERS = "customerDB.bin";
 
+
+  /**
+   * Zero argument constructor creating new project and customer list, readers and writers,
+   * calling the reader for path for website root (later used in uploading a cover photo).
+   *
+   * reads customers and projects from binary file (in this part are basically projects loaded to the tableview).
+   */
   public ConstructionCompanyManager()
   {
     projectList = new ProjectList();
@@ -50,25 +57,59 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     readProjectsFromBinaryFile();
   }
 
+  /**
+   * Adding project to project list.
+   *
+   * @param project
+   *      project
+   */
   @Override
   public void addProject(Project project){
     projectList.addProject(project);
   }
 
+  /**
+   *Removing project from project list.
+   *
+   * @param project
+   *      project
+   */
   @Override
   public void removeProject(Project project){
       projectList.removeProject(project);
   }
 
+  /**
+   * A getter for size of this project list.
+   *
+   * @return projectList.getSize()
+   */
   @Override public int listSize()
   {
     return projectList.getSize();
   }
 
+  /**
+   * A getter for project from project list.
+   *
+   * @param index
+   *      index of project in list
+   *
+   * @return projectList.getProject(index)
+   */
   @Override public Project getProject(int index)
   {
     return projectList.getProject(index);
   }
+
+  /**
+   * A getter for project from project list based on inputted ID.
+   *
+   * @param id
+   *      id of project in list
+   *
+   * @return tmp
+   */
 
   @Override public Project getProjectByID(int id)
   {
@@ -82,13 +123,24 @@ public class ConstructionCompanyManager implements ConstructionCompanyModel
     return null;
   }
 
-  //public void getProjectByID(int =======)
 
+  /**
+   * Adding customer to a customer list.
+   *
+   * @param customer
+   *      customer
+   */
   @Override
   public void addCustomer(Customer customer){
     customerList.addCustomer(customer);
   }
 
+  /**
+   * Removing customer from a customer list.
+   *
+   * @param customer
+   *      customer
+   */
   @Override
   public void removeCustomer(Customer customer){
     customerList.removeCustomer(customer);
