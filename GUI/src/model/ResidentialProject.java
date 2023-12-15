@@ -42,7 +42,6 @@ public class ResidentialProject extends Project implements Serializable {
      *
      */
 
-
     // Constructor for the ResidentialProject class
     public ResidentialProject(String title, double budget, double budgetEstimate, int timeInterval, int timeEstimate, double manHours, double manHoursEstimate, int projectID, boolean isArchived, String details, String materials, double size, int numberOfKitchens, int numberOfBathrooms, int otherRoomsWithPlumbing, boolean isNewBuild, String startDate, Customer customer){
         super(title, budget, budgetEstimate, timeInterval, timeEstimate, manHours, manHoursEstimate, projectID, isArchived, details, materials, startDate, customer);
@@ -99,6 +98,13 @@ public class ResidentialProject extends Project implements Serializable {
         this.isNewBuild = isNewBuild;
     }
 
+    /**
+     * This method indicates whether some other object is "equal to" this one by comparing their attributes, including the attributes specific to ResidentialProject.
+     *
+     *
+     * @param o The reference object with which to compare.
+     * @return {@code true} if this object is the same as the o argument; {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

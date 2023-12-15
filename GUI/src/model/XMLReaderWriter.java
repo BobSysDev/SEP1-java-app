@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Aleksander Gwozdz
  * @version 1.0 - December 2023
- * @see "ConstructionCompanyFile interface"
+ * @see ConstructionCompanyFile
  */
 
 public class XMLReaderWriter implements ConstructionCompanyFile

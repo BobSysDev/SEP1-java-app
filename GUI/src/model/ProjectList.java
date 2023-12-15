@@ -22,6 +22,11 @@ public class ProjectList implements Serializable
         projectCounter = 1; // Starting counter at 1
     }
 
+    /**
+     * Adds a new project to the list of projects.
+     *
+     * @param project The project to be added.
+     */
     public void addProject(Project project) {
         String projectId = generateUniqueID();
         project.setProjectID(Integer.parseInt(projectId));

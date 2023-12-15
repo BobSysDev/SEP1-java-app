@@ -87,6 +87,13 @@ public class RoadConstructionProject extends Project implements Serializable {
         this.obstacles = obstacles;
     }
 
+    /**
+     * Indicates whether some other object is "equal to" this one by comparing their attributes,
+     * including the attributes specific to RoadConstructionProject.
+     *
+     * @param o The reference object with which to compare.
+     * @return {@code true} if this object is the same as the o argument; {@code false} otherwise.
+     */
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
